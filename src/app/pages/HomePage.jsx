@@ -45,7 +45,7 @@ const HomePage = () => {
         <WelcomeSection>
           <FlexColumn>
             <Header1 withAnimation={true} color="#1b7fcc">
-              Hi, I'm AJ Milbauer
+              Hi, I'm AJ Milbauer!
             </Header1>
             <FlexRow>
               <SubHeader1 withAnimation={true}>
