@@ -1,0 +1,26 @@
+type Props = {
+  total_pp: number;
+  total_fp: number;
+  waiver_budget_used: number;
+  wins: number;
+};
+
+const TOTAL_BUDGET = 200;
+
+const TOTAL_GAMES = 14;
+
+export const getManagerRating = ({
+  total_fp,
+  total_pp,
+  waiver_budget_used,
+  wins,
+}: Props) => {
+  const pointsPercentage = total_fp / total_pp;
+  const waiverBudgetPercentage = waiver_budget_used / TOTAL_BUDGET;
+  const winPercentage = wins / TOTAL_GAMES;
+
+  const manager_score =
+    pointsPercentage * 0.5 + waiverBudgetPercentage * 0.1 + winPercentage * 0.4;
+
+  return (manager_score * 100).toFixed(2);
+};
