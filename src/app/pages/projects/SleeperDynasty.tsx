@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PieChart, { PieDataItem } from 'src/app/components/d3/pieChart';
-import { getManagerRating } from 'src/app/helpers/getManagerRating';
+import { getManagerRating } from 'src/app/helpers/sleeper-dynasty/getManagerRating';
 import {
   Positions,
   useGetAllNFLPlayersQuery,
@@ -12,6 +12,7 @@ import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import { TeamColors } from '../../keys/teamColors';
 import { colors } from '../../styles/styledcomps';
+import { SleeperKeys } from '../../keys/sleeper';
 
 type TeamData = {
   teamName: string;
@@ -31,12 +32,24 @@ type TeamData = {
 
 type Filters = 'manager_rating' | 'total_pp' | 'total_fp' | 'avgAge';
 
+const YEARS = [
+  { title: '2023', value: SleeperKeys.leagueId_2023 },
+  { title: '2024', value: SleeperKeys.leagueId_2024 },
+];
+
 const DASH_ITEMS = ['ROSTERS', 'STATS', 'BREAKDOWN', 'SUMMARIES'];
 
 const SleeperDynasty = () => {
-  const { data: leagueInfo } = useGetLeagueRostersQuery();
+  const [currentLeagueId, setCurrentLeaugeId] = useState(YEARS[1].value);
+
+  const { data: leagueInfo, isFetching: isLeagueFetching } =
+    useGetLeagueRostersQuery({
+      leagueId: currentLeagueId,
+    });
   const { data: allPlayers } = useGetAllNFLPlayersQuery();
-  const { data: users } = useGetLeagueUsersQuery();
+  const { data: users, isFetching } = useGetLeagueUsersQuery({
+    leagueId: currentLeagueId,
+  });
 
   const [currentView, setCurrentView] = useState(0);
   const [isDesc, setIsDesc] = useState<boolean>(true);
@@ -127,7 +140,14 @@ const SleeperDynasty = () => {
     }
   }, [allPlayers, leagueInfo, users, currentFilter]);
 
-  if (!leagueInfo || !users || !allPlayers || !allTeamData) {
+  if (
+    !leagueInfo ||
+    !users ||
+    !allPlayers ||
+    !allTeamData ||
+    isFetching ||
+    isLeagueFetching
+  ) {
     return <Loader />;
   }
 
@@ -139,6 +159,20 @@ const SleeperDynasty = () => {
     <Layout>
       <StyledHeader>
         <StyledTitle>Sleeper Dynasty</StyledTitle>
+        <YearSelector>
+          <p>Year:</p>
+          <select
+            value={currentLeagueId}
+            defaultValue={YEARS[1].value}
+            onChange={(y) => setCurrentLeaugeId(y.target.value)}
+          >
+            {YEARS.map((year, index) => (
+              <option key={index} value={year.value}>
+                {year.title}
+              </option>
+            ))}
+          </select>
+        </YearSelector>
         <DashboardItems>
           {DASH_ITEMS.map((item, index) => (
             <DashItem
@@ -394,6 +428,30 @@ const Dropdown = styled.select`
   font-weight: bold;
   width: 200px;
   border-radius: 5px;
+`;
+
+const YearSelector = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+
+  select {
+    border: 1px solid ${colors.darkBlue};
+    font-family: Quicksand;
+    font-weight: bold;
+    width: 100px;
+    border-radius: 5px;
+  }
+
+  p {
+    margin: 0;
+    font-family: Quicksand;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
 `;
 
 const ComingSoon = styled.p`

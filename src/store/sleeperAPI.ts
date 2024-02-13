@@ -67,9 +67,9 @@ export const sleeperAPI = createApi({
         method: 'GET',
       }),
     }),
-    getLeagueRosters: builder.query<Roster[], void>({
-      query: () => ({
-        url: `league/${SleeperKeys.leaugeId}/rosters`,
+    getLeagueRosters: builder.query<Roster[], { leagueId: string }>({
+      query: ({ leagueId }) => ({
+        url: `league/${leagueId}/rosters`,
         method: 'GET',
       }),
       transformResponse: (rosters: RosterResponse[]) => {
@@ -88,9 +88,9 @@ export const sleeperAPI = createApi({
         return formattedData;
       },
     }),
-    getLeagueUsers: builder.query<User[], void>({
-      query: () => ({
-        url: `league/${SleeperKeys.leaugeId}/users`,
+    getLeagueUsers: builder.query<User[], { leagueId: string }>({
+      query: ({ leagueId }) => ({
+        url: `league/${leagueId}/users`,
         method: 'GET',
       }),
       transformResponse: (users: UserResponse[]) => {
