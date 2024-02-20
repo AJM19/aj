@@ -22,5 +22,9 @@ export const getManagerRating = ({
   const manager_score =
     pointsPercentage * 0.5 + waiverBudgetPercentage * 0.1 + winPercentage * 0.4;
 
-  return (manager_score * 100).toFixed(2);
+  if (manager_score > 0) {
+    return (manager_score * 100).toFixed(2);
+  } else {
+    return 'N/A';
+  }
 };

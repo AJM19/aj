@@ -220,19 +220,19 @@ const SleeperDynasty = () => {
                 <StatsContainer>
                   <StatText>
                     <b>Manager Rating: </b>
-                    {team.manager_rating}
+                    {team.manager_rating ?? 'N/A'}
                   </StatText>
                   <StatText>
                     <b>Avg. Age: </b>
-                    {team.avgAge}
+                    {team.avgAge ?? 'N/A'}
                   </StatText>
                   <StatText>
                     <b>Total Points: </b>
-                    {team.total_fp}
+                    {team.total_fp ?? 'N/A'}
                   </StatText>
                   <StatText>
                     <b>Total Potential Points: </b>
-                    {team.total_pp}
+                    {team.total_pp ?? 'N/A'}
                   </StatText>
                 </StatsContainer>
               )}
