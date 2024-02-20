@@ -1,9 +1,9 @@
-# AJ-portfolio
+# AJ's Portfolio
 
 <p>Tech Stack</p>
 
 <ul>
-  <li>React</li>
+    <li>React</li>
       <li>Redux</li>
     <li>Typescript</li>
     <li>Javascript</li>
