@@ -126,19 +126,22 @@ const popUp = keyframes`
 const ProfileSection = styled.div`
   display: grid;
   height: 70%;
-  width: 100%;
   background: white;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 4px 9px 1px #73707099;
   overflow-x: auto;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     height: calc(100% + 100px);
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
   }
 `;
 
@@ -159,6 +162,11 @@ const ImageContainer = styled.div`
   border: 4px solid #1b7fcc;
   position: relative;
   animation: ${popUp} 1s ease-out;
+
+  @media (max-width: 1000px) {
+    height: 350px;
+    width: 350px;
+  }
 
   @media (max-width: 800px) {
     height: 300px;

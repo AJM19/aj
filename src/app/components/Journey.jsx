@@ -168,15 +168,11 @@ const StyledContainer = styled.div`
   flex-direction: column;
   height: 450px;
   background: white;
-  margin: 75px;
+  margin: 50px;
   align-items: center;
   gap: 10px;
   border-radius: 10px;
-  border: 1px solid ${colors.darkBlue};
-
-  @media (max-width: 800px) {
-    margin: 40px;
-  }
+  box-shadow: 5px 4px 9px 1px #73707099;
 `;
 
 const StyledImage = styled.img`

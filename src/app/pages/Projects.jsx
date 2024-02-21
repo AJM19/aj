@@ -100,6 +100,7 @@ const StyledContainer = styled.div`
   padding: 50px 15px;
   border-radius: 10px;
   justify-content: space-around;
+  box-shadow: 5px 4px 9px 1px #73707099;
 `;
 
 const HeaderContainer = styled.div`

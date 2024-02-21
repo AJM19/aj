@@ -17,17 +17,13 @@ const StyledContainer = styled.div`
   position: relative;
   flex-direction: column;
   background: white;
-  margin: 75px;
+  margin: 50px;
   align-items: center;
   gap: 10px;
   border-radius: 10px;
   padding: 10px 0;
-  border: 1px solid ${colors.darkBlue};
+  box-shadow: 5px 4px 9px 1px #73707099;
   height: 175px;
   justify-content: center;
   text-align: center;
-
-  @media (max-width: 800px) {
-    margin: 40px;
-  }
 `;
