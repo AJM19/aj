@@ -15,7 +15,7 @@ const Journey = () => {
           top="50%"
           left={'3%'}
         >
-          {'<'}
+          <p>{'<'}</p>
         </NavButton>
       )}
       {activeTab !== 2 && (
@@ -26,7 +26,7 @@ const Journey = () => {
           top="50%"
           right={'3%'}
         >
-          {'>'}
+          <p>{'>'}</p>
         </NavButton>
       )}
       <Header color={colors.mainBlue}>Developer Journey</Header>
@@ -39,7 +39,7 @@ const Journey = () => {
               <Title color="#ee7132">Miami</Title>
             </FlexRow>
 
-            <BodyText color={colors.mainBlue}>2017 - 2021</BodyText>
+            <BodyText color={colors.darkBlue}>2017 - 2021</BodyText>
             <StyledImage
               height={'100px'}
               width={'150px'}
@@ -54,8 +54,8 @@ const Journey = () => {
             </BodyText>
             <FlexRow margin="10px 0">
               <StyledImage
-                height={'50px'}
-                width={'50px'}
+                height={'65px'}
+                width={'65px'}
                 src={'./assets/images/java.png'}
                 alt="java"
               />
@@ -67,7 +67,7 @@ const Journey = () => {
         <SectionContainer>
           <FlexColumn gap="5px" id="tab1" alignItems="center">
             <Title color={colors.mainBlue}>Capgemini</Title>
-            <BodyText style={{ textAlign: 'center' }} color={colors.mainBlue}>
+            <BodyText style={{ textAlign: 'center' }} color={colors.darkBlue}>
               2021 - 2022
             </BodyText>
             <StyledImage
@@ -79,14 +79,14 @@ const Journey = () => {
             <BodyText>Software Engineer</BodyText>
             <FlexRow margin="10px 0">
               <StyledImage
-                height={'25px'}
-                width={'25px'}
+                height={'50px'}
+                width={'50px'}
                 src={'./assets/images/angular.png'}
                 alt="angular"
               />
               <StyledImage
-                height={'25px'}
-                width={'35px'}
+                height={'50px'}
+                width={'65px'}
                 src={'./assets/images/typescript.png'}
                 alt="type"
               />
@@ -97,15 +97,15 @@ const Journey = () => {
       {activeTab === 2 && (
         <SectionContainer>
           <FlexColumn gap="5px" id="tab3" alignItems="center">
-            <Title color={'#6cad45'}>Junior Golf Hub</Title>
-            <BodyText style={{ textAlign: 'center' }} color={colors.mainBlue}>
+            <Title color={'#f88930'}>Golf PDI</Title>
+            <BodyText style={{ textAlign: 'center' }} color={colors.darkBlue}>
               2022 - Current
             </BodyText>
             <StyledImage
               height={'150px'}
               width={'150px'}
-              src={'./assets/images/jgh.jpg'}
-              alt="jgh"
+              src={'./assets/images/pdi.png'}
+              alt="pdi"
             />
             <BodyText>UI Developer</BodyText>
             <FlexRow margin="10px 0">
@@ -120,6 +120,12 @@ const Journey = () => {
                 width={'50px'}
                 src={'./assets/images/javascript.png'}
                 alt="javascript"
+              />
+              <StyledImage
+                height={'50px'}
+                width={'65px'}
+                src={'./assets/images/typescript.png'}
+                alt="typescript"
               />
             </FlexRow>
           </FlexColumn>
@@ -203,6 +209,11 @@ const NavButton = styled.button`
 
   box-shadow: 1px 1px #ccc6c6;
 
+  p {
+    margin: 0;
+    height: 100%;
+  }
+
   @media (max-width: 500px) {
     width: 18px;
     height: 18px;
@@ -240,7 +251,7 @@ const Title = styled.p`
   display: inline-flex;
   width: fit-content;
   font-family: Barlow;
-  font-weight: 500;
+  font-weight: 700;
   color: ${(props) => (props.color ? props.color : 'black')};
   font-size: 25px;
 `;
