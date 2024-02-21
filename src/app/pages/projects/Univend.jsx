@@ -188,7 +188,7 @@ const NavButton = styled.button`
   border: none;
   font-size: 22px;
   font-weight: bold;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   justify-content: center;
   align-items: center;

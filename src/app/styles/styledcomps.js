@@ -18,7 +18,7 @@ export const flyIn = keyframes`
 export const Header1 = styled.h1`
   color: ${(props) => (props.color ? props.color : 'black')};
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   margin: 0;
   font-weight: 800;
   display: inline-flex;
@@ -35,7 +35,7 @@ export const SubHeader1 = styled.p`
   margin: 0;
   display: inline-flex;
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   color: ${(props) => (props.color ? props.color : 'black')};
   font-size: 20px;
 
@@ -46,7 +46,7 @@ export const BodyText = styled.p`
   margin: 0;
   display: inline-flex;
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   color: ${(props) => (props.color ? props.color : 'black')};
   font-size: 15px;
   font-weight: ${(props) => props.weight};
@@ -79,7 +79,7 @@ export const Button = styled.button`
   background: ${colors.darkBlue};
   justify-content: center;
   align-items: center;
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: bold;
   border: 1px solid white;
   padding: 15px;

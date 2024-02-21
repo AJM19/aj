@@ -1,10 +1,10 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBar from './navigation/NavBar';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 60px auto;
   height: 100vh;
   overflow: hidden;
   background: #1b7fcc;

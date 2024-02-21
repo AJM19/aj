@@ -34,7 +34,7 @@ const StyledInputBar = styled.input`
   padding-left: 25px;
 
   font-size: 12px;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   :hover {
     border: 1px solid ${colors.darkBlue};

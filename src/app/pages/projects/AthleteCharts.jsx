@@ -295,7 +295,7 @@ const SearchButton = styled.button`
 
   justify-content: center;
   align-items: center;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   font-weight: bold;
   border: 1px solid white;
@@ -325,7 +325,7 @@ const ClearButton = styled.button`
 
   justify-content: center;
   align-items: center;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   font-weight: bold;
   border: 1px solid white;
@@ -359,7 +359,7 @@ const ViewButton = styled.button`
 
   justify-content: center;
   align-items: center;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   font-weight: bold;
   border: 1px solid white;
@@ -375,7 +375,7 @@ const ViewButton = styled.button`
 const StyledError = styled.p`
   font-size: 8px;
   color: red;
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: bold;
   margin: 0;
 `;
@@ -409,7 +409,7 @@ const SelectButton = styled.button`
 
   justify-content: center;
   align-items: center;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   font-weight: bold;
   border: 1px solid white;
@@ -441,7 +441,7 @@ const PlayerProfileTile = styled.div`
 `;
 
 const PlayerTitle = styled.p`
-  font-family: Quicksand;
+  font-family: Barlow;
   color: ${colors.mainBlue};
   font-size: 28px;
   font-weight: 800;
@@ -449,7 +449,7 @@ const PlayerTitle = styled.p`
 `;
 
 const PlayerDetails = styled.p`
-  font-family: Quicksand;
+  font-family: Barlow;
   color: ${colors.mainBlue};
   font-size: 16px;
   margin 0; 

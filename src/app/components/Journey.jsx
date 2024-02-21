@@ -196,7 +196,7 @@ const NavButton = styled.button`
   border: none;
   font-size: 30px;
   font-weight: bold;
-  font-family: Quicksand;
+  font-family: Barlow;
 
   justify-content: center;
   align-items: center;
@@ -223,7 +223,7 @@ const SectionContainer = styled.div`
 const Header = styled.h1`
   color: ${(props) => (props.color ? props.color : 'black')};
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   margin: 0;
   font-weight: 800;
   display: inline-flex;
@@ -239,7 +239,7 @@ const Title = styled.p`
   margin: 0;
   display: inline-flex;
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: 500;
   color: ${(props) => (props.color ? props.color : 'black')};
   font-size: 25px;

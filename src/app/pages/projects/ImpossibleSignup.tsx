@@ -57,7 +57,7 @@ export default ImpossibleSignup;
 const TeaseText = styled.p`
   position: absolute;
   top: 15px;
-  font-family: Quicksand;
+  font-family: Barlow;
   color: #0e7de9;
   font-size: 25px;
   font-weight: bold;

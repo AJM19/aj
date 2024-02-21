@@ -244,7 +244,7 @@ const SleeperDynasty = () => {
                   >
                     Most Popular: {team.pieData[0].name}
                   </NFLText>
-                  <label style={{ fontFamily: 'Quicksand', fontSize: '12px' }}>
+                  <label style={{ fontFamily: 'Barlow', fontSize: '12px' }}>
                     (hover for more info)
                   </label>
                   <PieChart data={team.pieData} />
@@ -264,7 +264,7 @@ export default SleeperDynasty;
 
 const FilterText = styled.p`
   margin: 0;
-  font-family: Quicksand;
+  font-family: Barlow;
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -278,14 +278,14 @@ const StatsContainer = styled.div`
 `;
 
 const StatText = styled.p`
-  font-family: Quicksand;
+  font-family: Barlow;
   font-size: 24px;
   color: ${colors.darkBlue};
   text-align: center;
 `;
 
 const StyledTitle = styled.h1`
-  font-family: Quicksand;
+  font-family: Barlow;
   text-align: center;
   font-size: 40px;
   font-weight: bold;
@@ -326,7 +326,7 @@ const TeamContainer = styled.div`
 `;
 
 const TeamName = styled.label`
-  font-family: Quicksand;
+  font-family: Barlow;
   color: black;
   font-weight: bold;
   font-size: 22px;
@@ -344,20 +344,20 @@ const TeamName = styled.label`
 `;
 
 const PlayerName = styled.p`
-  font-family: Quicksand;
+  font-family: Barlow;
   color: black;
   font-weight: normal;
   font-size: 18px;
 `;
 
 const PositionText = styled.p`
-  font-family: Quicksand;
+  font-family: Barlow;
   font-size: 18px;
   font-weight: bold;
 `;
 
 const NFLText = styled.p<{ color: string }>`
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: bold;
   color: ${({ color }) => color} !important;
 `;
@@ -387,7 +387,7 @@ const DashboardItems = styled.div`
 
 const DashItem = styled.button<{ isActive: boolean }>`
   font-size: 18px;
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: bold;
   color:${colors.darkBlue};
   background: white;
@@ -424,7 +424,7 @@ const StyledHeader = styled.div`
 
 const Dropdown = styled.select`
   border: 1px solid blue;
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: bold;
   width: 200px;
   border-radius: 5px;
@@ -439,7 +439,7 @@ const YearSelector = styled.div`
 
   select {
     border: 1px solid ${colors.darkBlue};
-    font-family: Quicksand;
+    font-family: Barlow;
     font-weight: bold;
     width: 100px;
     border-radius: 5px;
@@ -447,7 +447,7 @@ const YearSelector = styled.div`
 
   p {
     margin: 0;
-    font-family: Quicksand;
+    font-family: Barlow;
     font-size: 18px;
     font-weight: bold;
     color: white;
@@ -455,7 +455,7 @@ const YearSelector = styled.div`
 `;
 
 const ComingSoon = styled.p`
-  font-family: Quicksand;
+  font-family: Barlow;
   font-weight: bold;
   color: white;
   font-size: 30px;

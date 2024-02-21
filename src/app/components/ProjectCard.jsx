@@ -210,7 +210,7 @@ const DescriptionText = styled.p`
   margin: 0;
   display: inline-flex;
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   text-align: center;
   color: white;
   font-size: 14px;
@@ -219,7 +219,7 @@ const DescriptionText = styled.p`
 const CardHeader = styled.h1`
   color: white;
   width: fit-content;
-  font-family: Quicksand;
+  font-family: Barlow;
   margin: 0;
   font-weight: 800;
   display: inline-flex;

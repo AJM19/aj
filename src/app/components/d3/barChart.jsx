@@ -92,7 +92,7 @@ const BarChart = ({
       .attr('text-anchor', 'middle')
       .attr('font-size', fontSize)
       .attr('font-weight', '600')
-      .style('font-family', 'Quicksand')
+      .style('font-family', 'Barlow')
       .attr('fill', `${colors.mainBlue}`);
 
     //Title
@@ -104,7 +104,7 @@ const BarChart = ({
       .style('text-anchor', 'middle')
       .style('font-size', '70px')
       .style('font-weight', '900')
-      .style('font-family', 'Quicksand')
+      .style('font-family', 'Barlow')
       .attr('fill', `${colors.darkBlue}`);
 
     // Draw x-axis
@@ -118,7 +118,7 @@ const BarChart = ({
       .selectAll('text')
       .style('font-size', '2rem')
       .attr('font-weight', '800')
-      .style('font-family', 'Quicksand');
+      .style('font-family', 'Barlow');
 
     // Draw y-axis
     svg
@@ -127,7 +127,7 @@ const BarChart = ({
       .call(d3.axisLeft(yScale).ticks(tick))
       .selectAll('text')
       .style('font-size', axisFontSize)
-      .style('font-family', 'Quicksand');
+      .style('font-family', 'Barlow');
     ////
   }, [
     data,

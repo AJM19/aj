@@ -120,7 +120,7 @@ const StyledSVG = styled.svg`
   margin: 15px 0;
 
   text {
-    font-family: Quicksand;
+    font-family: Barlow;
     fill: white;
     font-weight: bold;
     font-size: 14px;
