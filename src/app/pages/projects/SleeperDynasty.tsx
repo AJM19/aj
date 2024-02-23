@@ -314,7 +314,7 @@ const TeamContainer = styled.div`
   border: 3px solid ${colors.darkBlue};
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   background: white;
   border-radius: 25px;
   box-shadow: 0px 17px 20px 8px #0000006b;
