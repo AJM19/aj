@@ -7,7 +7,7 @@ const StyledContainer = styled.div`
   grid-template-rows: 60px auto;
   height: 100vh;
   overflow: hidden;
-  background: #1b7fcc;
+  background: linear-gradient(191deg, #54aef3, #0461a9);
 `;
 
 const StyledContent = styled.main`

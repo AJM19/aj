@@ -140,7 +140,7 @@ const ProfileSection = styled.div`
     grid-template-rows: 1fr 1fr;
     height: calc(100% + 100px);
     width: 100%;
-    margin: 0;
+    margin: 10px 0;
     border-radius: 0;
   }
 `;

@@ -296,6 +296,7 @@ const StyledContainer = styled.div`
   grid-template-columns: repeat(4, minmax(250px, 1fr));
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
+
   margin: 20px;
   gap: 10px;
 
@@ -303,7 +304,7 @@ const StyledContainer = styled.div`
     grid-template-columns: repeat(2, minmax(250px, 1fr));
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -321,7 +322,6 @@ const TeamContainer = styled.div`
 
   @media (max-width: 1000px) {
     align-items: center;
-    width: 80%;
   }
 `;
 
