@@ -83,15 +83,17 @@ const Projects = () => {
           }
         />
         <ProjectCard
-          titleColor={'#11d4fa'}
+          titleColor={'black'}
           mainColor={'#e1b406'}
           background={'./assets/images/star-wars.png'}
           name="Star Wars Intro"
-          logo={'./assets/images/css3.png'}
+          logo={'./assets/images/star-wars-logo.png'}
           year="2024"
-          logoColor={'#11d4fa'}
+          logoColor={'black'}
           link="/projects/star-wars-intro"
-          description={'Follow down the road, one animation to another.'}
+          description={
+            'Recreae your very own live Star Wars intro crawl text. Use the force to propel your text through the galaxy like a true jedi.'
+          }
           isSmallLogo={true}
         />
       </StyledContainer>

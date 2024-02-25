@@ -1,6 +1,61 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import NavBar from './navigation/NavBar';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const generateStarPositions = () => {
+  const stars = [];
+  for (let i = 0; i < 200; i++) {
+    stars.push({
+      styles: {
+        left: `${Math.floor(Math.random() * 101)}%`,
+        top: `${Math.floor(Math.random() * 101)}%`,
+        width: (i % 2) + 2 + 'px',
+        height: (i % 2) + 2 + 'px',
+      },
+      interval: getRandomInterval(),
+    });
+  }
+  return stars;
+};
+
+const getRandomInterval = () => {
+  return Math.ceil(Math.random() * 5 + 1);
+};
+
+const Layout = ({
+  children,
+  background = 'linear-gradient(191deg, #54aef3, #0461a9)',
+  isStarWars = false,
+}) => {
+  const [stars] = useState(generateStarPositions());
+
+  return (
+    <StyledContainer isStarWars={isStarWars} background={background}>
+      {isStarWars &&
+        stars.map((star, index) => (
+          <Star interval={star.interval} key={index} style={star.styles} />
+        ))}
+      <NavBar />
+      <StyledContent>{children}</StyledContent>
+    </StyledContainer>
+  );
+};
+
+export default Layout;
+
+const blink = keyframes`
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100%{
+      opacity: 0;
+    }
+`;
 
 const StyledContainer = styled.div`
   position: relative;
@@ -33,38 +88,10 @@ const StyledContent = styled.main`
 
 const Star = styled.div`
   position: absolute;
-  width: 1px;
-  height: 1px;
+  border-radius: 100%;
   background-color: white;
   pointer-events: none;
+  box-shadow: -2px 3px 20px 1px #c9ba4d;
+
+  animation: ${blink} ${({ interval }) => interval}s infinite;
 `;
-
-const generateStarPositions = () => {
-  const stars = [];
-  for (let i = 0; i < 50; i++) {
-    stars.push({
-      left: `${Math.floor(Math.random() * 101)}%`,
-      top: `${Math.floor(Math.random() * 101)}%`,
-    });
-  }
-  return stars;
-};
-
-const Layout = ({
-  children,
-  background = 'linear-gradient(191deg, #54aef3, #0461a9)',
-  isStarWars = false,
-}) => {
-  const [stars] = useState(generateStarPositions());
-
-  return (
-    <StyledContainer isStarWars={isStarWars} background={background}>
-      {isStarWars &&
-        stars.map((star, index) => <Star key={index} style={star} />)}
-      <NavBar />
-      <StyledContent>{children}</StyledContent>
-    </StyledContainer>
-  );
-};
-
-export default Layout;

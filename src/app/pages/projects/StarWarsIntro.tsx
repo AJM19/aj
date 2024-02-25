@@ -1,10 +1,12 @@
 import Layout from '../../components/Layout';
 import styled, { css, keyframes } from 'styled-components';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const StarWarsIntro = () => {
   const [storyTexts, setStoryTexts] = useState<string[]>([]);
   const [inputText, setInputText] = useState('');
+
+  const audioElement = useRef(null);
 
   const send = () => {
     const newText = inputText.trim();
@@ -24,21 +26,29 @@ const StarWarsIntro = () => {
     <Layout isStarWars={true} background={'black'}>
       <StyledContainer>
         <IntroText>
-          On a portfolio website, in a galaxy not so far away...
+          Not a long time ago on a portfolio, right here....
         </IntroText>
         {storyTexts.map((text, index) => (
           <StoryText key={index}>{text}</StoryText>
         ))}
         <ActionContainer>
-          <StyledInput
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            onKeyPress={handleKeyPress}
-            placeholder="Type here..."
+          <InputContainer>
+            <StyledInput
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Type here... (enter to send)"
+              maxLength={200}
+            />
+            <CharacterCount>{inputText.length}/200</CharacterCount>
+          </InputContainer>
+          <StyledAudio
+            ref={audioElement}
+            src="./assets/audio/star-wars-theme.mp3"
+            autoPlay
+            controls
+            loop
           />
-          <SendButton onClick={send}>
-            <p>Send</p>
-          </SendButton>
         </ActionContainer>
       </StyledContainer>
     </Layout>
@@ -57,19 +67,18 @@ const StyledContainer = styled.div`
   z-index: 100;
 
   * {
-    font-family: Barlow;
+    font-family: Pathway Gothic One;
   }
 `;
 
 const moveUpward = keyframes`
     from {
-        transform: translateY(100%);
-        opacity: 1;
+        transform: translateY(0) scale(1) perspective(500px) rotateX(30deg);
     }
 
     to {
-        transform: translateY(-100vh) ;
-        opacity: 0.2;
+        transform: translateY(-100vh) scale(0.2) perspective(500px) rotateX(30deg);
+        opacity: 0.1
     }
 `;
 
@@ -97,19 +106,40 @@ const fadeIn = keyframes`
 `;
 
 const moveUpAnimation = css`
-  ${moveUpward} 10s ease-out forwards;
+  ${moveUpward} 15s ease-out forwards;
 `;
 
+// const StoryText = styled.p`
+//   font-size: 60px;
+//   font-weight: 700;
+//   margin: 0;
+//   color: #c29a00;
+//   position: fixed;
+//   bottom: 0;
+//   width: 75%;
+//   max-width: 800px;
+//   animation: ${moveUpAnimation};
+//   word-spacing: 8px;
+
+//   white-space: break-spaces;
+//   word-break: break-all;
+// `;
+
 const StoryText = styled.p`
-  font-size: 54px;
-  font-weight: bold;
+  font-size: 60px;
+  font-weight: 700;
   margin: 0;
-  text-align: left;
   color: #c29a00;
   position: fixed;
   bottom: 0;
-  width: 400px;
+  width: 75%;
+  max-width: 800px;
   animation: ${moveUpAnimation};
+  word-spacing: 8px;
+  white-space: break-spaces;
+  word-break: break-all;
+  // transform-origin: center bottom; // Set the rotation origin
+  // transform: translateY(100%) rotateX(20deg); // Initial transformation for perspective
 `;
 
 const IntroText = styled.p`
@@ -121,7 +151,7 @@ const IntroText = styled.p`
   font-weight: 500;
   text-align: center;
   width: 100%;
-  animation: ${fadeOut} 5s ease-out forwards;
+  animation: ${fadeOut} 7s ease-out forwards;
 `;
 
 const ActionContainer = styled.div`
@@ -130,34 +160,38 @@ const ActionContainer = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
-  animation: ${fadeIn} 6s ease-in forwards;
+  animation: ${fadeIn} 8s ease-in forwards;
 `;
 
 const StyledInput = styled.input`
-  margin: 0 25px;
+  position: relative;
   background: lightgray;
   border: 1px solid #c29a00;
   width: 500px;
-  height: 25px;
+  height: 40px;
   border-radius: 8px;
   font-weight: 500;
 `;
 
-const SendButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid white;
-  background: #c29a00;
-  border-radius: 25px;
-  width: 100px;
-  padding: 5px 10px;
-  height: 25px;
+const CharacterCount = styled.label`
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+  color: black;
+  opacity: 0.5;
+  font-size: 10px;
+  font-weight: bold;
+`;
 
-  p {
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-  }
+const InputContainer = styled.div`
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+`;
+
+const StyledAudio = styled.audio`
+  width: 120px;
+  height: 45px;
 `;
