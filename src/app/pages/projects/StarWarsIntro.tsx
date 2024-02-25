@@ -73,7 +73,7 @@ const StyledContainer = styled.div`
 
 const moveUpward = keyframes`
     from {
-        transform: translateY(0) scale(1) perspective(500px) rotateX(30deg);
+        transform: translateY(10vh) scale(1) perspective(500px) rotateX(30deg);
     }
 
     to {
@@ -106,24 +106,8 @@ const fadeIn = keyframes`
 `;
 
 const moveUpAnimation = css`
-  ${moveUpward} 15s ease-out forwards;
+  ${moveUpward} 20s ease-out forwards;
 `;
-
-// const StoryText = styled.p`
-//   font-size: 60px;
-//   font-weight: 700;
-//   margin: 0;
-//   color: #c29a00;
-//   position: fixed;
-//   bottom: 0;
-//   width: 75%;
-//   max-width: 800px;
-//   animation: ${moveUpAnimation};
-//   word-spacing: 8px;
-
-//   white-space: break-spaces;
-//   word-break: break-all;
-// `;
 
 const StoryText = styled.p`
   font-size: 60px;
@@ -138,8 +122,6 @@ const StoryText = styled.p`
   word-spacing: 8px;
   white-space: break-spaces;
   word-break: break-all;
-  // transform-origin: center bottom; // Set the rotation origin
-  // transform: translateY(100%) rotateX(20deg); // Initial transformation for perspective
 `;
 
 const IntroText = styled.p`
