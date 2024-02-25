@@ -92,7 +92,7 @@ const Projects = () => {
           logoColor={'black'}
           link="/projects/star-wars-intro"
           description={
-            'Recreae your very own live Star Wars intro crawl text. Use the force to propel your text through the galaxy like a true jedi.'
+            'Recreate your very own live Star Wars Intro crawl text. Use the force to propel your text through the galaxy like a true jedi.'
           }
           isSmallLogo={true}
         />

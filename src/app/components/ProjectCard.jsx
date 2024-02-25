@@ -215,6 +215,7 @@ const DescriptionText = styled.p`
   text-align: center;
   color: white;
   font-size: 14px;
+  padding: 0 15px;
 `;
 
 const CardHeader = styled.h1`
