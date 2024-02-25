@@ -13,6 +13,7 @@ const ProjectCard = ({
   logoColor = 'white',
   description,
   link,
+  isSmallLogo = false,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -24,7 +25,7 @@ const ProjectCard = ({
     <div>
       {!isFlipped ? (
         <Card onClick={handleClick} isFlipped={isFlipped}>
-          <Logo color={logoColor} logo={logo} />
+          <Logo isSmallLogo={isSmallLogo} color={logoColor} logo={logo} />
           <Frame background={background} color={mainColor} />
           <NamePlate color={titleColor}>
             <NameText>{name}</NameText>
@@ -89,7 +90,7 @@ const Logo = styled.div`
 
   background-image: url(${(props) => props.logo});
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: ${({ isSmallLogo }) => (isSmallLogo ? '80%' : '100%')};
   background-position: center;
 `;
 

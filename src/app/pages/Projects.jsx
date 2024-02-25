@@ -82,6 +82,18 @@ const Projects = () => {
             'Impossible Signup. Enter your username and password, then click Submit...if you can.'
           }
         />
+        <ProjectCard
+          titleColor={'#11d4fa'}
+          mainColor={'#e1b406'}
+          background={'./assets/images/star-wars.png'}
+          name="Star Wars Intro"
+          logo={'./assets/images/css3.png'}
+          year="2024"
+          logoColor={'#11d4fa'}
+          link="/projects/star-wars-intro"
+          description={'Follow down the road, one animation to another.'}
+          isSmallLogo={true}
+        />
       </StyledContainer>
     </Layout>
   );

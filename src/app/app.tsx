@@ -7,6 +7,7 @@ import Univend from './pages/projects/Univend';
 import FinderKeepers from './pages/projects/FindersKeepers';
 import SleeperDynasty from './pages/projects/SleeperDynasty';
 import ImpossibleSignup from './pages/projects/ImpossibleSignup';
+import StarWarsIntro from './pages/projects/StarWarsIntro';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           path="/projects/impossible-signup"
           element={<ImpossibleSignup />}
         />
+        <Route path="/projects/star-wars-intro" element={<StarWarsIntro />} />
       </Routes>
     </div>
   );
