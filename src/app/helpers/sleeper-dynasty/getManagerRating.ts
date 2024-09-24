@@ -16,11 +16,12 @@ export const getManagerRating = ({
   wins,
 }: Props) => {
   const pointsPercentage = total_fp / total_pp;
+  const pointsStrength = total_fp / 125;
   const waiverBudgetPercentage = waiver_budget_used / TOTAL_BUDGET;
   const winPercentage = wins / TOTAL_GAMES;
 
   const manager_score =
-    pointsPercentage * 0.5 + waiverBudgetPercentage * 0.1 + winPercentage * 0.4;
+    pointsPercentage * 0.25 + pointsStrength * .25 + waiverBudgetPercentage * 0.1 + winPercentage * 0.4;
 
   if (manager_score > 0) {
     return (manager_score * 100).toFixed(2);

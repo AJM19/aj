@@ -37,7 +37,7 @@ const YEARS = [
   { title: '2024', value: SleeperKeys.leagueId_2024 },
 ];
 
-const DASH_ITEMS = ['ROSTERS', 'STATS', 'BREAKDOWN', 'SUMMARIES'];
+const DASH_ITEMS = ['ROSTERS', 'STATS', 'BREAKDOWN', 'DRAFT'];
 
 const SleeperDynasty = () => {
   const [currentLeagueId, setCurrentLeaugeId] = useState(YEARS[1].value);
@@ -131,7 +131,7 @@ const SleeperDynasty = () => {
         (a, b) => b[currentFilter] - a[currentFilter]
       );
 
-      if (!isDesc) {
+      if (currentView === 3) {
         replicatedData.reverse();
       }
 
@@ -139,6 +139,14 @@ const SleeperDynasty = () => {
       setAllTeamData(replicatedData);
     }
   }, [allPlayers, leagueInfo, users, currentFilter]);
+
+  useEffect(() => {
+    if (currentView === 3) {
+      setCurrentFilter('total_pp');
+    } else {
+      setCurrentFilter('manager_rating');
+    }
+  }, [currentView]);
 
   if (
     !leagueInfo ||
@@ -150,10 +158,6 @@ const SleeperDynasty = () => {
   ) {
     return <Loader />;
   }
-
-  // console.log('PLayer: ', allPlayers[8126]);
-  // console.log('Team Data: ', allTeamData);
-  // console.log('Current Filter: ', currentFilter);
 
   return (
     <Layout>
@@ -196,66 +200,67 @@ const SleeperDynasty = () => {
           </>
         )}
       </StyledHeader>
-      {currentView !== 3 ? (
-        <StyledContainer>
-          {allTeamData.map((team, index) => (
-            <TeamContainer key={index}>
-              <TeamName>{team.teamName}</TeamName>
-              {currentView === 0 && (
-                <div style={{ paddingLeft: '10px' }}>
-                  {team.players.map((player) => (
-                    <PlayerContainer key={player.id} id={player.id}>
-                      <PositionText>{player.position}: </PositionText>
-                      <PlayerName>{player.full_name}</PlayerName>
-                      {player.team && (
-                        <NFLText color={TeamColors[player.team]}>
-                          {player.team}
-                        </NFLText>
-                      )}
-                    </PlayerContainer>
-                  ))}
-                </div>
-              )}
-              {currentView === 1 && (
-                <StatsContainer>
-                  <StatText>
-                    <b>Manager Rating: </b>
-                    {team.manager_rating ?? 'N/A'}
-                  </StatText>
-                  <StatText>
-                    <b>Avg. Age: </b>
-                    {team.avgAge ?? 'N/A'}
-                  </StatText>
-                  <StatText>
-                    <b>Total Points: </b>
-                    {team.total_fp ?? 'N/A'}
-                  </StatText>
-                  <StatText>
-                    <b>Total Potential Points: </b>
-                    {team.total_pp ?? 'N/A'}
-                  </StatText>
-                </StatsContainer>
-              )}
-              {currentView === 2 && (
-                <StatsContainer>
-                  <NFLText
-                    style={{ margin: 0 }}
-                    color={TeamColors[team.pieData[0].name]}
-                  >
-                    Most Popular: {team.pieData[0].name}
-                  </NFLText>
-                  <label style={{ fontFamily: 'Barlow', fontSize: '12px' }}>
-                    (hover for more info)
-                  </label>
-                  <PieChart data={team.pieData} />
-                </StatsContainer>
-              )}
-            </TeamContainer>
-          ))}
-        </StyledContainer>
-      ) : (
-        <ComingSoon>Coming soon!</ComingSoon>
-      )}
+      <StyledContainer>
+        {allTeamData.map((team, index) => (
+          <TeamContainer key={index}>
+            <TeamName>{team.teamName}</TeamName>
+            {currentView === 0 && (
+              <div style={{ paddingLeft: '10px' }}>
+                {team.players.map((player) => (
+                  <PlayerContainer key={player.id} id={player.id}>
+                    <PositionText>{player.position}: </PositionText>
+                    <PlayerName>{player.full_name}</PlayerName>
+                    {player.team && (
+                      <NFLText color={TeamColors[player.team]}>
+                        {player.team}
+                      </NFLText>
+                    )}
+                  </PlayerContainer>
+                ))}
+              </div>
+            )}
+            {currentView === 1 && (
+              <StatsContainer>
+                <StatText>
+                  <b>Manager Rating: </b>
+                  {team.manager_rating ?? 'N/A'}
+                </StatText>
+                <StatText>
+                  <b>Avg. Age: </b>
+                  {team.avgAge ?? 'N/A'}
+                </StatText>
+                <StatText>
+                  <b>Total Points: </b>
+                  {team.total_fp ?? 'N/A'}
+                </StatText>
+                <StatText>
+                  <b>Total Potential Points: </b>
+                  {team.total_pp ?? 'N/A'}
+                </StatText>
+              </StatsContainer>
+            )}
+            {currentView === 2 && (
+              <StatsContainer>
+                <NFLText
+                  style={{ margin: 0 }}
+                  color={TeamColors[team.pieData[0].name]}
+                >
+                  Most Popular: {team.pieData[0].name}
+                </NFLText>
+                <label style={{ fontFamily: 'Barlow', fontSize: '12px' }}>
+                  (hover for more info)
+                </label>
+                <PieChart data={team.pieData} />
+              </StatsContainer>
+            )}
+            {currentView === 3 && (
+              <StatsContainer>
+                <DraftNumber pick={index + 1}>{index + 1}</DraftNumber>
+              </StatsContainer>
+            )}
+          </TeamContainer>
+        ))}
+      </StyledContainer>
     </Layout>
   );
 };
@@ -454,10 +459,17 @@ const YearSelector = styled.div`
   }
 `;
 
-const ComingSoon = styled.p`
-  font-family: Barlow;
+const DraftNumber = styled.p<{ pick: number }>`
+  color: ${({ pick }) =>
+    pick <= 3
+      ? '#2ab80c'
+      : pick <= 5
+      ? '#dfdf3e'
+      : pick <= 10
+      ? '#f0a400'
+      : '#c60505fa'};
+
+  font-size: 25px;
   font-weight: bold;
-  color: white;
-  font-size: 30px;
-  text-align: center;
+  font-family: Barlow;
 `;
