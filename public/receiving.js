@@ -1,8 +1,8 @@
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const csvParser = require("csv-parser");
 
-// Step 1: Fetch the webpage
 const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
 
 (async () => {
@@ -62,6 +62,33 @@ const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
         console.error("Error writing to CSV file", err);
       } else {
         console.log("Data saved to nfl_receiving_stats.csv");
+
+        // Convert the CSV to JSON
+        const csvFilePath = "nfl_receiving_stats.csv";
+        const jsonFilePath = "nfl_receiving_stats.json";
+        const csvData = [];
+
+        fs.createReadStream(csvFilePath)
+          .pipe(csvParser())
+          .on("data", (row) => {
+            csvData.push(row);
+          })
+          .on("end", () => {
+            console.log("CSV file successfully processed.");
+
+            // Write the JSON data to a file
+            fs.writeFile(
+              jsonFilePath,
+              JSON.stringify(csvData, null, 2),
+              (err) => {
+                if (err) {
+                  console.error("Error writing to JSON file", err);
+                } else {
+                  console.log("Data saved to nfl_receiving_stats.json");
+                }
+              }
+            );
+          });
       }
     });
   } else {

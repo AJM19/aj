@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const csvParser = require("csv-parser");
 
 const teams = [
   "atl",
@@ -91,6 +92,33 @@ const teams = [
         console.error("Error writing to CSV file", err);
       } else {
         console.log("Data saved to nfl_team_stats.csv");
+
+        // Convert the CSV to JSON
+        const csvFilePath = "nfl_team_stats.csv";
+        const jsonFilePath = "nfl_team_stats.json";
+        const csvData = [];
+
+        fs.createReadStream(csvFilePath)
+          .pipe(csvParser())
+          .on("data", (row) => {
+            csvData.push(row);
+          })
+          .on("end", () => {
+            console.log("CSV file successfully processed.");
+
+            // Write the JSON data to a file
+            fs.writeFile(
+              jsonFilePath,
+              JSON.stringify(csvData, null, 2),
+              (err) => {
+                if (err) {
+                  console.error("Error writing to JSON file", err);
+                } else {
+                  console.log("Data saved to nfl_team_stats.json");
+                }
+              }
+            );
+          });
       }
     });
   } else {
