@@ -15,7 +15,6 @@ import Loader from '../../components/Loader';
 import { TeamColors } from '../../keys/teamColors';
 import { colors } from '../../styles/styledcomps';
 import { SleeperKeys } from '../../keys/sleeper';
-import { skipToken } from '@reduxjs/toolkit/dist/query';
 
 type TeamData = {
   teamName: string;
@@ -43,8 +42,16 @@ const YEARS = [
 const DASH_ITEMS = ['ROSTERS', 'STATS', 'BREAKDOWN', 'DRAFT'];
 
 const SleeperDynasty = () => {
-  const [currentLeagueId, setCurrentLeaugeId] = useState(YEARS[1].value);
+  const [currentLeagueId, setCurrentLeaugeId] = useState<string>(
+    YEARS[1].value
+  );
 
+  const [currentView, setCurrentView] = useState<number>(0);
+  const [currentFilter, setCurrentFilter] = useState<Filters | string>(
+    'manager_rating'
+  );
+
+  const [allTeamData, setAllTeamData] = useState<TeamData[]>();
   const { data: leagueInfo, isFetching: isLeagueFetching } =
     useGetLeagueRostersQuery({
       leagueId: currentLeagueId,
@@ -54,28 +61,10 @@ const SleeperDynasty = () => {
   const { data: users, isFetching } = useGetLeagueUsersQuery({
     leagueId: currentLeagueId,
   });
-
-  // const { data: NFL, isFetching: isStateFetching } = useGetNFLStateQuery();
-
-  // const { data: transactions, isFetching: isTransactionsFetching } =
-  //   useGetAllTransactionsQuery(
-  //     NFL
-  //       ? {
-  //           leagueId: currentLeagueId,
-  //           week: NFL.week,
-  //         }
-  //       : skipToken
-  //   );
-
-  const [currentView, setCurrentView] = useState(0);
-  const [currentFilter, setCurrentFilter] = useState<Filters | string>(
-    'manager_rating'
-  );
-
-  const [allTeamData, setAllTeamData] = useState<TeamData[]>();
+  const { data: NFL, isFetching: isStateFetching } = useGetNFLStateQuery();
 
   useEffect(() => {
-    if (allPlayers && leagueInfo && users) {
+    if (allPlayers && leagueInfo && users && NFL) {
       const replicatedData = users
         .map((user, index) => {
           const playersData = leagueInfo
@@ -134,6 +123,7 @@ const SleeperDynasty = () => {
               wins: teamInfo?.wins ?? 0,
               total_fp: total_fp ?? 0,
               total_pp: total_pp ?? 0,
+              week: NFL.week,
             }),
             pieData,
           };
@@ -169,7 +159,8 @@ const SleeperDynasty = () => {
     !allPlayers ||
     !allTeamData ||
     isFetching ||
-    isLeagueFetching
+    isLeagueFetching ||
+    !NFL
   ) {
     return <Loader />;
   }
@@ -182,7 +173,6 @@ const SleeperDynasty = () => {
           <p>Year:</p>
           <select
             value={currentLeagueId}
-            defaultValue={YEARS[1].value}
             onChange={(y) => setCurrentLeaugeId(y.target.value)}
           >
             {YEARS.map((year, index) => (
