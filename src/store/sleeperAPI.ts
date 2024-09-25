@@ -111,6 +111,23 @@ export const sleeperAPI = createApi({
         method: 'GET',
       }),
     }),
+    getAllTransactions: builder.query<any, { leagueId: string, week: number }>({
+      query: ({ leagueId, week }) => ({
+        url: `league/${leagueId}/transactions/${week}`,
+        method: 'GET',
+      }),
+      transformResponse: (transactions: any[]) => {
+        const formattedData = transactions.filter(trans => trans.type === 'trade')
+
+        return formattedData;
+      },
+    }),
+    getNFLState: builder.query<{ week: number }, void>({
+      query: () => ({
+        url: `state/nfl`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
@@ -119,4 +136,6 @@ export const {
   useGetLeagueRostersQuery,
   useGetAllNFLPlayersQuery,
   useGetLeagueUsersQuery,
+  useGetAllTransactionsQuery,
+  useGetNFLStateQuery
 } = sleeperAPI;

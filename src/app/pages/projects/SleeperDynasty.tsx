@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
 import PieChart, { PieDataItem } from 'src/app/components/d3/pieChart';
-import { getManagerRating } from 'src/app/helpers/sleeper-dynasty/getManagerRating';
+import { getManagerRating } from '../../helpers/sleeper-dynasty/getManagerRating';
 import {
   Positions,
   useGetAllNFLPlayersQuery,
+  useGetAllTransactionsQuery,
   useGetLeagueRostersQuery,
   useGetLeagueUsersQuery,
-} from 'src/store/sleeperAPI';
+  useGetNFLStateQuery,
+} from '../../../store/sleeperAPI';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import Loader from '../../components/Loader';
 import { TeamColors } from '../../keys/teamColors';
 import { colors } from '../../styles/styledcomps';
 import { SleeperKeys } from '../../keys/sleeper';
+import { skipToken } from '@reduxjs/toolkit/dist/query';
 
 type TeamData = {
   teamName: string;
@@ -47,12 +50,24 @@ const SleeperDynasty = () => {
       leagueId: currentLeagueId,
     });
   const { data: allPlayers } = useGetAllNFLPlayersQuery();
+
   const { data: users, isFetching } = useGetLeagueUsersQuery({
     leagueId: currentLeagueId,
   });
 
+  // const { data: NFL, isFetching: isStateFetching } = useGetNFLStateQuery();
+
+  // const { data: transactions, isFetching: isTransactionsFetching } =
+  //   useGetAllTransactionsQuery(
+  //     NFL
+  //       ? {
+  //           leagueId: currentLeagueId,
+  //           week: NFL.week,
+  //         }
+  //       : skipToken
+  //   );
+
   const [currentView, setCurrentView] = useState(0);
-  const [isDesc, setIsDesc] = useState<boolean>(true);
   const [currentFilter, setCurrentFilter] = useState<Filters | string>(
     'manager_rating'
   );
@@ -315,6 +330,7 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 `;
 
@@ -326,6 +342,7 @@ const TeamContainer = styled.div`
   background: white;
   border-radius: 25px;
   box-shadow: 0px 17px 20px 8px #0000006b;
+  width: 100%;
 
   @media (max-width: 1000px) {
     align-items: center;

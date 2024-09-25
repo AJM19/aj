@@ -60,6 +60,8 @@ const Card = styled.div`
   justify-content: center;
   border: 1px solid black;
 
+  cursor: pointer;
+
   transition: transform 1s;
   transform-style: preserve-3d;
 
@@ -199,6 +201,7 @@ const ContinueButton = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 18px;
+  cursor: pointer;
 
   :hover {
     background: white;
