@@ -1,37 +1,41 @@
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const fs = require("fs");
-const csvParser = require("csv-parser");
+const csvParser = require("csv-parser"); // Import csv-parser
 
 const teams = [
-  "atl",
-  "buf",
-  "bal",
-  "cin",
-  "cle",
-  "dal",
-  "den",
-  "det",
-  "gb",
-  "hou",
-  "ind",
-  "jax",
-  "kc",
-  "lv",
-  "lac",
-  "mia",
-  "min",
-  "ne",
-  "no",
-  "nyg",
-  "nyj",
-  "phi",
-  "pit",
-  "sea",
-  "sf",
-  "tb",
-  "ten",
-  "wsh",
+  "ari", // Arizona Cardinals
+  "atl", // Atlanta Falcons
+  "bal", // Baltimore Ravens
+  "buf", // Buffalo Bills
+  "car", // Carolina Panthers
+  "chi", // Chicago Bears
+  "cin", // Cincinnati Bengals
+  "cle", // Cleveland Browns
+  "dal", // Dallas Cowboys
+  "den", // Denver Broncos
+  "det", // Detroit Lions
+  "gb", // Green Bay Packers
+  "hou", // Houston Texans
+  "ind", // Indianapolis Colts
+  "jax", // Jacksonville Jaguars
+  "kc", // Kansas City Chiefs
+  "lac", // Los Angeles Chargers
+  "lar", // Los Angeles Rams
+  "lv", // Las Vegas Raiders
+  "mia", // Miami Dolphins
+  "min", // Minnesota Vikings
+  "ne", // New England Patriots
+  "no", // New Orleans Saints
+  "nyg", // New York Giants
+  "nyj", // New York Jets
+  "phi", // Philadelphia Eagles
+  "pit", // Pittsburgh Steelers
+  "sea", // Seattle Seahawks
+  "sf", // San Francisco 49ers
+  "tb", // Tampa Bay Buccaneers
+  "ten", // Tennessee Titans
+  "wsh", // Washington Commanders
 ];
 
 (async () => {
@@ -69,8 +73,8 @@ const teams = [
     const data = rows.slice(50, 100).map((item) => item[0]);
 
     if (rows.length > 0) {
-      const teamStats = teams.map((team) => [team.toUpperCase(), ...data]);
-      combinedStats.push(...teamStats);
+      const teamStats = [team.toUpperCase(), ...data];
+      combinedStats.push(teamStats);
     } else {
       console.error(`No data found for team ${team}`);
     }
