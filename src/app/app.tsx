@@ -11,23 +11,21 @@ import StarWarsIntro from './pages/projects/StarWarsIntro';
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="*" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/athlete-charts" element={<AthleteCharts />} />
-        <Route path="/projects/univend" element={<Univend />} />
-        <Route path="/projects/finders-keepers" element={<FinderKeepers />} />
-        <Route path="/projects/sleeper-dynasty" element={<SleeperDynasty />} />
-        <Route
-          path="/projects/impossible-signup"
-          element={<ImpossibleSignup />}
-        />
-        <Route path="/projects/star-wars-intro" element={<StarWarsIntro />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="*" element={<Navigate to="/home" />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/resume" element={<Resume />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/projects/athlete-charts" element={<AthleteCharts />} />
+      <Route path="/projects/univend" element={<Univend />} />
+      <Route path="/projects/finders-keepers" element={<FinderKeepers />} />
+      <Route path="/projects/sleeper-dynasty" element={<SleeperDynasty />} />
+      <Route
+        path="/projects/impossible-signup"
+        element={<ImpossibleSignup />}
+      />
+      <Route path="/projects/star-wars-intro" element={<StarWarsIntro />} />
+    </Routes>
   );
 }
 

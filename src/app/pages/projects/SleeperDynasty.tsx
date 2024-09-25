@@ -280,6 +280,8 @@ const StatsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  min-width: 300px;
 `;
 
 const StatText = styled.p`
@@ -305,8 +307,8 @@ const StyledContainer = styled.div`
   margin: 20px;
   gap: 10px;
 
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
   }
 
   @media (max-width: 700px) {

@@ -135,6 +135,10 @@ const ProfileSection = styled.div`
   box-shadow: 5px 4px 9px 1px #73707099;
   overflow-x: auto;
 
+  @media (max-width: 1200px) {
+    margin: 24px;
+  }
+
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
