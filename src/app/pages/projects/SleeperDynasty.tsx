@@ -4,7 +4,6 @@ import { getManagerRating } from '../../helpers/sleeper-dynasty/getManagerRating
 import {
   Positions,
   useGetAllNFLPlayersQuery,
-  useGetAllTransactionsQuery,
   useGetLeagueRostersQuery,
   useGetLeagueUsersQuery,
   useGetNFLStateQuery,
@@ -15,6 +14,10 @@ import Loader from '../../components/Loader';
 import { TeamColors } from '../../keys/teamColors';
 import { colors } from '../../styles/styledcomps';
 import { SleeperKeys } from '../../keys/sleeper';
+import team_stats from '../../helpers/sleeper-dynasty/espn/nfl_team_stats.json';
+import rushing_stats from '../../helpers/sleeper-dynasty/espn/nfl_rushing_stats.json';
+import receiving_stats from '../../helpers/sleeper-dynasty/espn/nfl_receiving_stats.json';
+import PlayerStats from 'src/app/components/sleeper/PlayerStats';
 
 type TeamData = {
   teamName: string;
@@ -165,8 +168,20 @@ const SleeperDynasty = () => {
     return <Loader />;
   }
 
+  // console.log('team_stats: ', team_stats);
+  // console.log('rushing_stats: ', rushing_stats);
+  // console.log('receiving_stats: ', receiving_stats);
+
   return (
     <Layout>
+      <PlayerStats
+        data={{
+          team_stats,
+          rushing_stats,
+          receiving_stats,
+          player_name: 'Malik NabersNYG',
+        }}
+      />
       <StyledHeader>
         <StyledTitle>Sleeper Dynasty</StyledTitle>
         <YearSelector>

@@ -54,7 +54,9 @@ const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
   if (rows.length > 0 && headers.length > 0) {
     const csvData = [
       newHeaders.join(","),
-      ...combinedData.map((row) => row.join(",")),
+      ...combinedData.map((row) =>
+        row.map((value) => value.replace(/,/g, "")).join(",")
+      ),
     ].join("\n");
 
     fs.writeFile("nfl_receiving_stats.csv", csvData, (err) => {

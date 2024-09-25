@@ -88,9 +88,10 @@ const teams = [
     const newHeaders = ["Team", ...headers];
     const csvData = [
       newHeaders.join(","),
-      ...combinedStats.map((row) => row.join(",")),
+      ...combinedStats.map((row) =>
+        row.map((value) => value.replace(/,/g, "")).join(",")
+      ),
     ].join("\n");
-
     fs.writeFile("nfl_team_stats.csv", csvData, (err) => {
       if (err) {
         console.error("Error writing to CSV file", err);

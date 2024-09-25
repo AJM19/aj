@@ -45,7 +45,9 @@ axios
     if (rows.length > 0 && headers.length > 0) {
       const csvData = [
         newHeaders.join(","),
-        ...combinedData.map((row) => row.join(",")),
+        ...combinedData.map((row) =>
+          row.map((value) => value.replace(/,/g, "")).join(",")
+        ),
       ].join("\n");
 
       fs.writeFile("nfl_rushing_stats.csv", csvData, (err) => {
