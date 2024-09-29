@@ -18,6 +18,9 @@ import team_stats from '../../helpers/sleeper-dynasty/espn/nfl_team_stats.json';
 import rushing_stats from '../../helpers/sleeper-dynasty/espn/nfl_rushing_stats.json';
 import receiving_stats from '../../helpers/sleeper-dynasty/espn/nfl_receiving_stats.json';
 import PlayerStats from 'src/app/components/sleeper/PlayerStats';
+import getPlayerStats, {
+  PlayerStatsResponse,
+} from 'src/app/helpers/sleeper-dynasty/getPlayerStats';
 
 type TeamData = {
   teamName: string;
@@ -168,20 +171,8 @@ const SleeperDynasty = () => {
     return <Loader />;
   }
 
-  // console.log('team_stats: ', team_stats);
-  // console.log('rushing_stats: ', rushing_stats);
-  // console.log('receiving_stats: ', receiving_stats);
-
   return (
     <Layout>
-      <PlayerStats
-        data={{
-          team_stats,
-          rushing_stats,
-          receiving_stats,
-          player_name: 'Malik NabersNYG',
-        }}
-      />
       <StyledHeader>
         <StyledTitle>Sleeper Dynasty</StyledTitle>
         <YearSelector>
@@ -225,17 +216,36 @@ const SleeperDynasty = () => {
           <TeamContainer key={index}>
             <TeamName>{team.teamName}</TeamName>
             {currentView === 0 && (
-              <div style={{ paddingLeft: '10px' }}>
+              <div style={{ padding: '0 10px' }}>
                 {team.players.map((player) => (
-                  <PlayerContainer key={player.id} id={player.id}>
-                    <PositionText>{player.position}: </PositionText>
-                    <PlayerName>{player.full_name}</PlayerName>
-                    {player.team && (
-                      <NFLText color={TeamColors[player.team]}>
-                        {player.team}
-                      </NFLText>
-                    )}
-                  </PlayerContainer>
+                  <Container
+                    isPlayerStats={getPlayerStats({
+                      team_stats,
+                      rushing_stats,
+                      receiving_stats,
+                      player_name: player.full_name + player.team,
+                      position: player.position,
+                    })}
+                  >
+                    <PlayerContainer key={player.id} id={player.id}>
+                      <PositionText>{player.position}: </PositionText>
+                      <PlayerName>{player.full_name}</PlayerName>
+                      {player.team && (
+                        <NFLText color={TeamColors[player.team]}>
+                          {player.team}
+                        </NFLText>
+                      )}
+                    </PlayerContainer>{' '}
+                    <PlayerStats
+                      data={{
+                        team_stats,
+                        rushing_stats,
+                        receiving_stats,
+                        player_name: `${player.full_name}${player.team}`,
+                        position: player.position,
+                      }}
+                    />
+                  </Container>
                 ))}
               </div>
             )}
@@ -389,6 +399,24 @@ const NFLText = styled.p<{ color: string }>`
   font-family: Barlow;
   font-weight: bold;
   color: ${({ color }) => color} !important;
+`;
+
+const Container = styled.div<{ isPlayerStats: PlayerStatsResponse | null }>`
+  overflow: hidden;
+  height: 57.5px;
+
+  ${({ isPlayerStats }) =>
+    isPlayerStats &&
+    `
+    cursor: pointer;
+
+    :hover{
+      height: 175px;
+    }
+
+
+    transition: height .25s ease-in;
+  `}
 `;
 
 const PlayerContainer = styled.div`

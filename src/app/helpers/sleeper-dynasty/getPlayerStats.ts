@@ -1,3 +1,5 @@
+import { Positions } from "src/store/sleeperAPI";
+
 type RushingStats = {
     Name: string;
     ATT: string;
@@ -47,13 +49,13 @@ type TeamStats = {
     "4th down efficiency": string;
     "4th down %": string;
     "Passing": string;
-    "Comp-Att": string; // Completions - Attempts
+    "Comp-Att": string;
     "Net Passing Yards": string;
     "Yards Per Pass Attempt": string;
     "Net Passing Yards Per Game": string;
     "Passing Touchdowns": string;
     "Interceptions": string;
-    "Sacks-Yards Lost": string; // Sacks - Yards Lost
+    "Sacks-Yards Lost": string;
     "Rushing": string;
     "Rushing Attempts": string;
     "Rushing Yards": string;
@@ -65,54 +67,71 @@ type TeamStats = {
     "Total Yards": string;
     "Yards Per Game": string;
     "Returns": string;
-    "Kickoffs: Total": string; // Kickoffs: Total
+    "Kickoffs: Total": string;
     "Average Kickoff Return Yards": string;
-    "Punt: Total": string; // Punt: Total
+    "Punt: Total": string;
     "Average Punt Return Yards": string;
-    "INT: Total": string; // INT: Total
+    "INT: Total": string;
     "Average Interception Yards": string;
     "Kicking": string;
     "Net Average Punt Yards": string;
-    "Punt: Total Yards": string; // Punt: Total Yards
-    "FG: Good-Attempts": string; // FG: Good-Attempts
+    "Punt: Total Yards": string;
+    "FG: Good-Attempts": string;
     "Touchback Percentage": string;
     "Penalties": string;
-    "Total-Yards": string; // Total-Yards
-    "Avg. Per Game (YDS)": string; // Avg. Per Game (YDS)
+    "Total-Yards": string;
+    "Avg. Per Game (YDS)": string;
     "Time of Possession": string;
     "Possession Time Seconds": string;
     "Miscellaneous": string;
-    "Fumbles-Lost": string; // Fumbles-Lost
+    "Fumbles-Lost": string;
     "Turnover Ratio": string;
+}
+
+export type PlayerStatsResponse = {
+    rushing_td: number;
+    reciving_td: number;
+    rushing_yds: number;
+    receiving_yds: number;
+    total_td: number;
+    total_yds: number;
+    rec_target_share_perc: number | undefined;
+    team_td_share_perc: number | null;
 }
 
 
 export type PlayerStatsProps = {
-    player_name: string; rushing_stats: RushingStats[]; receiving_stats: ReceivingStats[]; team_stats: TeamStats[];
+    player_name: string;
+    rushing_stats: RushingStats[];
+    receiving_stats: ReceivingStats[];
+    team_stats: TeamStats[];
+    position: Positions;
 }
 
-const getPlayerStats = ({ player_name, rushing_stats, receiving_stats, team_stats }: PlayerStatsProps) => {
+
+const getPlayerStats = ({ player_name, rushing_stats, receiving_stats, team_stats, position }: PlayerStatsProps) => {
     const player_rushing = rushing_stats.find(ply => ply.Name.includes(player_name));
     const player_receiving = receiving_stats.find(ply => ply.Name.includes(player_name));
-    const player_team = team_stats.find(team => player_name.includes(team.Team))
+    const player_team = team_stats.find(team => team.Team === 'WSH' ? player_name.includes('WAS') : player_name.includes(team.Team));
 
 
-    if (!player_team) {
-        return 'N/A';
+
+    if (!player_team || (!player_rushing && !player_receiving) || position === "QB") {
+        console.log(`${player_name} no data found`);
+        return null;
     }
 
     const team_attempts = +player_team["Comp-Att"].split('-')[1]
 
-    const player_data = {
-        name: player_name.replace(player_team.Team, ''),
+    const player_data: PlayerStatsResponse = {
         rushing_td: player_rushing ? +player_rushing.TD : 0,
         reciving_td: player_receiving ? +player_receiving.TD : 0,
         rushing_yds: player_rushing ? +player_rushing.YDS : 0,
         receiving_yds: player_receiving ? +player_receiving.YDS : 0,
         total_td: +(player_rushing?.TD ?? 0) + +(player_receiving?.TD ?? 0),
         total_yds: +(player_rushing?.YDS ?? 0) + +(player_receiving?.YDS ?? 0),
-        rec_target_share: player_receiving && +((+player_receiving.TGTS / +team_attempts * 100).toFixed(0)),
-        yac: player_receiving && +player_receiving.YAC
+        rec_target_share_perc: player_receiving && +((+player_receiving.TGTS / +team_attempts * 100).toFixed(0)),
+        team_td_share_perc: player_team ? +((((player_receiving ? +player_receiving.TD : 0) + (player_rushing ? +player_rushing.TD : 0)) / +player_team["Total Touchdowns"]) * 100).toFixed(0) : null,
     }
 
     return player_data;

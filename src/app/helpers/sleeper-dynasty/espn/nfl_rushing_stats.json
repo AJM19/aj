@@ -165,6 +165,21 @@
     "FD": "11"
   },
   {
+    "Name": "Devin SingletaryNYG",
+    "POS": "RB",
+    "GP": "4",
+    "ATT": "56",
+    "YDS": "221",
+    "AVG": "3.9",
+    "LNG": "43",
+    "BIG": "2",
+    "TD": "2",
+    "YDS/G": "55.3",
+    "FUM": "2",
+    "LST": "2",
+    "FD": "12"
+  },
+  {
     "Name": "Najee HarrisPIT",
     "POS": "RB",
     "GP": "3",
@@ -208,21 +223,6 @@
     "FUM": "0",
     "LST": "0",
     "FD": "11"
-  },
-  {
-    "Name": "Devin SingletaryNYG",
-    "POS": "RB",
-    "GP": "3",
-    "ATT": "42",
-    "YDS": "197",
-    "AVG": "4.7",
-    "LNG": "43",
-    "BIG": "2",
-    "TD": "2",
-    "YDS/G": "65.7",
-    "FUM": "2",
-    "LST": "2",
-    "FD": "9"
   },
   {
     "Name": "Bijan RobinsonATL",
@@ -510,6 +510,21 @@
     "FD": "6"
   },
   {
+    "Name": "Rico DowdleDAL",
+    "POS": "RB",
+    "GP": "4",
+    "ATT": "34",
+    "YDS": "134",
+    "AVG": "3.9",
+    "LNG": "10",
+    "BIG": "0",
+    "TD": "0",
+    "YDS/G": "33.5",
+    "FUM": "0",
+    "LST": "0",
+    "FD": "8"
+  },
+  {
     "Name": "Anthony RichardsonIND",
     "POS": "QB",
     "GP": "3",
@@ -718,21 +733,6 @@
     "FUM": "0",
     "LST": "0",
     "FD": "4"
-  },
-  {
-    "Name": "Rico DowdleDAL",
-    "POS": "RB",
-    "GP": "3",
-    "ATT": "23",
-    "YDS": "88",
-    "AVG": "3.8",
-    "LNG": "10",
-    "BIG": "0",
-    "TD": "0",
-    "YDS/G": "29.3",
-    "FUM": "0",
-    "LST": "0",
-    "FD": "5"
   },
   {
     "Name": "Will LevisTEN",
