@@ -2,6 +2,23 @@
   {
     "Name": "Malik NabersNYG",
     "POS": "WR",
+    "GP": "4",
+    "REC": "35",
+    "TGTS": "52",
+    "YDS": "386",
+    "AVG": "11.0",
+    "TD": "3",
+    "LNG": "39",
+    "BIG": "7",
+    "YDS/G": "96.5",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "156",
+    "FD": "19"
+  },
+  {
+    "Name": "Nico CollinsHOU",
+    "POS": "WR",
     "GP": "3",
     "REC": "18",
     "TGTS": "28",
@@ -17,7 +34,7 @@
     "FD": "16"
   },
   {
-    "Name": "Nico CollinsHOU",
+    "Name": "CeeDee LambDAL",
     "POS": "WR",
     "GP": "4",
     "REC": "20",
@@ -34,7 +51,7 @@
     "FD": "11"
   },
   {
-    "Name": "CeeDee LambDAL",
+    "Name": "Rashee RiceKC",
     "POS": "WR",
     "GP": "3",
     "REC": "24",
@@ -51,7 +68,7 @@
     "FD": "15"
   },
   {
-    "Name": "Rashee RiceKC",
+    "Name": "Jauan JenningsSF",
     "POS": "WR",
     "GP": "3",
     "REC": "18",
@@ -68,7 +85,7 @@
     "FD": "12"
   },
   {
-    "Name": "Jauan JenningsSF",
+    "Name": "Justin JeffersonMIN",
     "POS": "WR",
     "GP": "3",
     "REC": "14",
@@ -85,7 +102,7 @@
     "FD": "10"
   },
   {
-    "Name": "Justin JeffersonMIN",
+    "Name": "DK MetcalfSEA",
     "POS": "WR",
     "GP": "3",
     "REC": "17",
@@ -102,7 +119,7 @@
     "FD": "7"
   },
   {
-    "Name": "DK MetcalfSEA",
+    "Name": "Chris GodwinTB",
     "POS": "WR",
     "GP": "3",
     "REC": "21",
@@ -119,7 +136,7 @@
     "FD": "17"
   },
   {
-    "Name": "Chris GodwinTB",
+    "Name": "Dallas GoedertPHI",
     "POS": "TE",
     "GP": "3",
     "REC": "17",
@@ -136,7 +153,7 @@
     "FD": "7"
   },
   {
-    "Name": "Dallas GoedertPHI",
+    "Name": "DeVonta SmithPHI",
     "POS": "WR",
     "GP": "3",
     "REC": "21",
@@ -153,7 +170,7 @@
     "FD": "13"
   },
   {
-    "Name": "DeVonta SmithPHI",
+    "Name": "Alec PierceIND",
     "POS": "WR",
     "GP": "3",
     "REC": "9",
@@ -170,7 +187,7 @@
     "FD": "7"
   },
   {
-    "Name": "Alec PierceIND",
+    "Name": "Ja'Marr ChaseCIN",
     "POS": "WR",
     "GP": "3",
     "REC": "16",
@@ -187,7 +204,7 @@
     "FD": "9"
   },
   {
-    "Name": "Ja'Marr ChaseCIN",
+    "Name": "Davante AdamsLV",
     "POS": "WR",
     "GP": "3",
     "REC": "18",
@@ -204,7 +221,7 @@
     "FD": "10"
   },
   {
-    "Name": "Davante AdamsLV",
+    "Name": "Jameson WilliamsDET",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -221,7 +238,7 @@
     "FD": "6"
   },
   {
-    "Name": "Jameson WilliamsDET",
+    "Name": "Amon-Ra St. BrownDET",
     "POS": "WR",
     "GP": "3",
     "REC": "21",
@@ -238,7 +255,7 @@
     "FD": "12"
   },
   {
-    "Name": "Amon-Ra St. BrownDET",
+    "Name": "Marvin HarrisonARI",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -255,7 +272,7 @@
     "FD": "9"
   },
   {
-    "Name": "Marvin HarrisonARI",
+    "Name": "Jayden ReedGB",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -272,7 +289,7 @@
     "FD": "4"
   },
   {
-    "Name": "Jayden ReedGB",
+    "Name": "Brock BowersLV",
     "POS": "TE",
     "GP": "3",
     "REC": "18",
@@ -289,7 +306,7 @@
     "FD": "10"
   },
   {
-    "Name": "Brock BowersLV",
+    "Name": "Tyreek HillMIA",
     "POS": "WR",
     "GP": "3",
     "REC": "13",
@@ -306,7 +323,7 @@
     "FD": "8"
   },
   {
-    "Name": "Tyreek HillMIA",
+    "Name": "Wan'Dale RobinsonNYG",
     "POS": "WR",
     "GP": "4",
     "REC": "26",
@@ -323,7 +340,7 @@
     "FD": "10"
   },
   {
-    "Name": "Wan'Dale RobinsonNYG",
+    "Name": "Brian ThomasJAX",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -340,7 +357,7 @@
     "FD": "8"
   },
   {
-    "Name": "Brian ThomasJAX",
+    "Name": "Chris OlaveNO",
     "POS": "WR",
     "GP": "3",
     "REC": "12",
@@ -357,7 +374,7 @@
     "FD": "10"
   },
   {
-    "Name": "Chris OlaveNO",
+    "Name": "Jaylen WaddleMIA",
     "POS": "WR",
     "GP": "3",
     "REC": "13",
@@ -374,7 +391,7 @@
     "FD": "7"
   },
   {
-    "Name": "Jaylen WaddleMIA",
+    "Name": "Jaxon Smith-NjigbaSEA",
     "POS": "WR",
     "GP": "3",
     "REC": "17",
@@ -391,7 +408,7 @@
     "FD": "9"
   },
   {
-    "Name": "Jaxon Smith-NjigbaSEA",
+    "Name": "Josh ReynoldsDEN",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -408,7 +425,7 @@
     "FD": "7"
   },
   {
-    "Name": "Josh ReynoldsDEN",
+    "Name": "De'Von AchaneMIA",
     "POS": "RB",
     "GP": "3",
     "REC": "17",
@@ -425,7 +442,7 @@
     "FD": "8"
   },
   {
-    "Name": "De'Von AchaneMIA",
+    "Name": "George PickensPIT",
     "POS": "WR",
     "GP": "3",
     "REC": "13",
@@ -442,7 +459,7 @@
     "FD": "9"
   },
   {
-    "Name": "George PickensPIT",
+    "Name": "Rashid ShaheedNO",
     "POS": "WR",
     "GP": "3",
     "REC": "7",
@@ -459,7 +476,7 @@
     "FD": "5"
   },
   {
-    "Name": "Rashid ShaheedNO",
+    "Name": "Darnell MooneyATL",
     "POS": "WR",
     "GP": "3",
     "REC": "12",
@@ -476,7 +493,7 @@
     "FD": "7"
   },
   {
-    "Name": "Darnell MooneyATL",
+    "Name": "Khalil ShakirBUF",
     "POS": "WR",
     "GP": "3",
     "REC": "14",
@@ -493,7 +510,7 @@
     "FD": "10"
   },
   {
-    "Name": "Khalil ShakirBUF",
+    "Name": "DJ MooreCHI",
     "POS": "WR",
     "GP": "3",
     "REC": "19",
@@ -510,7 +527,7 @@
     "FD": "8"
   },
   {
-    "Name": "DJ MooreCHI",
+    "Name": "Stefon DiggsHOU",
     "POS": "WR",
     "GP": "3",
     "REC": "20",
@@ -527,7 +544,7 @@
     "FD": "10"
   },
   {
-    "Name": "Stefon DiggsHOU",
+    "Name": "Deebo Samuel Sr.SF",
     "POS": "WR",
     "GP": "2",
     "REC": "13",
@@ -544,7 +561,7 @@
     "FD": "9"
   },
   {
-    "Name": "Deebo Samuel Sr.SF",
+    "Name": "Jalen TolbertDAL",
     "POS": "WR",
     "GP": "4",
     "REC": "13",
@@ -561,7 +578,7 @@
     "FD": "8"
   },
   {
-    "Name": "Jalen TolbertDAL",
+    "Name": "Jake FergusonDAL",
     "POS": "TE",
     "GP": "3",
     "REC": "16",
@@ -578,7 +595,7 @@
     "FD": "6"
   },
   {
-    "Name": "Jake FergusonDAL",
+    "Name": "Mike GesickiCIN",
     "POS": "TE",
     "GP": "3",
     "REC": "14",
@@ -595,7 +612,7 @@
     "FD": "7"
   },
   {
-    "Name": "Mike GesickiCIN",
+    "Name": "Diontae JohnsonCAR",
     "POS": "WR",
     "GP": "3",
     "REC": "13",
@@ -612,7 +629,7 @@
     "FD": "9"
   },
   {
-    "Name": "Diontae JohnsonCAR",
+    "Name": "Rome OdunzeCHI",
     "POS": "WR",
     "GP": "3",
     "REC": "9",
@@ -629,7 +646,7 @@
     "FD": "7"
   },
   {
-    "Name": "Rome OdunzeCHI",
+    "Name": "Jakobi MeyersLV",
     "POS": "WR",
     "GP": "3",
     "REC": "14",
@@ -646,7 +663,7 @@
     "FD": "8"
   },
   {
-    "Name": "Jakobi MeyersLV",
+    "Name": "Garrett WilsonNYJ",
     "POS": "WR",
     "GP": "3",
     "REC": "15",
@@ -663,7 +680,7 @@
     "FD": "9"
   },
   {
-    "Name": "Garrett WilsonNYJ",
+    "Name": "Allen LazardNYJ",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -680,7 +697,7 @@
     "FD": "10"
   },
   {
-    "Name": "Allen LazardNYJ",
+    "Name": "Zay FlowersBAL",
     "POS": "WR",
     "GP": "3",
     "REC": "16",
@@ -697,7 +714,7 @@
     "FD": "6"
   },
   {
-    "Name": "Zay FlowersBAL",
+    "Name": "Cooper KuppLAR",
     "POS": "WR",
     "GP": "2",
     "REC": "18",
@@ -714,7 +731,7 @@
     "FD": "7"
   },
   {
-    "Name": "Cooper KuppLAR",
+    "Name": "Tutu AtwellLAR",
     "POS": "WR",
     "GP": "3",
     "REC": "7",
@@ -731,7 +748,7 @@
     "FD": "6"
   },
   {
-    "Name": "Tutu AtwellLAR",
+    "Name": "Isaiah LikelyBAL",
     "POS": "TE",
     "GP": "3",
     "REC": "12",
@@ -748,7 +765,7 @@
     "FD": "7"
   },
   {
-    "Name": "Isaiah LikelyBAL",
+    "Name": "Terry McLaurinWSH",
     "POS": "WR",
     "GP": "3",
     "REC": "12",
@@ -765,7 +782,7 @@
     "FD": "6"
   },
   {
-    "Name": "Terry McLaurinWSH",
+    "Name": "Tyler LockettSEA",
     "POS": "WR",
     "GP": "3",
     "REC": "13",
@@ -782,7 +799,7 @@
     "FD": "10"
   },
   {
-    "Name": "Tyler LockettSEA",
+    "Name": "Hunter HenryNE",
     "POS": "TE",
     "GP": "3",
     "REC": "12",
@@ -799,7 +816,7 @@
     "FD": "9"
   },
   {
-    "Name": "Hunter HenryNE",
+    "Name": "Calvin RidleyTEN",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -816,7 +833,7 @@
     "FD": "5"
   },
   {
-    "Name": "Calvin RidleyTEN",
+    "Name": "Drake LondonATL",
     "POS": "WR",
     "GP": "3",
     "REC": "14",
@@ -833,7 +850,7 @@
     "FD": "7"
   },
   {
-    "Name": "Drake LondonATL",
+    "Name": "Quentin JohnstonLAC",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -850,7 +867,7 @@
     "FD": "6"
   },
   {
-    "Name": "Quentin JohnstonLAC",
+    "Name": "Alvin KamaraNO",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -867,7 +884,7 @@
     "FD": "2"
   },
   {
-    "Name": "Alvin KamaraNO",
+    "Name": "Courtland SuttonDEN",
     "POS": "WR",
     "GP": "3",
     "REC": "12",
@@ -884,7 +901,7 @@
     "FD": "8"
   },
   {
-    "Name": "Courtland SuttonDEN",
+    "Name": "Tre TuckerLV",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -901,7 +918,7 @@
     "FD": "5"
   },
   {
-    "Name": "Tre TuckerLV",
+    "Name": "Romeo DoubsGB",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -918,7 +935,7 @@
     "FD": "6"
   },
   {
-    "Name": "Romeo DoubsGB",
+    "Name": "Zach ErtzWSH",
     "POS": "TE",
     "GP": "3",
     "REC": "12",
@@ -935,7 +952,7 @@
     "FD": "6"
   },
   {
-    "Name": "Zach ErtzWSH",
+    "Name": "Cole KmetCHI",
     "POS": "TE",
     "GP": "3",
     "REC": "15",
@@ -952,7 +969,7 @@
     "FD": "8"
   },
   {
-    "Name": "Cole KmetCHI",
+    "Name": "Jerry JeudyCLE",
     "POS": "WR",
     "GP": "3",
     "REC": "12",
@@ -969,7 +986,7 @@
     "FD": "6"
   },
   {
-    "Name": "Jerry JeudyCLE",
+    "Name": "Demarcus RobinsonLAR",
     "POS": "WR",
     "GP": "3",
     "REC": "7",
@@ -986,7 +1003,7 @@
     "FD": "5"
   },
   {
-    "Name": "Demarcus RobinsonLAR",
+    "Name": "Gabe DavisJAX",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -1003,7 +1020,7 @@
     "FD": "6"
   },
   {
-    "Name": "Gabe DavisJAX",
+    "Name": "Darius SlaytonNYG",
     "POS": "WR",
     "GP": "4",
     "REC": "10",
@@ -1020,7 +1037,7 @@
     "FD": "8"
   },
   {
-    "Name": "Darius SlaytonNYG",
+    "Name": "Trey McBrideARI",
     "POS": "TE",
     "GP": "3",
     "REC": "14",
@@ -1037,7 +1054,7 @@
     "FD": "4"
   },
   {
-    "Name": "Trey McBrideARI",
+    "Name": "Austin EkelerWSH",
     "POS": "RB",
     "GP": "3",
     "REC": "9",
@@ -1054,7 +1071,7 @@
     "FD": "6"
   },
   {
-    "Name": "Austin EkelerWSH",
+    "Name": "Rashod BatemanBAL",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -1071,7 +1088,7 @@
     "FD": "6"
   },
   {
-    "Name": "Rashod BatemanBAL",
+    "Name": "Mike EvansTB",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -1088,7 +1105,7 @@
     "FD": "7"
   },
   {
-    "Name": "Mike EvansTB",
+    "Name": "Breece HallNYJ",
     "POS": "RB",
     "GP": "3",
     "REC": "16",
@@ -1105,7 +1122,7 @@
     "FD": "4"
   },
   {
-    "Name": "Breece HallNYJ",
+    "Name": "Tyler JohnsonLAR",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -1122,7 +1139,7 @@
     "FD": "3"
   },
   {
-    "Name": "Tyler JohnsonLAR",
+    "Name": "A.J. BrownPHI",
     "POS": "WR",
     "GP": "1",
     "REC": "5",
@@ -1139,7 +1156,7 @@
     "FD": "5"
   },
   {
-    "Name": "A.J. BrownPHI",
+    "Name": "Brandon AiyukSF",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -1156,7 +1173,7 @@
     "FD": "8"
   },
   {
-    "Name": "Brandon AiyukSF",
+    "Name": "George KittleSF",
     "POS": "TE",
     "GP": "2",
     "REC": "11",
@@ -1173,7 +1190,7 @@
     "FD": "5"
   },
   {
-    "Name": "George KittleSF",
+    "Name": "Amari CooperCLE",
     "POS": "WR",
     "GP": "3",
     "REC": "12",
@@ -1190,7 +1207,7 @@
     "FD": "6"
   },
   {
-    "Name": "Amari CooperCLE",
+    "Name": "Ray-Ray McCloudATL",
     "POS": "WR",
     "GP": "3",
     "REC": "9",
@@ -1207,7 +1224,7 @@
     "FD": "6"
   },
   {
-    "Name": "Ray-Ray McCloudATL",
+    "Name": "Adam ThielenCAR",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -1224,7 +1241,7 @@
     "FD": "5"
   },
   {
-    "Name": "Adam ThielenCAR",
+    "Name": "Tyler ConklinNYJ",
     "POS": "TE",
     "GP": "3",
     "REC": "7",
@@ -1241,7 +1258,7 @@
     "FD": "5"
   },
   {
-    "Name": "Tyler ConklinNYJ",
+    "Name": "Ladd McConkeyLAC",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -1258,7 +1275,7 @@
     "FD": "7"
   },
   {
-    "Name": "Ladd McConkeyLAC",
+    "Name": "Christian KirkJAX",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -1275,7 +1292,7 @@
     "FD": "6"
   },
   {
-    "Name": "Christian KirkJAX",
+    "Name": "Calvin AustinPIT",
     "POS": "WR",
     "GP": "3",
     "REC": "6",
@@ -1292,7 +1309,7 @@
     "FD": "3"
   },
   {
-    "Name": "Calvin AustinPIT",
+    "Name": "Jalen NailorMIN",
     "POS": "WR",
     "GP": "3",
     "REC": "7",
@@ -1309,7 +1326,7 @@
     "FD": "7"
   },
   {
-    "Name": "Jalen NailorMIN",
+    "Name": "Kyle PittsATL",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -1326,7 +1343,7 @@
     "FD": "4"
   },
   {
-    "Name": "Kyle PittsATL",
+    "Name": "Michael WilsonARI",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -1343,7 +1360,7 @@
     "FD": "5"
   },
   {
-    "Name": "Michael WilsonARI",
+    "Name": "Pat FreiermuthPIT",
     "POS": "TE",
     "GP": "3",
     "REC": "12",
@@ -1360,7 +1377,7 @@
     "FD": "6"
   },
   {
-    "Name": "Pat FreiermuthPIT",
+    "Name": "Tank DellHOU",
     "POS": "WR",
     "GP": "3",
     "REC": "9",
@@ -1377,7 +1394,7 @@
     "FD": "5"
   },
   {
-    "Name": "Tank DellHOU",
+    "Name": "Rachaad WhiteTB",
     "POS": "RB",
     "GP": "3",
     "REC": "12",
@@ -1394,7 +1411,7 @@
     "FD": "2"
   },
   {
-    "Name": "Rachaad WhiteTB",
+    "Name": "Aaron JonesMIN",
     "POS": "RB",
     "GP": "3",
     "REC": "12",
@@ -1411,7 +1428,7 @@
     "FD": "3"
   },
   {
-    "Name": "Aaron JonesMIN",
+    "Name": "James CookBUF",
     "POS": "RB",
     "GP": "3",
     "REC": "8",
@@ -1428,7 +1445,7 @@
     "FD": "5"
   },
   {
-    "Name": "James CookBUF",
+    "Name": "Sam LaPortaDET",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -1445,7 +1462,7 @@
     "FD": "5"
   },
   {
-    "Name": "Sam LaPortaDET",
+    "Name": "Greg DortchARI",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -1462,7 +1479,7 @@
     "FD": "6"
   },
   {
-    "Name": "Greg DortchARI",
+    "Name": "Brandin CooksDAL",
     "POS": "WR",
     "GP": "4",
     "REC": "9",
@@ -1479,7 +1496,7 @@
     "FD": "6"
   },
   {
-    "Name": "Brandin CooksDAL",
+    "Name": "DeAndre HopkinsTEN",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -1496,7 +1513,7 @@
     "FD": "5"
   },
   {
-    "Name": "DeAndre HopkinsTEN",
+    "Name": "Bijan RobinsonATL",
     "POS": "RB",
     "GP": "3",
     "REC": "11",
@@ -1513,7 +1530,7 @@
     "FD": "5"
   },
   {
-    "Name": "Bijan RobinsonATL",
+    "Name": "Michael PittmanIND",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -1530,7 +1547,7 @@
     "FD": "3"
   },
   {
-    "Name": "Michael PittmanIND",
+    "Name": "Lil'Jordan HumphreyDEN",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -1547,7 +1564,7 @@
     "FD": "3"
   },
   {
-    "Name": "Lil'Jordan HumphreyDEN",
+    "Name": "Noah BrownWSH",
     "POS": "WR",
     "GP": "2",
     "REC": "6",
@@ -1564,7 +1581,7 @@
     "FD": "4"
   },
   {
-    "Name": "Noah BrownWSH",
+    "Name": "Noah FantSEA",
     "POS": "TE",
     "GP": "3",
     "REC": "9",
@@ -1581,7 +1598,7 @@
     "FD": "4"
   },
   {
-    "Name": "Noah FantSEA",
+    "Name": "Andrei IosivasCIN",
     "POS": "WR",
     "GP": "3",
     "REC": "10",
@@ -1598,7 +1615,7 @@
     "FD": "8"
   },
   {
-    "Name": "Andrei IosivasCIN",
+    "Name": "Dalton KincaidBUF",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -1615,7 +1632,7 @@
     "FD": "3"
   },
   {
-    "Name": "Dalton KincaidBUF",
+    "Name": "Justice HillBAL",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -1632,7 +1649,7 @@
     "FD": "4"
   },
   {
-    "Name": "Justice HillBAL",
+    "Name": "DeMario DouglasNE",
     "POS": "WR",
     "GP": "3",
     "REC": "9",
@@ -1649,7 +1666,7 @@
     "FD": "4"
   },
   {
-    "Name": "DeMario DouglasNE",
+    "Name": "Xavier WorthyKC",
     "POS": "WR",
     "GP": "3",
     "REC": "6",
@@ -1666,7 +1683,7 @@
     "FD": "4"
   },
   {
-    "Name": "Xavier WorthyKC",
+    "Name": "Alexander MattisonLV",
     "POS": "RB",
     "GP": "3",
     "REC": "7",
@@ -1683,7 +1700,7 @@
     "FD": "4"
   },
   {
-    "Name": "Alexander MattisonLV",
+    "Name": "Colby ParkinsonLAR",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -1700,7 +1717,7 @@
     "FD": "5"
   },
   {
-    "Name": "Colby ParkinsonLAR",
+    "Name": "Christian WatsonGB",
     "POS": "WR",
     "GP": "3",
     "REC": "5",
@@ -1717,7 +1734,7 @@
     "FD": "3"
   },
   {
-    "Name": "Christian WatsonGB",
+    "Name": "Jonnu SmithMIA",
     "POS": "TE",
     "GP": "3",
     "REC": "9",
@@ -1734,7 +1751,7 @@
     "FD": "3"
   },
   {
-    "Name": "Jonnu SmithMIA",
+    "Name": "Tyler BoydTEN",
     "POS": "WR",
     "GP": "3",
     "REC": "8",
@@ -1751,7 +1768,7 @@
     "FD": "5"
   },
   {
-    "Name": "Tyler BoydTEN",
+    "Name": "Javonte WilliamsDEN",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -1768,7 +1785,7 @@
     "FD": "2"
   },
   {
-    "Name": "Javonte WilliamsDEN",
+    "Name": "Xavier LegetteCAR",
     "POS": "WR",
     "GP": "3",
     "REC": "6",
@@ -1785,7 +1802,7 @@
     "FD": "3"
   },
   {
-    "Name": "Xavier LegetteCAR",
+    "Name": "Brenton StrangeJAX",
     "POS": "TE",
     "GP": "3",
     "REC": "5",
@@ -1802,7 +1819,7 @@
     "FD": "3"
   },
   {
-    "Name": "Brenton StrangeJAX",
+    "Name": "Tucker KraftGB",
     "POS": "TE",
     "GP": "3",
     "REC": "6",
@@ -1819,7 +1836,7 @@
     "FD": "3"
   },
   {
-    "Name": "Tucker KraftGB",
+    "Name": "Zach CharbonnetSEA",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -1836,7 +1853,7 @@
     "FD": "2"
   },
   {
-    "Name": "Zach CharbonnetSEA",
+    "Name": "Tyjae SpearsTEN",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -1853,7 +1870,7 @@
     "FD": "3"
   },
   {
-    "Name": "Tyjae SpearsTEN",
+    "Name": "Jahmyr GibbsDET",
     "POS": "RB",
     "GP": "3",
     "REC": "11",
@@ -1870,7 +1887,7 @@
     "FD": "5"
   },
   {
-    "Name": "Jahmyr GibbsDET",
+    "Name": "Nelson AgholorBAL",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -1887,7 +1904,7 @@
     "FD": "2"
   },
   {
-    "Name": "Nelson AgholorBAL",
+    "Name": "Keon ColemanBUF",
     "POS": "WR",
     "GP": "3",
     "REC": "5",
@@ -1904,7 +1921,7 @@
     "FD": "3"
   },
   {
-    "Name": "Keon ColemanBUF",
+    "Name": "Rico DowdleDAL",
     "POS": "RB",
     "GP": "4",
     "REC": "9",
@@ -1921,7 +1938,7 @@
     "FD": "2"
   },
   {
-    "Name": "Rico DowdleDAL",
+    "Name": "Hunter LuepkeDAL",
     "POS": "RB",
     "GP": "4",
     "REC": "6",
@@ -1938,7 +1955,7 @@
     "FD": "4"
   },
   {
-    "Name": "Hunter LuepkeDAL",
+    "Name": "Devin SingletaryNYG",
     "POS": "RB",
     "GP": "4",
     "REC": "10",
@@ -1955,7 +1972,7 @@
     "FD": "3"
   },
   {
-    "Name": "Devin SingletaryNYG",
+    "Name": "Elijah MooreCLE",
     "POS": "WR",
     "GP": "3",
     "REC": "11",
@@ -1972,7 +1989,7 @@
     "FD": "3"
   },
   {
-    "Name": "Elijah MooreCLE",
+    "Name": "Travis KelceKC",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -1989,7 +2006,7 @@
     "FD": "4"
   },
   {
-    "Name": "Travis KelceKC",
+    "Name": "Zack MossCIN",
     "POS": "RB",
     "GP": "3",
     "REC": "8",
@@ -2006,7 +2023,7 @@
     "FD": "4"
   },
   {
-    "Name": "Zack MossCIN",
+    "Name": "Eric SaubertSF",
     "POS": "TE",
     "GP": "3",
     "REC": "4",
@@ -2023,7 +2040,7 @@
     "FD": "2"
   },
   {
-    "Name": "Eric SaubertSF",
+    "Name": "Tony PollardTEN",
     "POS": "RB",
     "GP": "3",
     "REC": "11",
@@ -2040,7 +2057,7 @@
     "FD": "2"
   },
   {
-    "Name": "Tony PollardTEN",
+    "Name": "Ashton DulinIND",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -2057,7 +2074,7 @@
     "FD": "2"
   },
   {
-    "Name": "Ashton DulinIND",
+    "Name": "Chuba HubbardCAR",
     "POS": "RB",
     "GP": "3",
     "REC": "9",
@@ -2074,7 +2091,7 @@
     "FD": "4"
   },
   {
-    "Name": "Chuba HubbardCAR",
+    "Name": "Jordan AkinsCLE",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -2091,7 +2108,7 @@
     "FD": "2"
   },
   {
-    "Name": "Jordan AkinsCLE",
+    "Name": "Kyle JuszczykSF",
     "POS": "FB",
     "GP": "3",
     "REC": "6",
@@ -2108,7 +2125,7 @@
     "FD": "2"
   },
   {
-    "Name": "Kyle JuszczykSF",
+    "Name": "Mark AndrewsBAL",
     "POS": "TE",
     "GP": "3",
     "REC": "6",
@@ -2125,7 +2142,7 @@
     "FD": "5"
   },
   {
-    "Name": "Mark AndrewsBAL",
+    "Name": "Luke McCaffreyWSH",
     "POS": "WR",
     "GP": "3",
     "REC": "6",
@@ -2142,7 +2159,7 @@
     "FD": "3"
   },
   {
-    "Name": "Luke McCaffreyWSH",
+    "Name": "Will DisslyLAC",
     "POS": "TE",
     "GP": "3",
     "REC": "7",
@@ -2159,7 +2176,7 @@
     "FD": "4"
   },
   {
-    "Name": "Will DisslyLAC",
+    "Name": "Ty JohnsonBUF",
     "POS": "RB",
     "GP": "3",
     "REC": "4",
@@ -2176,7 +2193,7 @@
     "FD": "3"
   },
   {
-    "Name": "Ty JohnsonBUF",
+    "Name": "DeAndre CarterCHI",
     "POS": "WR",
     "GP": "3",
     "REC": "7",
@@ -2193,7 +2210,7 @@
     "FD": "3"
   },
   {
-    "Name": "DeAndre CarterCHI",
+    "Name": "Justin WatsonKC",
     "POS": "WR",
     "GP": "3",
     "REC": "4",
@@ -2210,7 +2227,7 @@
     "FD": "3"
   },
   {
-    "Name": "Justin WatsonKC",
+    "Name": "Jonathan MingoCAR",
     "POS": "WR",
     "GP": "3",
     "REC": "6",
@@ -2227,7 +2244,7 @@
     "FD": "2"
   },
   {
-    "Name": "Jonathan MingoCAR",
+    "Name": "Jalen McMillanTB",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -2244,7 +2261,7 @@
     "FD": "3"
   },
   {
-    "Name": "Jalen McMillanTB",
+    "Name": "Jerome FordCLE",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -2261,7 +2278,7 @@
     "FD": "2"
   },
   {
-    "Name": "Jerome FordCLE",
+    "Name": "Kyren WilliamsLAR",
     "POS": "RB",
     "GP": "3",
     "REC": "9",
@@ -2278,7 +2295,7 @@
     "FD": "2"
   },
   {
-    "Name": "Kyren WilliamsLAR",
+    "Name": "Jonathan TaylorIND",
     "POS": "RB",
     "GP": "3",
     "REC": "3",
@@ -2295,7 +2312,7 @@
     "FD": "3"
   },
   {
-    "Name": "Jonathan TaylorIND",
+    "Name": "Brian RobinsonWSH",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -2312,7 +2329,7 @@
     "FD": "1"
   },
   {
-    "Name": "Brian RobinsonWSH",
+    "Name": "Josh WhyleTEN",
     "POS": "TE",
     "GP": "3",
     "REC": "6",
@@ -2329,7 +2346,7 @@
     "FD": "4"
   },
   {
-    "Name": "Josh WhyleTEN",
+    "Name": "Austin HooperNE",
     "POS": "TE",
     "GP": "3",
     "REC": "4",
@@ -2346,7 +2363,7 @@
     "FD": "3"
   },
   {
-    "Name": "Austin HooperNE",
+    "Name": "KaVontae TurpinDAL",
     "POS": "WR",
     "GP": "4",
     "REC": "5",
@@ -2363,7 +2380,7 @@
     "FD": "3"
   },
   {
-    "Name": "KaVontae TurpinDAL",
+    "Name": "David MontgomeryDET",
     "POS": "RB",
     "GP": "3",
     "REC": "8",
@@ -2380,7 +2397,7 @@
     "FD": "1"
   },
   {
-    "Name": "David MontgomeryDET",
+    "Name": "Isiah PachecoKC",
     "POS": "RB",
     "GP": "2",
     "REC": "7",
@@ -2397,7 +2414,7 @@
     "FD": "3"
   },
   {
-    "Name": "Isiah PachecoKC",
+    "Name": "Erick AllCIN",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -2414,7 +2431,7 @@
     "FD": "3"
   },
   {
-    "Name": "Erick AllCIN",
+    "Name": "Mike WilliamsNYJ",
     "POS": "WR",
     "GP": "3",
     "REC": "4",
@@ -2431,7 +2448,7 @@
     "FD": "3"
   },
   {
-    "Name": "Mike WilliamsNYJ",
+    "Name": "Hayden HurstLAC",
     "POS": "TE",
     "GP": "3",
     "REC": "5",
@@ -2448,7 +2465,7 @@
     "FD": "1"
   },
   {
-    "Name": "Hayden HurstLAC",
+    "Name": "Saquon BarkleyPHI",
     "POS": "RB",
     "GP": "3",
     "REC": "10",
@@ -2465,7 +2482,7 @@
     "FD": "4"
   },
   {
-    "Name": "Saquon BarkleyPHI",
+    "Name": "Cade OttonTB",
     "POS": "TE",
     "GP": "3",
     "REC": "8",
@@ -2482,7 +2499,7 @@
     "FD": "4"
   },
   {
-    "Name": "Cade OttonTB",
+    "Name": "Tommy TrembleCAR",
     "POS": "TE",
     "GP": "2",
     "REC": "6",
@@ -2499,7 +2516,7 @@
     "FD": "2"
   },
   {
-    "Name": "Tommy TrembleCAR",
+    "Name": "Jalen BrooksDAL",
     "POS": "WR",
     "GP": "4",
     "REC": "3",
@@ -2516,7 +2533,7 @@
     "FD": "3"
   },
   {
-    "Name": "Jalen BrooksDAL",
+    "Name": "Dare OgunbowaleHOU",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -2533,7 +2550,7 @@
     "FD": "2"
   },
   {
-    "Name": "Dare OgunbowaleHOU",
+    "Name": "Noah GrayKC",
     "POS": "TE",
     "GP": "3",
     "REC": "4",
@@ -2550,7 +2567,7 @@
     "FD": "3"
   },
   {
-    "Name": "Noah GrayKC",
+    "Name": "Jordan WhittingtonLAR",
     "POS": "WR",
     "GP": "3",
     "REC": "5",
@@ -2567,7 +2584,7 @@
     "FD": "3"
   },
   {
-    "Name": "Jordan WhittingtonLAR",
+    "Name": "Kylen GransonIND",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -2584,7 +2601,7 @@
     "FD": "1"
   },
   {
-    "Name": "Kylen GransonIND",
+    "Name": "Dalton SchultzHOU",
     "POS": "TE",
     "GP": "3",
     "REC": "7",
@@ -2601,7 +2618,7 @@
     "FD": "2"
   },
   {
-    "Name": "Dalton SchultzHOU",
+    "Name": "Luke SchoonmakerDAL",
     "POS": "TE",
     "GP": "4",
     "REC": "7",
@@ -2618,7 +2635,7 @@
     "FD": "3"
   },
   {
-    "Name": "Luke SchoonmakerDAL",
+    "Name": "Jermaine BurtonCIN",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -2635,7 +2652,7 @@
     "FD": "1"
   },
   {
-    "Name": "Jermaine BurtonCIN",
+    "Name": "D'Andre SwiftCHI",
     "POS": "RB",
     "GP": "3",
     "REC": "6",
@@ -2652,7 +2669,7 @@
     "FD": "1"
   },
   {
-    "Name": "D'Andre SwiftCHI",
+    "Name": "Chig OkonkwoTEN",
     "POS": "TE",
     "GP": "3",
     "REC": "7",
@@ -2669,7 +2686,7 @@
     "FD": "1"
   },
   {
-    "Name": "Chig OkonkwoTEN",
+    "Name": "Foster MoreauNO",
     "POS": "TE",
     "GP": "3",
     "REC": "5",
@@ -2686,7 +2703,7 @@
     "FD": "3"
   },
   {
-    "Name": "Foster MoreauNO",
+    "Name": "Braelon AllenNYJ",
     "POS": "RB",
     "GP": "3",
     "REC": "6",
@@ -2703,7 +2720,7 @@
     "FD": "2"
   },
   {
-    "Name": "Braelon AllenNYJ",
+    "Name": "Joe MixonHOU",
     "POS": "RB",
     "GP": "2",
     "REC": "6",
@@ -2720,7 +2737,7 @@
     "FD": "2"
   },
   {
-    "Name": "Joe MixonHOU",
+    "Name": "David NjokuCLE",
     "POS": "TE",
     "GP": "1",
     "REC": "4",
@@ -2737,7 +2754,7 @@
     "FD": "1"
   },
   {
-    "Name": "David NjokuCLE",
+    "Name": "James ConnerARI",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -2754,7 +2771,7 @@
     "FD": "1"
   },
   {
-    "Name": "James ConnerARI",
+    "Name": "Mack HollinsBUF",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -2771,7 +2788,7 @@
     "FD": "3"
   },
   {
-    "Name": "Mack HollinsBUF",
+    "Name": "Tyrone TracyNYG",
     "POS": "RB",
     "GP": "4",
     "REC": "4",
@@ -2788,7 +2805,7 @@
     "FD": "1"
   },
   {
-    "Name": "Tyrone TracyNYG",
+    "Name": "Elijah HigginsARI",
     "POS": "TE",
     "GP": "3",
     "REC": "4",
@@ -2805,7 +2822,7 @@
     "FD": "3"
   },
   {
-    "Name": "Elijah HigginsARI",
+    "Name": "Curtis SamuelBUF",
     "POS": "WR",
     "GP": "3",
     "REC": "6",
@@ -2822,7 +2839,7 @@
     "FD": "1"
   },
   {
-    "Name": "Curtis SamuelBUF",
+    "Name": "Tee HigginsCIN",
     "POS": "WR",
     "GP": "1",
     "REC": "3",
@@ -2839,7 +2856,7 @@
     "FD": "2"
   },
   {
-    "Name": "Tee HigginsCIN",
+    "Name": "Devaughn VeleDEN",
     "POS": "WR",
     "GP": "1",
     "REC": "8",
@@ -2856,7 +2873,7 @@
     "FD": "1"
   },
   {
-    "Name": "Devaughn VeleDEN",
+    "Name": "Travis EtienneJAX",
     "POS": "RB",
     "GP": "3",
     "REC": "9",
@@ -2873,7 +2890,7 @@
     "FD": "2"
   },
   {
-    "Name": "Travis EtienneJAX",
+    "Name": "Theo JohnsonNYG",
     "POS": "TE",
     "GP": "4",
     "REC": "3",
@@ -2890,7 +2907,7 @@
     "FD": "2"
   },
   {
-    "Name": "Theo JohnsonNYG",
+    "Name": "Emanuel WilsonGB",
     "POS": "RB",
     "GP": "3",
     "REC": "4",
@@ -2907,7 +2924,7 @@
     "FD": "2"
   },
   {
-    "Name": "Emanuel WilsonGB",
+    "Name": "Ezekiel ElliottDAL",
     "POS": "RB",
     "GP": "4",
     "REC": "6",
@@ -2924,7 +2941,7 @@
     "FD": "2"
   },
   {
-    "Name": "Ezekiel ElliottDAL",
+    "Name": "Brock WrightDET",
     "POS": "TE",
     "GP": "3",
     "REC": "5",
@@ -2941,7 +2958,7 @@
     "FD": "2"
   },
   {
-    "Name": "Brock WrightDET",
+    "Name": "Derrick HenryBAL",
     "POS": "RB",
     "GP": "3",
     "REC": "2",
@@ -2958,7 +2975,7 @@
     "FD": "2"
   },
   {
-    "Name": "Derrick HenryBAL",
+    "Name": "Puka NacuaLAR",
     "POS": "WR",
     "GP": "1",
     "REC": "4",
@@ -2975,7 +2992,7 @@
     "FD": "1"
   },
   {
-    "Name": "Puka NacuaLAR",
+    "Name": "Jordan AddisonMIN",
     "POS": "WR",
     "GP": "1",
     "REC": "3",
@@ -2992,7 +3009,7 @@
     "FD": "2"
   },
   {
-    "Name": "Jordan AddisonMIN",
+    "Name": "Britain CoveyPHI",
     "POS": "WR",
     "GP": "3",
     "REC": "7",
@@ -3009,7 +3026,7 @@
     "FD": "2"
   },
   {
-    "Name": "Britain CoveyPHI",
+    "Name": "Charlie KolarBAL",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -3026,7 +3043,7 @@
     "FD": "1"
   },
   {
-    "Name": "Charlie KolarBAL",
+    "Name": "Joshua PalmerLAC",
     "POS": "WR",
     "GP": "2",
     "REC": "4",
@@ -3043,7 +3060,7 @@
     "FD": "2"
   },
   {
-    "Name": "Joshua PalmerLAC",
+    "Name": "Dyami BrownWSH",
     "POS": "WR",
     "GP": "3",
     "REC": "4",
@@ -3060,7 +3077,7 @@
     "FD": "2"
   },
   {
-    "Name": "Dyami BrownWSH",
+    "Name": "Roschon JohnsonCHI",
     "POS": "RB",
     "GP": "2",
     "REC": "4",
@@ -3077,7 +3094,7 @@
     "FD": "1"
   },
   {
-    "Name": "Roschon JohnsonCHI",
+    "Name": "Adonai MitchellIND",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3094,7 +3111,7 @@
     "FD": "1"
   },
   {
-    "Name": "Adonai MitchellIND",
+    "Name": "Scotty MillerPIT",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3111,7 +3128,7 @@
     "FD": "1"
   },
   {
-    "Name": "Scotty MillerPIT",
+    "Name": "Ja'Lynn PolkNE",
     "POS": "WR",
     "GP": "3",
     "REC": "5",
@@ -3128,7 +3145,7 @@
     "FD": "1"
   },
   {
-    "Name": "Ja'Lynn PolkNE",
+    "Name": "Dawson KnoxBUF",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -3145,7 +3162,7 @@
     "FD": "1"
   },
   {
-    "Name": "Dawson KnoxBUF",
+    "Name": "Dee EskridgeMIA",
     "POS": "WR",
     "GP": "1",
     "REC": "1",
@@ -3162,7 +3179,7 @@
     "FD": "1"
   },
   {
-    "Name": "Dee EskridgeMIA",
+    "Name": "Grant CalcaterraPHI",
     "POS": "TE",
     "GP": "3",
     "REC": "3",
@@ -3179,7 +3196,7 @@
     "FD": "3"
   },
   {
-    "Name": "Grant CalcaterraPHI",
+    "Name": "Najee HarrisPIT",
     "POS": "RB",
     "GP": "3",
     "REC": "7",
@@ -3196,7 +3213,7 @@
     "FD": "0"
   },
   {
-    "Name": "Najee HarrisPIT",
+    "Name": "Pierre StrongCLE",
     "POS": "RB",
     "GP": "2",
     "REC": "3",
@@ -3213,7 +3230,7 @@
     "FD": "1"
   },
   {
-    "Name": "Pierre StrongCLE",
+    "Name": "Julian HillMIA",
     "POS": "TE",
     "GP": "3",
     "REC": "3",
@@ -3230,7 +3247,7 @@
     "FD": "2"
   },
   {
-    "Name": "Julian HillMIA",
+    "Name": "Keenan AllenCHI",
     "POS": "WR",
     "GP": "1",
     "REC": "4",
@@ -3247,7 +3264,7 @@
     "FD": "2"
   },
   {
-    "Name": "Keenan AllenCHI",
+    "Name": "Johnny MundtMIN",
     "POS": "TE",
     "GP": "3",
     "REC": "5",
@@ -3264,7 +3281,7 @@
     "FD": "1"
   },
   {
-    "Name": "Johnny MundtMIN",
+    "Name": "Brandon PowellMIN",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -3281,7 +3298,7 @@
     "FD": "2"
   },
   {
-    "Name": "Brandon PowellMIN",
+    "Name": "Olamide ZaccheausWSH",
     "POS": "WR",
     "GP": "3",
     "REC": "4",
@@ -3298,7 +3315,7 @@
     "FD": "2"
   },
   {
-    "Name": "Olamide ZaccheausWSH",
+    "Name": "Samaje PerineKC",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -3315,7 +3332,7 @@
     "FD": "1"
   },
   {
-    "Name": "Samaje PerineKC",
+    "Name": "Drew SampleCIN",
     "POS": "TE",
     "GP": "3",
     "REC": "3",
@@ -3332,7 +3349,7 @@
     "FD": "1"
   },
   {
-    "Name": "Drew SampleCIN",
+    "Name": "K.J. OsbornNE",
     "POS": "WR",
     "GP": "3",
     "REC": "4",
@@ -3349,7 +3366,7 @@
     "FD": "1"
   },
   {
-    "Name": "K.J. OsbornNE",
+    "Name": "Greg DulcichDEN",
     "POS": "TE",
     "GP": "3",
     "REC": "5",
@@ -3366,7 +3383,7 @@
     "FD": "0"
   },
   {
-    "Name": "Greg DulcichDEN",
+    "Name": "Jaylen WarrenPIT",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -3383,7 +3400,7 @@
     "FD": "1"
   },
   {
-    "Name": "Jaylen WarrenPIT",
+    "Name": "Bucky IrvingTB",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -3400,7 +3417,7 @@
     "FD": "1"
   },
   {
-    "Name": "Bucky IrvingTB",
+    "Name": "Kalif RaymondDET",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -3417,7 +3434,7 @@
     "FD": "1"
   },
   {
-    "Name": "Kalif RaymondDET",
+    "Name": "Josh OliverMIN",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -3434,7 +3451,7 @@
     "FD": "1"
   },
   {
-    "Name": "Josh OliverMIN",
+    "Name": "Tyquan ThorntonNE",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3451,7 +3468,7 @@
     "FD": "1"
   },
   {
-    "Name": "Tyquan ThorntonNE",
+    "Name": "David BellCLE",
     "POS": "WR",
     "GP": "2",
     "REC": "3",
@@ -3468,7 +3485,7 @@
     "FD": "1"
   },
   {
-    "Name": "David BellCLE",
+    "Name": "Marquez Valdes-ScantlingBUF",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3485,7 +3502,7 @@
     "FD": "1"
   },
   {
-    "Name": "Marquez Valdes-ScantlingBUF",
+    "Name": "Juwan JohnsonNO",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -3502,7 +3519,7 @@
     "FD": "1"
   },
   {
-    "Name": "Juwan JohnsonNO",
+    "Name": "Emari DemercadoARI",
     "POS": "RB",
     "GP": "3",
     "REC": "2",
@@ -3519,7 +3536,7 @@
     "FD": "1"
   },
   {
-    "Name": "Emari DemercadoARI",
+    "Name": "Dontayvion WicksGB",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -3536,7 +3553,7 @@
     "FD": "2"
   },
   {
-    "Name": "Dontayvion WicksGB",
+    "Name": "Trent Sherfield Sr.MIN",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3553,7 +3570,7 @@
     "FD": "1"
   },
   {
-    "Name": "Trent Sherfield Sr.MIN",
+    "Name": "Josh JacobsGB",
     "POS": "RB",
     "GP": "3",
     "REC": "3",
@@ -3570,7 +3587,7 @@
     "FD": "1"
   },
   {
-    "Name": "Josh JacobsGB",
+    "Name": "Ty ChandlerMIN",
     "POS": "RB",
     "GP": "3",
     "REC": "3",
@@ -3587,7 +3604,7 @@
     "FD": "2"
   },
   {
-    "Name": "Ty ChandlerMIN",
+    "Name": "Mo Alie-CoxIND",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -3604,7 +3621,7 @@
     "FD": "1"
   },
   {
-    "Name": "Mo Alie-CoxIND",
+    "Name": "Kenneth GainwellPHI",
     "POS": "RB",
     "GP": "3",
     "REC": "3",
@@ -3621,7 +3638,7 @@
     "FD": "1"
   },
   {
-    "Name": "Kenneth GainwellPHI",
+    "Name": "Josh DownsIND",
     "POS": "WR",
     "GP": "1",
     "REC": "3",
@@ -3638,7 +3655,7 @@
     "FD": "0"
   },
   {
-    "Name": "Josh DownsIND",
+    "Name": "Michael MayerLV",
     "POS": "TE",
     "GP": "3",
     "REC": "4",
@@ -3655,7 +3672,7 @@
     "FD": "3"
   },
   {
-    "Name": "Michael MayerLV",
+    "Name": "Parker WashingtonJAX",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -3672,7 +3689,7 @@
     "FD": "0"
   },
   {
-    "Name": "Parker WashingtonJAX",
+    "Name": "Nick VannettTEN",
     "POS": "TE",
     "GP": "3",
     "REC": "4",
@@ -3689,7 +3706,7 @@
     "FD": "1"
   },
   {
-    "Name": "Nick VannettTEN",
+    "Name": "Tim PatrickDET",
     "POS": "WR",
     "GP": "2",
     "REC": "3",
@@ -3706,7 +3723,7 @@
     "FD": "1"
   },
   {
-    "Name": "Tim PatrickDET",
+    "Name": "Jordan MasonSF",
     "POS": "RB",
     "GP": "3",
     "REC": "4",
@@ -3723,7 +3740,7 @@
     "FD": "3"
   },
   {
-    "Name": "Jordan MasonSF",
+    "Name": "Daniel BellingerNYG",
     "POS": "TE",
     "GP": "4",
     "REC": "2",
@@ -3740,7 +3757,7 @@
     "FD": "1"
   },
   {
-    "Name": "Daniel BellingerNYG",
+    "Name": "Chase BrownCIN",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -3757,7 +3774,7 @@
     "FD": "0"
   },
   {
-    "Name": "Chase BrownCIN",
+    "Name": "Trey PalmerTB",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -3774,7 +3791,7 @@
     "FD": "1"
   },
   {
-    "Name": "Trey PalmerTB",
+    "Name": "Marvin MimsDEN",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3791,7 +3808,7 @@
     "FD": "0"
   },
   {
-    "Name": "Marvin MimsDEN",
+    "Name": "Robert WoodsHOU",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3808,7 +3825,7 @@
     "FD": "0"
   },
   {
-    "Name": "Robert WoodsHOU",
+    "Name": "Tanner HudsonCIN",
     "POS": "TE",
     "GP": "1",
     "REC": "2",
@@ -3825,7 +3842,7 @@
     "FD": "0"
   },
   {
-    "Name": "Tanner HudsonCIN",
+    "Name": "Miles SandersCAR",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -3842,7 +3859,7 @@
     "FD": "0"
   },
   {
-    "Name": "Miles SandersCAR",
+    "Name": "Cade StoverHOU",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -3859,7 +3876,7 @@
     "FD": "1"
   },
   {
-    "Name": "Cade StoverHOU",
+    "Name": "JuJu Smith-SchusterKC",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3876,7 +3893,7 @@
     "FD": "1"
   },
   {
-    "Name": "JuJu Smith-SchusterKC",
+    "Name": "Simi FehokoLAC",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -3893,7 +3910,7 @@
     "FD": "1"
   },
   {
-    "Name": "Simi FehokoLAC",
+    "Name": "Mason TiptonNO",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -3910,7 +3927,7 @@
     "FD": "0"
   },
   {
-    "Name": "Mason TiptonNO",
+    "Name": "Sione VakiDET",
     "POS": "RB",
     "GP": "3",
     "REC": "1",
@@ -3927,7 +3944,7 @@
     "FD": "1"
   },
   {
-    "Name": "Sione VakiDET",
+    "Name": "Alec IngoldMIA",
     "POS": "FB",
     "GP": "3",
     "REC": "3",
@@ -3944,7 +3961,7 @@
     "FD": "0"
   },
   {
-    "Name": "Alec IngoldMIA",
+    "Name": "Zamir WhiteLV",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -3961,7 +3978,7 @@
     "FD": "1"
   },
   {
-    "Name": "Zamir WhiteLV",
+    "Name": "Xavier GipsonNYJ",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -3978,7 +3995,7 @@
     "FD": "1"
   },
   {
-    "Name": "Xavier GipsonNYJ",
+    "Name": "Cordarrelle PattersonPIT",
     "POS": "RB",
     "GP": "3",
     "REC": "3",
@@ -3995,7 +4012,7 @@
     "FD": "1"
   },
   {
-    "Name": "Cordarrelle PattersonPIT",
+    "Name": "Van JeffersonPIT",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -4012,7 +4029,7 @@
     "FD": "0"
   },
   {
-    "Name": "Van JeffersonPIT",
+    "Name": "Antonio GibsonNE",
     "POS": "RB",
     "GP": "3",
     "REC": "4",
@@ -4029,7 +4046,7 @@
     "FD": "1"
   },
   {
-    "Name": "Antonio GibsonNE",
+    "Name": "Jake BoboSEA",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -4046,7 +4063,7 @@
     "FD": "0"
   },
   {
-    "Name": "Jake BoboSEA",
+    "Name": "Jeremy RuckertNYJ",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -4063,7 +4080,7 @@
     "FD": "2"
   },
   {
-    "Name": "Jeremy RuckertNYJ",
+    "Name": "Rhamondre StevensonNE",
     "POS": "RB",
     "GP": "3",
     "REC": "5",
@@ -4080,7 +4097,7 @@
     "FD": "0"
   },
   {
-    "Name": "Rhamondre StevensonNE",
+    "Name": "Ameer AbdullahLV",
     "POS": "RB",
     "GP": "3",
     "REC": "4",
@@ -4097,7 +4114,7 @@
     "FD": "0"
   },
   {
-    "Name": "Ameer AbdullahLV",
+    "Name": "Luke FarrellJAX",
     "POS": "TE",
     "GP": "3",
     "REC": "3",
@@ -4114,7 +4131,7 @@
     "FD": "2"
   },
   {
-    "Name": "Luke FarrellJAX",
+    "Name": "David MooreCAR",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4131,7 +4148,7 @@
     "FD": "0"
   },
   {
-    "Name": "David MooreCAR",
+    "Name": "J.K. DobbinsLAC",
     "POS": "RB",
     "GP": "3",
     "REC": "7",
@@ -4148,7 +4165,7 @@
     "FD": "0"
   },
   {
-    "Name": "J.K. DobbinsLAC",
+    "Name": "Jahan DotsonPHI",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -4165,7 +4182,7 @@
     "FD": "1"
   },
   {
-    "Name": "Jahan DotsonPHI",
+    "Name": "Ray DavisBUF",
     "POS": "RB",
     "GP": "3",
     "REC": "3",
@@ -4182,7 +4199,7 @@
     "FD": "1"
   },
   {
-    "Name": "Ray DavisBUF",
+    "Name": "Deuce VaughnDAL",
     "POS": "RB",
     "GP": "4",
     "REC": "2",
@@ -4199,7 +4216,7 @@
     "FD": "0"
   },
   {
-    "Name": "Deuce VaughnDAL",
+    "Name": "Jamaal WilliamsNO",
     "POS": "RB",
     "GP": "3",
     "REC": "2",
@@ -4216,7 +4233,7 @@
     "FD": "1"
   },
   {
-    "Name": "Jamaal WilliamsNO",
+    "Name": "Parris CampbellPHI",
     "POS": "WR",
     "GP": "2",
     "REC": "2",
@@ -4233,7 +4250,7 @@
     "FD": "0"
   },
   {
-    "Name": "Parris CampbellPHI",
+    "Name": "Adam TrautmanDEN",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4250,7 +4267,7 @@
     "FD": "1"
   },
   {
-    "Name": "Adam TrautmanDEN",
+    "Name": "AJ BarnerSEA",
     "POS": "TE",
     "GP": "3",
     "REC": "3",
@@ -4267,7 +4284,7 @@
     "FD": "2"
   },
   {
-    "Name": "AJ BarnerSEA",
+    "Name": "Grant DuBoseMIA",
     "POS": "WR",
     "GP": "2",
     "REC": "1",
@@ -4284,7 +4301,7 @@
     "FD": "1"
   },
   {
-    "Name": "Grant DuBoseMIA",
+    "Name": "Jeff WilsonMIA",
     "POS": "RB",
     "GP": "3",
     "REC": "2",
@@ -4301,7 +4318,7 @@
     "FD": "0"
   },
   {
-    "Name": "Jeff WilsonMIA",
+    "Name": "Ronnie BellSF",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4318,7 +4335,7 @@
     "FD": "1"
   },
   {
-    "Name": "Ronnie BellSF",
+    "Name": "Tyler AllgeierATL",
     "POS": "RB",
     "GP": "3",
     "REC": "1",
@@ -4335,7 +4352,7 @@
     "FD": "1"
   },
   {
-    "Name": "Tyler AllgeierATL",
+    "Name": "Trey BensonARI",
     "POS": "RB",
     "GP": "3",
     "REC": "2",
@@ -4352,7 +4369,7 @@
     "FD": "0"
   },
   {
-    "Name": "Trey BensonARI",
+    "Name": "Ja'Tavion SandersCAR",
     "POS": "TE",
     "GP": "3",
     "REC": "3",
@@ -4369,7 +4386,7 @@
     "FD": "0"
   },
   {
-    "Name": "Ja'Tavion SandersCAR",
+    "Name": "Drew OgletreeIND",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4386,7 +4403,7 @@
     "FD": "0"
   },
   {
-    "Name": "Drew OgletreeIND",
+    "Name": "Durham SmytheMIA",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -4403,7 +4420,7 @@
     "FD": "0"
   },
   {
-    "Name": "Durham SmytheMIA",
+    "Name": "Trenton IrwinCIN",
     "POS": "WR",
     "GP": "2",
     "REC": "2",
@@ -4420,7 +4437,7 @@
     "FD": "1"
   },
   {
-    "Name": "Trenton IrwinCIN",
+    "Name": "C.J. HamMIN",
     "POS": "FB",
     "GP": "3",
     "REC": "2",
@@ -4437,7 +4454,7 @@
     "FD": "0"
   },
   {
-    "Name": "C.J. HamMIN",
+    "Name": "Cam AkersHOU",
     "POS": "RB",
     "GP": "2",
     "REC": "2",
@@ -4454,7 +4471,7 @@
     "FD": "1"
   },
   {
-    "Name": "Cam AkersHOU",
+    "Name": "Troy FranklinDEN",
     "POS": "WR",
     "GP": "2",
     "REC": "2",
@@ -4471,7 +4488,7 @@
     "FD": "0"
   },
   {
-    "Name": "Troy FranklinDEN",
+    "Name": "Treylon BurksTEN",
     "POS": "WR",
     "GP": "3",
     "REC": "2",
@@ -4488,7 +4505,7 @@
     "FD": "1"
   },
   {
-    "Name": "Treylon BurksTEN",
+    "Name": "Raheem MostertMIA",
     "POS": "RB",
     "GP": "1",
     "REC": "2",
@@ -4505,7 +4522,7 @@
     "FD": "1"
   },
   {
-    "Name": "Raheem MostertMIA",
+    "Name": "Darnell WashingtonPIT",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -4522,7 +4539,7 @@
     "FD": "1"
   },
   {
-    "Name": "Darnell WashingtonPIT",
+    "Name": "MyCole PruittPIT",
     "POS": "TE",
     "GP": "2",
     "REC": "1",
@@ -4539,7 +4556,7 @@
     "FD": "0"
   },
   {
-    "Name": "MyCole PruittPIT",
+    "Name": "Pharaoh BrownSEA",
     "POS": "TE",
     "GP": "1",
     "REC": "1",
@@ -4556,7 +4573,7 @@
     "FD": "0"
   },
   {
-    "Name": "Pharaoh BrownSEA",
+    "Name": "D'Onta ForemanCLE",
     "POS": "RB",
     "GP": "3",
     "REC": "1",
@@ -4573,7 +4590,7 @@
     "FD": "0"
   },
   {
-    "Name": "D'Onta ForemanCLE",
+    "Name": "DJ TurnerLV",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4590,7 +4607,7 @@
     "FD": "0"
   },
   {
-    "Name": "DJ TurnerLV",
+    "Name": "Cedric TillmanCLE",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -4607,7 +4624,7 @@
     "FD": "0"
   },
   {
-    "Name": "Cedric TillmanCLE",
+    "Name": "Luke MusgraveGB",
     "POS": "TE",
     "GP": "3",
     "REC": "2",
@@ -4624,7 +4641,7 @@
     "FD": "0"
   },
   {
-    "Name": "Luke MusgraveGB",
+    "Name": "Eric GrayNYG",
     "POS": "RB",
     "GP": "4",
     "REC": "1",
@@ -4641,7 +4658,7 @@
     "FD": "0"
   },
   {
-    "Name": "Eric GrayNYG",
+    "Name": "Johnny WilsonPHI",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4658,7 +4675,7 @@
     "FD": "1"
   },
   {
-    "Name": "Johnny WilsonPHI",
+    "Name": "Josiah DeguaraJAX",
     "POS": "TE",
     "GP": "1",
     "REC": "1",
@@ -4675,7 +4692,7 @@
     "FD": "0"
   },
   {
-    "Name": "Josiah DeguaraJAX",
+    "Name": "Velus JonesCHI",
     "POS": "WR",
     "GP": "1",
     "REC": "1",
@@ -4692,7 +4709,7 @@
     "FD": "0"
   },
   {
-    "Name": "Velus JonesCHI",
+    "Name": "Laviska ShenaultSEA",
     "POS": "WR",
     "GP": "3",
     "REC": "3",
@@ -4709,7 +4726,7 @@
     "FD": "0"
   },
   {
-    "Name": "Laviska ShenaultSEA",
+    "Name": "Payne DurhamTB",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4726,7 +4743,7 @@
     "FD": "0"
   },
   {
-    "Name": "Payne DurhamTB",
+    "Name": "Jaleel McLaughlinDEN",
     "POS": "RB",
     "GP": "3",
     "REC": "6",
@@ -4743,7 +4760,7 @@
     "FD": "0"
   },
   {
-    "Name": "Jaleel McLaughlinDEN",
+    "Name": "Trey SermonIND",
     "POS": "RB",
     "GP": "3",
     "REC": "1",
@@ -4760,7 +4777,7 @@
     "FD": "0"
   },
   {
-    "Name": "Trey SermonIND",
+    "Name": "Brevin JordanHOU",
     "POS": "TE",
     "GP": "2",
     "REC": "2",
@@ -4777,7 +4794,7 @@
     "FD": "1"
   },
   {
-    "Name": "Brevin JordanHOU",
+    "Name": "Jared WileyKC",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4794,7 +4811,7 @@
     "FD": "0"
   },
   {
-    "Name": "Jared WileyKC",
+    "Name": "Nate AdkinsDEN",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4811,7 +4828,7 @@
     "FD": "0"
   },
   {
-    "Name": "Nate AdkinsDEN",
+    "Name": "Kenneth WalkerSEA",
     "POS": "RB",
     "GP": "1",
     "REC": "2",
@@ -4828,7 +4845,7 @@
     "FD": "1"
   },
   {
-    "Name": "Kenneth WalkerSEA",
+    "Name": "Robbie ChosenMIA",
     "POS": "WR",
     "GP": "2",
     "REC": "1",
@@ -4845,7 +4862,7 @@
     "FD": "0"
   },
   {
-    "Name": "Robbie ChosenMIA",
+    "Name": "Jamison CrowderWSH",
     "POS": "WR",
     "GP": "2",
     "REC": "1",
@@ -4862,7 +4879,7 @@
     "FD": "0"
   },
   {
-    "Name": "Jamison CrowderWSH",
+    "Name": "Evan EngramJAX",
     "POS": "TE",
     "GP": "1",
     "REC": "1",
@@ -4879,7 +4896,7 @@
     "FD": "0"
   },
   {
-    "Name": "Evan EngramJAX",
+    "Name": "John BatesWSH",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4896,7 +4913,7 @@
     "FD": "0"
   },
   {
-    "Name": "John BatesWSH",
+    "Name": "Charlie JonesCIN",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4913,7 +4930,7 @@
     "FD": "0"
   },
   {
-    "Name": "Charlie JonesCIN",
+    "Name": "Michael BurtonDEN",
     "POS": "FB",
     "GP": "3",
     "REC": "2",
@@ -4930,7 +4947,7 @@
     "FD": "0"
   },
   {
-    "Name": "Michael BurtonDEN",
+    "Name": "Chris ConleySF",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4947,7 +4964,7 @@
     "FD": "0"
   },
   {
-    "Name": "Chris ConleySF",
+    "Name": "Charlie WoernerATL",
     "POS": "TE",
     "GP": "3",
     "REC": "1",
@@ -4964,7 +4981,7 @@
     "FD": "0"
   },
   {
-    "Name": "Charlie WoernerATL",
+    "Name": "Khalil HerbertCHI",
     "POS": "RB",
     "GP": "3",
     "REC": "2",
@@ -4981,7 +4998,7 @@
     "FD": "0"
   },
   {
-    "Name": "Khalil HerbertCHI",
+    "Name": "Malachi CorleyNYJ",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -4998,7 +5015,7 @@
     "FD": "0"
   },
   {
-    "Name": "Malachi CorleyNYJ",
+    "Name": "Cedrick WilsonNO",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -5015,7 +5032,7 @@
     "FD": "0"
   },
   {
-    "Name": "Cedrick WilsonNO",
+    "Name": "MarShawn LloydGB",
     "POS": "RB",
     "GP": "1",
     "REC": "1",
@@ -5032,7 +5049,7 @@
     "FD": "0"
   },
   {
-    "Name": "MarShawn LloydGB",
+    "Name": "Xavier HutchinsonHOU",
     "POS": "WR",
     "GP": "3",
     "REC": "1",
@@ -5049,7 +5066,7 @@
     "FD": "0"
   },
   {
-    "Name": "Xavier HutchinsonHOU",
+    "Name": "Taysom HillNO",
     "POS": "TE",
     "GP": "2",
     "REC": "2",
@@ -5066,7 +5083,7 @@
     "FD": "0"
   },
   {
-    "Name": "Taysom HillNO",
+    "Name": "Jake BrendelSF",
     "POS": "C",
     "GP": "3",
     "REC": "0",
@@ -5080,6 +5097,533 @@
     "FUM": "1",
     "LST": "0",
     "YAC": "2",
+    "FD": "0"
+  },
+  {
+    "Name": "Gus EdwardsLAC",
+    "POS": "RB",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "0.7",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "4",
+    "FD": "0"
+  },
+  {
+    "Name": "Patrick MahomesKC",
+    "POS": "QB",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "0.7",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "3",
+    "FD": "0"
+  },
+  {
+    "Name": "Connor HeywardPIT",
+    "POS": "TE",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "0.7",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Tyler BadieDEN",
+    "POS": "RB",
+    "GP": "2",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "1.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Kayshon BoutteNE",
+    "POS": "WR",
+    "GP": "1",
+    "REC": "1",
+    "TGTS": "2",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "2.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "1"
+  },
+  {
+    "Name": "Tyler GoodsonIND",
+    "POS": "RB",
+    "GP": "2",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "1.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Carson SteeleKC",
+    "POS": "RB",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "2",
+    "YDS": "2",
+    "AVG": "2.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "0.7",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "8",
+    "FD": "0"
+  },
+  {
+    "Name": "Trent ScottWSH",
+    "POS": "OT",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "1",
+    "AVG": "1.0",
+    "TD": "1",
+    "LNG": "1",
+    "BIG": "0",
+    "YDS/G": "0.3",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "1"
+  },
+  {
+    "Name": "Tanner ConnerMIA",
+    "POS": "TE",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "2",
+    "YDS": "1",
+    "AVG": "1.0",
+    "TD": "0",
+    "LNG": "1",
+    "BIG": "0",
+    "YDS/G": "0.3",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Wanya MorrisKC",
+    "POS": "OT",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "1",
+    "AVG": "1.0",
+    "TD": "1",
+    "LNG": "1",
+    "BIG": "0",
+    "YDS/G": "0.3",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "1"
+  },
+  {
+    "Name": "Jordan MatthewsCAR",
+    "POS": "TE",
+    "GP": "2",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Eric TomlinsonLAC",
+    "POS": "TE",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Patrick RicardBAL",
+    "POS": "FB",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Braxton BerriosMIA",
+    "POS": "WR",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "4",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Tom KennedyDET",
+    "POS": "WR",
+    "GP": "2",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "D'Ernest JohnsonJAX",
+    "POS": "RB",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Gerald EverettCHI",
+    "POS": "TE",
+    "GP": "3",
+    "REC": "3",
+    "TGTS": "5",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "9",
+    "FD": "0"
+  },
+  {
+    "Name": "Adam PrenticeNO",
+    "POS": "FB",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "J.J. TaylorHOU",
+    "POS": "RB",
+    "GP": "1",
+    "REC": "2",
+    "TGTS": "2",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "2",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "1",
+    "FD": "0"
+  },
+  {
+    "Name": "Harrison BryantLV",
+    "POS": "TE",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Ronnie RiversLAR",
+    "POS": "RB",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "7",
+    "FD": "0"
+  },
+  {
+    "Name": "Brevyn Spann-FordDAL",
+    "POS": "TE",
+    "GP": "4",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Erik EzukanmaMIA",
+    "POS": "WR",
+    "GP": "1",
+    "REC": "0",
+    "TGTS": "2",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Scott MatlockLAC",
+    "POS": "DT",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Dareke YoungSEA",
+    "POS": "WR",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Davis AllenLAR",
+    "POS": "TE",
+    "GP": "1",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Bub MeansNO",
+    "POS": "WR",
+    "GP": "2",
+    "REC": "0",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Tyler SmithDAL",
+    "POS": "OT",
+    "GP": "4",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "6",
+    "FD": "0"
+  },
+  {
+    "Name": "Jalin HyattNYG",
+    "POS": "WR",
+    "GP": "4",
+    "REC": "0",
+    "TGTS": "3",
+    "YDS": "0",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "0",
+    "BIG": "0",
+    "YDS/G": "0.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "0",
+    "FD": "0"
+  },
+  {
+    "Name": "Devin DuvernayJAX",
+    "POS": "WR",
+    "GP": "3",
+    "REC": "1",
+    "TGTS": "1",
+    "YDS": "-1",
+    "AVG": "-1.0",
+    "TD": "0",
+    "LNG": "-1",
+    "BIG": "0",
+    "YDS/G": "-0.3",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "2",
+    "FD": "0"
+  },
+  {
+    "Name": "Dominick PuniSF",
+    "POS": "G",
+    "GP": "3",
+    "REC": "0",
+    "TGTS": "0",
+    "YDS": "-3",
+    "AVG": "0.0",
+    "TD": "0",
+    "LNG": "-3",
+    "BIG": "0",
+    "YDS/G": "-1.0",
+    "FUM": "0",
+    "LST": "0",
+    "YAC": "-3",
     "FD": "0"
   }
 ]

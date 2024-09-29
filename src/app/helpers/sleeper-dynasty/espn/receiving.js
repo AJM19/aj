@@ -23,11 +23,15 @@ const extractSuffix = (name) => {
 
   await page.goto(url, { waitUntil: 'networkidle2' });
 
-  for (let i = 0; i < 5; i++) {
-    await page.click('a.AnchorLink.loadMore__link');
-    await page.waitForSelector('a.AnchorLink.loadMore__link', {
-      timeout: 5000,
-    });
+  while (page.$('a.AnchorLink.loadMore__link')) {
+    try {
+      await page.click('a.AnchorLink.loadMore__link');
+      await page.waitForSelector('a.AnchorLink.loadMore__link', {
+        timeout: 5000,
+      });
+    } catch (error) {
+      break;
+    }
   }
 
   const html = await page.content();
@@ -52,10 +56,11 @@ const extractSuffix = (name) => {
       rows.push(cells);
     }
   });
+  const indexOfEnd = rows.findIndex((row) => !(parseInt(row[0]) > 0));
+  console.log('indexOfEnd: ', indexOfEnd);
 
-  //TOP 200 Athletes
-  const athletes = rows.slice(0, 300);
-  const stats = rows.slice(301, 600);
+  const athletes = rows.slice(0, indexOfEnd);
+  const stats = rows.slice(indexOfEnd, indexOfEnd * 2);
 
   const combinedData = stats.map((stat, index) => {
     return [extractSuffix(athletes[index][1]), ...stat];
