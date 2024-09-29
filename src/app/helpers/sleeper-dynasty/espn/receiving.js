@@ -1,19 +1,31 @@
-const puppeteer = require("puppeteer");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const csvParser = require("csv-parser");
+const puppeteer = require('puppeteer');
+const cheerio = require('cheerio');
+const fs = require('fs');
+const csvParser = require('csv-parser');
 
-const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
+const url = 'https://www.espn.com/nfl/stats/player/_/stat/receiving';
+
+const extractSuffix = (name) => {
+  const suffixes = ['Jr.', 'III'];
+
+  let formattedWord = name;
+
+  for (let suffix of suffixes) {
+    formattedWord = formattedWord.replace(new RegExp(`\\s*${suffix}`), '');
+  }
+
+  return formattedWord;
+};
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
-  await page.goto(url, { waitUntil: "networkidle2" });
+  await page.goto(url, { waitUntil: 'networkidle2' });
 
   for (let i = 0; i < 5; i++) {
-    await page.click("a.AnchorLink.loadMore__link");
-    await page.waitForSelector("a.AnchorLink.loadMore__link", {
+    await page.click('a.AnchorLink.loadMore__link');
+    await page.waitForSelector('a.AnchorLink.loadMore__link', {
       timeout: 5000,
     });
   }
@@ -21,18 +33,18 @@ const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
   const html = await page.content();
   const $ = cheerio.load(html);
 
-  const table = $("table tbody");
+  const table = $('table tbody');
 
   const headers = [];
-  $("table thead tr th").each((i, th) => {
+  $('table thead tr th').each((i, th) => {
     headers.push($(th).text().trim());
   });
 
   const rows = [];
-  table.find("tr").each((i, tr) => {
+  table.find('tr').each((i, tr) => {
     const cells = [];
     $(tr)
-      .find("td")
+      .find('td')
       .each((j, td) => {
         cells.push($(td).text().trim());
       });
@@ -46,37 +58,37 @@ const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
   const stats = rows.slice(301, 600);
 
   const combinedData = stats.map((stat, index) => {
-    return [athletes[index][1], ...stat];
+    return [extractSuffix(athletes[index][1]), ...stat];
   });
 
   const newHeaders = headers.slice(1);
 
   if (rows.length > 0 && headers.length > 0) {
     const csvData = [
-      newHeaders.join(","),
+      newHeaders.join(','),
       ...combinedData.map((row) =>
-        row.map((value) => value.replace(/,/g, "")).join(",")
+        row.map((value) => value.replace(/,/g, '')).join(',')
       ),
-    ].join("\n");
+    ].join('\n');
 
-    fs.writeFile("nfl_receiving_stats.csv", csvData, (err) => {
+    fs.writeFile('nfl_receiving_stats.csv', csvData, (err) => {
       if (err) {
-        console.error("Error writing to CSV file", err);
+        console.error('Error writing to CSV file', err);
       } else {
-        console.log("Data saved to nfl_receiving_stats.csv");
+        console.log('Data saved to nfl_receiving_stats.csv');
 
         // Convert the CSV to JSON
-        const csvFilePath = "nfl_receiving_stats.csv";
-        const jsonFilePath = "nfl_receiving_stats.json";
+        const csvFilePath = 'nfl_receiving_stats.csv';
+        const jsonFilePath = 'nfl_receiving_stats.json';
         const csvData = [];
 
         fs.createReadStream(csvFilePath)
           .pipe(csvParser())
-          .on("data", (row) => {
+          .on('data', (row) => {
             csvData.push(row);
           })
-          .on("end", () => {
-            console.log("CSV file successfully processed.");
+          .on('end', () => {
+            console.log('CSV file successfully processed.');
 
             // Write the JSON data to a file
             fs.writeFile(
@@ -84,9 +96,9 @@ const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
               JSON.stringify(csvData, null, 2),
               (err) => {
                 if (err) {
-                  console.error("Error writing to JSON file", err);
+                  console.error('Error writing to JSON file', err);
                 } else {
-                  console.log("Data saved to nfl_receiving_stats.json");
+                  console.log('Data saved to nfl_receiving_stats.json');
                 }
               }
             );
@@ -94,10 +106,10 @@ const url = "https://www.espn.com/nfl/stats/player/_/stat/receiving";
       }
     });
   } else {
-    console.error("No data found to save");
+    console.error('No data found to save');
   }
 
   await browser.close();
 })().catch((error) => {
-  console.error("Error in Puppeteer script", error);
+  console.error('Error in Puppeteer script', error);
 });
