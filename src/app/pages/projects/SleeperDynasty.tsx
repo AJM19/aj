@@ -410,8 +410,8 @@ const Container = styled.div<{ isPlayerStats: PlayerStatsResponse | null }>`
     `
     cursor: pointer;
 
-    :hover{
-      height: 175px;
+    :hover {
+      height: 200px;
     }
 
 
