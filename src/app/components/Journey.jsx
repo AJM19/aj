@@ -98,6 +98,7 @@ const Journey = () => {
         <SectionContainer>
           <FlexColumn gap="5px" id="tab3" alignItems="center">
             <Title color={'#f88930'}>Golf PDI</Title>
+            <Anchor href="https://golfpdi.com/">Click Here</Anchor>
             <BodyText style={{ textAlign: 'center' }} color={colors.darkBlue}>
               2022 - Current
             </BodyText>
@@ -126,6 +127,12 @@ const Journey = () => {
                 width={'65px'}
                 src={'./assets/images/typescript.png'}
                 alt="typescript"
+              />
+              <StyledImage
+                height={'45px'}
+                width={'40px'}
+                src={'./assets/images/node_js.png'}
+                alt="node js"
               />
             </FlexRow>
           </FlexColumn>
@@ -255,6 +262,11 @@ const Title = styled.p`
   color: ${(props) => (props.color ? props.color : 'black')};
   font-size: 25px;
 `;
+
+const Anchor = styled.a`
+  font-family: Barlow;
+`;
+
 
 const TabCircle = styled.div`
   height: 8px;
