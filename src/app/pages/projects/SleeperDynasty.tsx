@@ -467,9 +467,6 @@ const StyledHeader = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  position: sticky;
-  top: 0;
   background: #1b7fcc;
   padding-bottom: 15px;
   border-bottom: 2px solid ${colors.darkBlue};
