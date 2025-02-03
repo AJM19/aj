@@ -3,7 +3,8 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const csvParser = require('csv-parser');
 
-const url = 'https://www.espn.com/nfl/stats/player/_/stat/receiving';
+const url =
+  'https://www.espn.com/nfl/stats/player/_/stat/receiving/season/2024/seasontype/2';
 
 const extractSuffix = (name) => {
   const suffixes = ['Jr.', 'III'];
