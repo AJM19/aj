@@ -19,15 +19,17 @@ const Projects = () => {
       </HeaderContainer>
       <StyledContainer>
         <ProjectCard
-          titleColor={colors.darkBlue}
-          mainColor={colors.mainBlue}
-          background={'./assets/images/univend.png'}
-          name="Univend"
-          logo={'./assets/images/univendLogo.png'}
-          year="2020"
-          link="/projects/univend"
+          titleColor={'#fbb418'}
+          mainColor={'#f15c22'}
+          background={'./assets/images/cozy-threads-logo.png'}
+          name="Cozy Threads"
+          logo={'./assets/images/cozy-threads-logo.png'}
+          year="2025"
+          logoColor={'white'}
+          link="https://cozy-threads-app.onrender.com/"
+          isExternalLink={true}
           description={
-            "Univend is a mobile-application (prototype) intended to be used by college students all over the United States. Univend allows users to access useful information about where snack machines, drink machines, and water fountains are located on your campus! Search for specific foods, drinks or filter your view options. Univend is a user-friendly, easy to understand application that fulfills all your vending machine inquiries. Let's start snacking!"
+            'Cozy Threads is a demo e-commerce application that integrates the Stripe API. Frontend built in React and Backend built in Node.js w/ Express. Source code located on Github.'
           }
         />
         <ProjectCard
@@ -95,6 +97,18 @@ const Projects = () => {
             'Recreate your very own live Star Wars Intro crawl text. Use the force to propel your text through the galaxy like a true jedi.'
           }
           isSmallLogo={true}
+        />
+        <ProjectCard
+          titleColor={colors.darkBlue}
+          mainColor={colors.mainBlue}
+          background={'./assets/images/univend.png'}
+          name="Univend"
+          logo={'./assets/images/univendLogo.png'}
+          year="2020"
+          link="/projects/univend"
+          description={
+            "Univend is a mobile-application (prototype) intended to be used by college students all over the United States. Univend allows users to access useful information about where snack machines, drink machines, and water fountains are located on your campus! Search for specific foods, drinks or filter your view options. Univend is a user-friendly, easy to understand application that fulfills all your vending machine inquiries. Let's start snacking!"
+          }
         />
       </StyledContainer>
     </Layout>

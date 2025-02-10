@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { colors } from '../styles/styledcomps';
 
@@ -13,9 +13,11 @@ const ProjectCard = ({
   logoColor = 'white',
   description,
   link,
+  isExternalLink = false,
   isSmallLogo = false,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
@@ -37,9 +39,20 @@ const ProjectCard = ({
           <Frame isFlipped={isFlipped} color={mainColor}>
             <CardHeader color="white">{name}</CardHeader>
             <DescriptionText>{description}</DescriptionText>
-            <StyledLink to={link}>
-              <ContinueButton isFlipped={isFlipped}>Continue</ContinueButton>
-            </StyledLink>
+            {isExternalLink ? (
+              <ContinueButton
+                onClick={() =>
+                  window.open(link, '_blank', 'noopener,noreferrer')
+                }
+                isFlipped={isFlipped}
+              >
+                Continue
+              </ContinueButton>
+            ) : (
+              <StyledLink to={link}>
+                <ContinueButton isFlipped={isFlipped}>Continue</ContinueButton>
+              </StyledLink>
+            )}
           </Frame>
         </Card>
       )}
