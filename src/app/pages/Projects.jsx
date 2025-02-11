@@ -21,7 +21,7 @@ const Projects = () => {
         <ProjectCard
           titleColor={'#fbb418'}
           mainColor={'#f15c22'}
-          background={'./assets/images/cozy-threads-logo.png'}
+          background={'./assets/images/cozy-bitmoji.png'}
           name="Cozy Threads"
           logo={'./assets/images/cozy-threads-logo.png'}
           year="2025"
@@ -31,6 +31,18 @@ const Projects = () => {
           description={
             'Cozy Threads is a demo e-commerce application that integrates the Stripe API. Frontend built in React and Backend built in Node.js w/ Express. Source code located on Github.'
           }
+        />
+        <ProjectCard
+          titleColor={'#525252'}
+          mainColor={'#87d6e4'}
+          background={'./assets/images/hmmm.png'}
+          name="Who's Here?"
+          logo={'./assets/images/qmark.png'}
+          year="2025"
+          logoColor={'white'}
+          link="https://whos-here-app.onrender.com/"
+          isExternalLink={true}
+          description={`Who's Here? integrates Socket.io into a Node.js w/ Express backend. The fronend is built in React w/ Vite. The premise of Who's Here? is that anyone can be using the site, updating the 900 available buttons, so it leaves you wondering who's on the other end.`}
         />
         <ProjectCard
           titleColor={'#7d1f00'}
