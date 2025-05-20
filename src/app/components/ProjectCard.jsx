@@ -15,6 +15,7 @@ const ProjectCard = ({
   link,
   isExternalLink = false,
   isSmallLogo = false,
+  isCaseStudy = false,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const ProjectCard = ({
           <Logo isSmallLogo={isSmallLogo} color={logoColor} logo={logo} />
           <Frame background={background} color={mainColor} />
           <NamePlate color={titleColor}>
-            <NameText>{name}</NameText>
+            <NameText isCaseStudy={isCaseStudy}>{name}</NameText>
             <YearText>({year})</YearText>
           </NamePlate>
         </Card>
@@ -133,6 +134,12 @@ const NameText = styled.p`
   margin: 0;
   text-align: center;
   line-height: 100%;
+
+  ${({ isCaseStudy }) =>
+    isCaseStudy &&
+    `
+    font-size: 13.5px;
+  `}
 `;
 
 const YearText = styled.p`

@@ -1,16 +1,18 @@
 import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { colors } from '../../styles/styledcomps';
 
 const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <StyledBar>
-      <StyledName>AJ Milbauer</StyledName>
-      <StyledAbbrv>AJM</StyledAbbrv>
+      <StyledName onClick={() => navigate('/home')}>AJ Milbauer</StyledName>
+      <StyledAbbrv onClick={() => navigate('/home')}>AJM</StyledAbbrv>
 
       <NavSection style={{ justifyContent: 'end' }}>
         <StyledLink to="/home">Home</StyledLink>
         <StyledLink to="/resume">Resume</StyledLink>
+        <StyledLink to="/case-study">Case Studies</StyledLink>
         <StyledLink to="/projects">Projects</StyledLink>
         <StyledLink to="https://github.com/AJM19/aj">
           <StyledImage
@@ -89,6 +91,8 @@ const StyledName = styled.p`
   font-weight: 700;
   margin: 0 0 0 15px;
   font-size: 24px;
+
+  cursor: pointer;
 
   @media (max-width: 700px) {
     display: none;

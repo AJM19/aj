@@ -8,7 +8,7 @@ const Resume = () => {
         <iframe
           width={'80%'}
           title="resume"
-          src="./assets/files/RESUME.pdf"
+          src="./assets/files/PM_RESUME.pdf"
         ></iframe>
       </ResumeContainer>
     </Layout>
