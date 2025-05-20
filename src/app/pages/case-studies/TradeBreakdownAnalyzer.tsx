@@ -18,9 +18,11 @@ const TradeBreakdownAnalyzer = () => {
       </StyledContainer>
       <StyledContainer>
         <iframe
-          style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
-          width="800"
-          height="450"
+          style={{
+            border: '1px solid rgba(0, 0, 0, 0.1)',
+            width: '100%',
+            minHeight: '500px',
+          }}
           src="https://embed.figma.com/design/Sw6nSvOjDiaBf0IEtnPhRe/Trade-Analyzer-Tool?node-id=0-1&embed-host=share"
           allowFullScreen
         ></iframe>
