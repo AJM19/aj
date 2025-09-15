@@ -49,8 +49,8 @@ const HomePage = () => {
             </Header1>
             <FlexRow>
               <SubHeader1 withAnimation={true}>
-                A Front-end Developer passionate about creating web applications
-                for all to enjoy.
+                A Full Stack Developer passionate about creating web
+                applications for all to enjoy.
               </SubHeader1>
             </FlexRow>
           </FlexColumn>
