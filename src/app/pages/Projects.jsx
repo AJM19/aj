@@ -42,7 +42,7 @@ const Projects = () => {
           logoColor={'white'}
           link="https://whos-here-app.onrender.com/"
           isExternalLink={true}
-          description={`Who's Here? integrates Socket.io into a Node.js w/ Express backend. The fronend is built in React w/ Vite. The premise of Who's Here? is that anyone can be using the site, updating the 900 available buttons, so it leaves you wondering who's on the other end.`}
+          description={`Who's Here? integrates Socket.io into a Node.js w/ Express backend. The frontend is built in React w/ Vite. The premise of Who's Here? is that anyone can be using the site, updating the 900 available buttons, so it leaves you wondering who's on the other end.`}
         />
         <ProjectCard
           titleColor={'#7d1f00'}
