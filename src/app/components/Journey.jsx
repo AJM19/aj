@@ -108,7 +108,7 @@ const Journey = () => {
               src={'./assets/images/pdi.png'}
               alt="pdi"
             />
-            <BodyText>UI Developer</BodyText>
+            <BodyText>Lead Developer</BodyText>
             <FlexRow margin="10px 0">
               <StyledImage
                 height={'55px'}
@@ -266,7 +266,6 @@ const Title = styled.p`
 const Anchor = styled.a`
   font-family: Barlow;
 `;
-
 
 const TabCircle = styled.div`
   height: 8px;
