@@ -11,9 +11,6 @@
 
 </ul>
 
-<h1>Being hosted at https://ajm19.github.io/aj/ </h1>
-<p>Custom Domain Coming Soon</p>
-
 <h1>Come check it out!</h1>
 
 <ol>

@@ -2,13 +2,10 @@
   "name": "aj-port",
   "version": "0.0.0",
   "license": "MIT",
-  "homepage": "/aj/",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",
-    "predeploy": "npm run build -- --prod --baseHref=/aj/",
-    "deploy": "gh-pages -d dist/aj-port"
+    "test": "nx test"
   },
   "private": true,
   "devDependencies": {
@@ -43,7 +40,6 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
-    "gh-pages": "^5.0.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "nx": "15.6.3",
