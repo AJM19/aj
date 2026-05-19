@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "start:prod": "serve -s dist/aj-port -l tcp://0.0.0.0:${PORT:-3000}"
   },
   "private": true,
   "devDependencies": {
@@ -64,6 +65,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.0",
     "react-spring": "^9.6.1",
+    "serve": "^14.2.6",
     "styled-components": "^5.3.6",
     "tslib": "^2.3.0"
   }
