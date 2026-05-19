@@ -1,49 +1,63 @@
 import { memo } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
+import { fontFamily, fontSize, motion, space } from '../styles/tokens';
 
 const Modal = ({ content, isOpen, closeModal }) => {
-  if (!isOpen) {
-    return null;
-  }
-
+  if (!isOpen) return null;
   return createPortal(
-    <StyledContainer onClick={closeModal}>
-      <StyledWindow onClick={(event) => event.stopPropagation()}>
-        <StyledContent>{content}</StyledContent>
-      </StyledWindow>
-    </StyledContainer>,
+    <Backdrop onClick={closeModal}>
+      <Dialog onClick={(e) => e.stopPropagation()}>
+        <Close onClick={closeModal} aria-label="Close">
+          esc / close
+        </Close>
+        <Body>{content}</Body>
+      </Dialog>
+    </Backdrop>,
     document.body
   );
 };
 
-const StyledContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+export default memo(Modal);
+
+const Backdrop = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
-`;
-
-const StyledWindow = styled.div`
-  width: 300px;
-  background: white;
-  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const StyledContent = styled.div`
-  box-sizing: border-box;
-  padding: 20px 10px;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export default memo(Modal);
+const Dialog = styled.div`
+  position: relative;
+  min-width: min(420px, 90vw);
+  max-width: 90vw;
+  max-height: 90vh;
+  background: ${({ theme }) => theme.bgElevated};
+  border: 1px solid ${({ theme }) => theme.ruleStrong};
+  padding: ${space['4']};
+  overflow: auto;
+`;
+
+const Close = styled.button`
+  position: absolute;
+  top: ${space['1_5']};
+  right: ${space['1_5']};
+  background: transparent;
+  border: none;
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.xs};
+  color: ${({ theme }) => theme.fgMuted};
+  cursor: pointer;
+  transition: color ${motion.base} ${motion.ease};
+  letter-spacing: 0.04em;
+
+  &:hover { color: ${({ theme }) => theme.accent}; }
+`;
+
+const Body = styled.div`
+  padding-top: ${space['3']};
+`;

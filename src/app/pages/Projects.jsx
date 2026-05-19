@@ -1,152 +1,220 @@
 import Layout from '../components/Layout';
-import styled from 'styled-components';
-import ProjectCard from '../components/ProjectCard';
-import { BodyText, colors, Header1, SubHeader1 } from '../styles/styledcomps';
+import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Container, Section, Eyebrow, Display } from '../styles/primitives';
+import { fontFamily, fontSize, motion, space, weight } from '../styles/tokens';
+import { work } from '../data/work';
 
 const Projects = () => {
   return (
     <Layout>
-      <HeaderContainer>
-        <Header1 style={{ textAlign: 'center' }} color={'white'}>
-          Project Binder
-        </Header1>
-        <SubHeader1 color={'white'}>
-          Click a Project Card to learn more...{' '}
-        </SubHeader1>
-        <BodyText color="white">
-          {'(Modeled after Topps Baseball cards )'}
-        </BodyText>
-      </HeaderContainer>
-      <StyledContainer>
-        <ProjectCard
-          titleColor={'#fbb418'}
-          mainColor={'#f15c22'}
-          background={'./assets/images/cozy-bitmoji.png'}
-          name="Cozy Threads"
-          logo={'./assets/images/cozy-threads-logo.png'}
-          year="2025"
-          logoColor={'white'}
-          link="https://cozy-threads-app.onrender.com/"
-          isExternalLink={true}
-          description={
-            'Cozy Threads is a demo e-commerce application that integrates the Stripe API. Frontend built in React and Backend built in Node.js w/ Express. Source code located on Github.'
-          }
-        />
-        <ProjectCard
-          titleColor={'#525252'}
-          mainColor={'#87d6e4'}
-          background={'./assets/images/hmmm.png'}
-          name="Who's Here?"
-          logo={'./assets/images/qmark.png'}
-          year="2025"
-          logoColor={'white'}
-          link="https://whos-here-app.onrender.com/"
-          isExternalLink={true}
-          description={`Who's Here? integrates Socket.io into a Node.js w/ Express backend. The frontend is built in React w/ Vite. The premise of Who's Here? is that anyone can be using the site, updating the 900 available buttons, so it leaves you wondering who's on the other end.`}
-        />
-        <ProjectCard
-          titleColor={'#7d1f00'}
-          mainColor={'#db5b37'}
-          background={'./assets/images/d3Background.png'}
-          name="Athlete Charts"
-          logo={'./assets/images/d3Logo.png'}
-          year="2023"
-          logoColor={'#7d1f00'}
-          link="/projects/athlete-charts"
-          description={
-            'Athlete Charts is a project using a public API server, allowing a user to select two athletes within the database. These two athletes can then be compared in 2 views. Basic View and Chart View. The chart view is created by using D3js.'
-          }
-        />
-        <ProjectCard
-          titleColor={'#044759'}
-          mainColor={'#0a7e9e'}
-          background={'./assets/images/bitmoji-computer.png'}
-          name="Finders Keepers"
-          logo={'./assets/images/flashlight.png'}
-          year="2023"
-          logoColor={'#044759'}
-          link="/projects/finders-keepers"
-          description={
-            'Finders Keepers is a user-interactive game that allows a user to use their mouse like a flashlight to find my icon. Click my icon as many times as you can and rack up a high score!'
-          }
-        />
-        <ProjectCard
-          titleColor={'#2e355e'}
-          mainColor={'#142167'}
-          background={'./assets/images/bitmoji-football.png'}
-          name="Fantasy Football"
-          logo={'./assets/images/sleeper.png'}
-          year="2024"
-          logoColor={'white'}
-          link="/projects/sleeper-dynasty"
-          description={
-            'Fantasy Football App integrates the Sleeper API to track and analyze statistics in my Dynasty Fantasy Football League'
-          }
-        />
-        <ProjectCard
-          titleColor={'#73abe3'}
-          mainColor={'#5572c3'}
-          background={'./assets/images/bitmoji-frustrated.png'}
-          name="Impossible Signup"
-          logo={'./assets/images/computer.svg'}
-          year="2024"
-          logoColor={'#73d2e3'}
-          link="/projects/impossible-signup"
-          description={
-            'Impossible Signup. Enter your username and password, then click Submit...if you can.'
-          }
-        />
-        <ProjectCard
-          titleColor={'black'}
-          mainColor={'#e1b406'}
-          background={'./assets/images/star-wars.png'}
-          name="Star Wars Intro"
-          logo={'./assets/images/star-wars-logo.png'}
-          year="2024"
-          logoColor={'black'}
-          link="/projects/star-wars-intro"
-          description={
-            'Recreate your very own live Star Wars Intro crawl text. Use the force to propel your text through the galaxy like a true jedi.'
-          }
-          isSmallLogo={true}
-        />
-        <ProjectCard
-          titleColor={colors.darkBlue}
-          mainColor={colors.mainBlue}
-          background={'./assets/images/univend.png'}
-          name="Univend"
-          logo={'./assets/images/univendLogo.png'}
-          year="2020"
-          link="/projects/univend"
-          description={
-            "Univend is a mobile-application (prototype) intended to be used by college students all over the United States. Univend allows users to access useful information about where snack machines, drink machines, and water fountains are located on your campus! Search for specific foods, drinks or filter your view options. Univend is a user-friendly, easy to understand application that fulfills all your vending machine inquiries. Let's start snacking!"
-          }
-        />
-      </StyledContainer>
+      <HeroSection>
+        <Container>
+          <Eyebrow>work · {work.length} entries</Eyebrow>
+          <Display>The archive<Period>.</Period></Display>
+          <Lead>
+            A mix of shipped products, weekend hacks, and prototypes — newest
+            first. Some link to live demos, others to write-ups.
+          </Lead>
+        </Container>
+      </HeroSection>
+
+      <Section>
+        <Container>
+          <List>
+            {work.map((entry, idx) => {
+              const content = (
+                <>
+                  <Idx>{String(idx + 1).padStart(2, '0')}</Idx>
+                  <Body>
+                    <TitleRow>
+                      <Title>{entry.title}</Title>
+                      <Year>{entry.year}</Year>
+                    </TitleRow>
+                    <Tagline>{entry.tagline}</Tagline>
+                    <Description>{entry.description}</Description>
+                  </Body>
+                  <Side>
+                    <Stack>
+                      {entry.stack.map((s) => (
+                        <Tag key={s}>{s}</Tag>
+                      ))}
+                    </Stack>
+                    <Arrow>{entry.external ? '↗' : '→'}</Arrow>
+                  </Side>
+                </>
+              );
+              return entry.external ? (
+                <RowExternal
+                  key={entry.slug}
+                  href={entry.path}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {content}
+                </RowExternal>
+              ) : (
+                <Row key={entry.slug} to={entry.path}>
+                  {content}
+                </Row>
+              );
+            })}
+          </List>
+        </Container>
+      </Section>
     </Layout>
   );
 };
 
 export default Projects;
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 15px;
-  margin: 3%;
-  justify-items: center;
-  row-gap: 30px;
-  background: white;
-  padding: 50px 15px;
-  border-radius: 10px;
-  justify-content: space-around;
-  box-shadow: 5px 4px 9px 1px #73707099;
+const flyUp = keyframes`
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 `;
 
-const HeaderContainer = styled.div`
+const HeroSection = styled.section`
+  padding: clamp(${space['8']}, 12vh, ${space['16']}) 0 ${space['6']};
+
+  > div > * {
+    animation: ${flyUp} 500ms ${motion.easeOut} both;
+  }
+  > div > *:nth-child(2) { animation-delay: 60ms; }
+  > div > *:nth-child(3) { animation-delay: 120ms; }
+`;
+
+const Period = styled.span`
+  color: ${({ theme }) => theme.accent};
+`;
+
+const Lead = styled.p`
+  margin-top: ${space['3']};
+  max-width: 64ch;
+  color: ${({ theme }) => theme.fgMuted};
+  font-size: ${fontSize.lg};
+  line-height: 1.6;
+`;
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid ${({ theme }) => theme.rule};
+`;
+
+const rowChrome = `
+  display: grid;
+  grid-template-columns: 56px 1fr 220px;
+  gap: 24px;
+  padding: 28px 0;
+  align-items: start;
+`;
+
+const Row = styled(Link)`
+  ${rowChrome};
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  color: ${({ theme }) => theme.fg};
+  transition: color ${motion.base} ${motion.ease};
+
+  &:hover { color: ${({ theme }) => theme.accent}; }
+  &:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 40px 1fr;
+  }
+`;
+
+const RowExternal = styled.a`
+  ${rowChrome};
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  color: ${({ theme }) => theme.fg};
+  transition: color ${motion.base} ${motion.ease};
+
+  &:hover { color: ${({ theme }) => theme.accent}; }
+  &:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 40px 1fr;
+  }
+`;
+
+const Idx = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgFaint};
+  padding-top: 4px;
+`;
+
+const Body = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
   flex-direction: column;
+  gap: ${space['1']};
+`;
+
+const TitleRow = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: ${space['2']};
+`;
+
+const Title = styled.span`
+  font-family: ${fontFamily.display};
+  font-size: clamp(${fontSize['2xl']}, 3vw, ${fontSize['3xl']});
+  font-weight: ${weight.semibold};
+  letter-spacing: -0.02em;
+`;
+
+const Year = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgFaint};
+`;
+
+const Tagline = styled.span`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize.base};
+  color: ${({ theme }) => theme.fgMuted};
+`;
+
+const Description = styled.p`
+  margin: ${space['1']} 0 0;
+  max-width: 64ch;
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgMuted};
+  line-height: 1.6;
+`;
+
+const Side = styled.div.attrs({})`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: ${space['2']};
+  padding-top: 6px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Stack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: ${space['1']};
+`;
+
+const Tag = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.fgMuted};
+  padding: 4px 8px;
+  border: 1px solid ${({ theme }) => theme.rule};
+`;
+
+const Arrow = styled.span.attrs({ className: 'arrow' })`
+  font-family: ${fontFamily.mono};
+  color: ${({ theme }) => theme.fgMuted};
+  transition: transform ${motion.base} ${motion.ease};
 `;

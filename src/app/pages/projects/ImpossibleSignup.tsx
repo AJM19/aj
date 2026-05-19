@@ -1,156 +1,169 @@
 import styled from 'styled-components';
-import Layout from '../../components/Layout';
 import { useState } from 'react';
+import { ProjectPage } from '../../components/ProjectPage';
+import { fontFamily, fontSize, motion, space, weight } from '../../styles/tokens';
+
+const TEASES: Record<number, string> = {
+  3: 'almost got it.',
+  5: 'keep trying.',
+  7: 'next one for sure.',
+  10: 'getting embarrassing.',
+  15: 'just give up.',
+};
 
 const ImpossibleSignup = () => {
   const [isWild, setIsWild] = useState(false);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
-
   const [attempts, setAttempts] = useState(0);
 
-  const mouseEnter = () => {
-    if (!isWild) {
-      setIsWild(true);
-    }
+  const tease = (Object.keys(TEASES) as unknown as number[])
+    .map(Number)
+    .filter((n) => attempts >= n)
+    .pop();
 
-    const randTop = Math.random() * 100;
-    const randLeft = Math.random() * 100;
-
-    setTop(randTop);
-    setLeft(randLeft);
-    setAttempts(attempts + 1);
+  const dodge = () => {
+    if (!isWild) setIsWild(true);
+    setTop(Math.random() * 80);
+    setLeft(Math.random() * 80);
+    setAttempts((a) => a + 1);
   };
 
-  console.log('attempts: ', attempts);
-
   return (
-    <Layout>
-      <StyledContainer>
-        <SignUpContainer>
-          {attempts === 3 && <TeaseText>Almost got it!</TeaseText>}
-          {attempts === 5 && <TeaseText>Keep Trying!</TeaseText>}
-          {attempts === 7 && <TeaseText>Next one you'll get it!</TeaseText>}
-          {attempts === 10 && <TeaseText>Getting embarrassing...</TeaseText>}
-          {attempts >= 15 && <TeaseText>Just give up...</TeaseText>}
-          <h1>Sign Up</h1>
-          <hr />
-          <input placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <WildButton
-            isWild={isWild}
-            top={top}
-            left={left}
-            onMouseEnter={mouseEnter}
-            onClick={mouseEnter}
+    <ProjectPage
+      eyebrow="prototype"
+      title="Impossible Signup"
+      year="2024"
+      lede="A signup form that fights back. Type your credentials and try to hit submit — the form has other plans."
+    >
+      <Stage>
+        {tease && <Tease key={tease}>{TEASES[tease]}</Tease>}
+        <Form>
+          <Title>Sign up</Title>
+          <Divider />
+          <Input placeholder="username" />
+          <Input type="password" placeholder="password" />
+          <DodgeBtn
+            $wild={isWild}
+            style={isWild ? { top: `${top}%`, left: `${left}%` } : undefined}
+            onMouseEnter={dodge}
+            onClick={dodge}
           >
-            Submit
-          </WildButton>
-        </SignUpContainer>
-      </StyledContainer>
-    </Layout>
+            submit
+          </DodgeBtn>
+        </Form>
+        <Counter>attempts · {attempts}</Counter>
+      </Stage>
+    </ProjectPage>
   );
 };
 
 export default ImpossibleSignup;
 
-const TeaseText = styled.p`
-  position: absolute;
-  top: 15px;
-  font-family: Barlow;
-  color: #0e7de9;
-  font-size: 25px;
-  font-weight: bold;
-`;
-
-const StyledContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-`;
-
-const SignUpContainer = styled.div`
+const Stage = styled.div`
   position: relative;
+  width: 100%;
+  min-height: 540px;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  border: 1px solid ${({ theme }) => theme.rule};
+`;
 
-  height: 500px;
-  width: 80%;
-  margin: auto;
+const Tease = styled.p`
+  position: absolute;
+  top: ${space['2']};
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.accent};
+  letter-spacing: 0.04em;
+`;
 
-  background: linear-gradient(0deg, #fff9f9, #68eeef);
-  border-radius: 25px;
-  box-shadow: 3px 9px 17px -4px #22292b;
+const Form = styled.div`
+  position: relative;
+  width: min(480px, 90%);
+  padding: ${space['5']};
+  border: 1px solid ${({ theme }) => theme.ruleStrong};
+  background: ${({ theme }) => theme.bgElevated};
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: ${space['2']};
+  min-height: 400px;
+`;
 
-  h1 {
-    margin: 0;
-    font-size: 50px;
-    font-family: Sansita;
+const Title = styled.h2`
+  margin: 0;
+  font-family: ${fontFamily.display};
+  font-size: ${fontSize['3xl']};
+  font-weight: ${weight.bold};
+  letter-spacing: -0.02em;
+  color: ${({ theme }) => theme.fg};
+`;
+
+const Divider = styled.hr`
+  width: 100%;
+  border: none;
+  border-top: 1px solid ${({ theme }) => theme.rule};
+  margin: 0 0 ${space['2']};
+`;
+
+const Input = styled.input`
+  height: 42px;
+  width: 100%;
+  background: ${({ theme }) => theme.bgInset};
+  border: 1px solid ${({ theme }) => theme.rule};
+  color: ${({ theme }) => theme.fg};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  padding: 0 ${space['2']};
+  transition: border-color ${motion.base} ${motion.ease};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.fgFaint};
   }
-
-  hr {
-    border: 1px solid #9f7fa6;
-    width: 100px;
-    border-radius: 25px;
-  }
-
-  input {
-    border: 2px solid #0e7de9;
-    border-radius: 15px;
-    background: white;
-    height: 25px;
-    width: 200px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    box-shadow: 3px 9px 17px -4px #22292b;
-    cursor: pointer;
-    font-family: Sansita;
-  }
-
-  input::placeholder {
-    color: lightgrey;
-  }
-
-  input:focus {
+  &:focus {
     outline: none;
-    border: 2px solid #0e7de9;
+    border-color: ${({ theme }) => theme.accent};
   }
 `;
 
-const WildButton = styled.button<{
-  isWild: boolean;
-  top: number;
-  left: number;
-}>`
-  background: white;
-  color: #0e7de9;
-  box-shadow: 3px 9px 17px -4px #22292b;
-  border: 1px solid #0e7de9;
-  width: 100px;
-  height: 30px;
-  border-radius: 15px;
-  font-size: 16px;
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const DodgeBtn = styled.button<{ $wild: boolean }>`
+  margin-top: ${space['2']};
+  align-self: flex-start;
+  height: 42px;
+  padding: 0 ${space['3']};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.accentFg};
+  background: ${({ theme }) => theme.accent};
+  border: 1px solid ${({ theme }) => theme.accent};
   cursor: pointer;
-  font-family: Sansita;
+  transition:
+    background ${motion.base} ${motion.ease},
+    color ${motion.base} ${motion.ease};
 
-  :hover {
-    background: #0e7de9;
-    color: white;
+  &:hover {
+    background: transparent;
+    color: ${({ theme }) => theme.accent};
   }
 
-  ${({ isWild, top, left }) =>
-    isWild &&
+  ${({ $wild }) =>
+    $wild &&
     `
     position: absolute;
-    top: ${top}%;
-    left: ${left}%;
   `}
+`;
+
+const Counter = styled.p`
+  position: absolute;
+  bottom: ${space['2']};
+  right: ${space['2']};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.xs};
+  color: ${({ theme }) => theme.fgFaint};
+  margin: 0;
+  letter-spacing: 0.04em;
 `;

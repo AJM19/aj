@@ -1,7 +1,9 @@
+import { palette } from './tokens';
+
 const COLORS = {
-    mainBlue: '#1b7fcc',
-    darkBlue: '#103191',
-    mainGray: '#dddddd',
+  mainBlue: palette.blue400,
+  darkBlue: palette.blue600,
+  mainGray: palette.ink100,
 };
 
 export default COLORS;

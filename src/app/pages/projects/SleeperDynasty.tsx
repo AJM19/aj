@@ -9,18 +9,16 @@ import {
   useGetNFLStateQuery,
 } from '../../../store/sleeperAPI';
 import styled from 'styled-components';
-import Layout from '../../components/Layout';
+import { ProjectPage } from '../../components/ProjectPage';
 import Loader from '../../components/Loader';
 import { TeamColors } from '../../keys/teamColors';
-import { colors } from '../../styles/styledcomps';
 import { SleeperKeys } from '../../keys/sleeper';
 import team_stats from '../../helpers/sleeper-dynasty/espn/nfl_team_stats.json';
 import rushing_stats from '../../helpers/sleeper-dynasty/espn/nfl_rushing_stats.json';
 import receiving_stats from '../../helpers/sleeper-dynasty/espn/nfl_receiving_stats.json';
 import PlayerStats from 'src/app/components/sleeper/PlayerStats';
-import getPlayerStats, {
-  PlayerStatsResponse,
-} from 'src/app/helpers/sleeper-dynasty/getPlayerStats';
+import getPlayerStats from 'src/app/helpers/sleeper-dynasty/getPlayerStats';
+import { fontFamily, fontSize, motion, space, weight } from '../../styles/tokens';
 
 type TeamData = {
   teamName: string;
@@ -45,34 +43,27 @@ const YEARS = [
   { title: '2024', value: SleeperKeys.leagueId_2024 },
 ];
 
-const DASH_ITEMS = ['ROSTERS', 'STATS', 'BREAKDOWN', 'DRAFT'];
+const DASH_ITEMS = ['rosters', 'stats', 'breakdown', 'draft'];
 
 const SleeperDynasty = () => {
-  const [currentLeagueId, setCurrentLeaugeId] = useState<string>(
-    YEARS[1].value
-  );
-
+  const [currentLeagueId, setCurrentLeaugeId] = useState<string>(YEARS[1].value);
   const [currentView, setCurrentView] = useState<number>(0);
-  const [currentFilter, setCurrentFilter] = useState<Filters | string>(
-    'manager_rating'
-  );
-
+  const [currentFilter, setCurrentFilter] = useState<Filters | string>('manager_rating');
   const [allTeamData, setAllTeamData] = useState<TeamData[]>();
-  const { data: leagueInfo, isFetching: isLeagueFetching } =
-    useGetLeagueRostersQuery({
-      leagueId: currentLeagueId,
-    });
-  const { data: allPlayers } = useGetAllNFLPlayersQuery();
 
+  const { data: leagueInfo, isFetching: isLeagueFetching } = useGetLeagueRostersQuery({
+    leagueId: currentLeagueId,
+  });
+  const { data: allPlayers } = useGetAllNFLPlayersQuery();
   const { data: users, isFetching } = useGetLeagueUsersQuery({
     leagueId: currentLeagueId,
   });
-  const { data: NFL, isFetching: isStateFetching } = useGetNFLStateQuery();
+  const { data: NFL } = useGetNFLStateQuery();
 
   useEffect(() => {
     if (allPlayers && leagueInfo && users && NFL) {
       const replicatedData = users
-        .map((user, index) => {
+        .map((user) => {
           const playersData = leagueInfo
             .find((team) => team.owner_id === user.user_id)
             ?.players.map((playerID) => ({
@@ -83,47 +74,33 @@ const SleeperDynasty = () => {
               age: allPlayers[playerID].age,
             }));
 
-          if (!playersData) {
-            return;
-          }
+          if (!playersData) return;
 
           const avgAge =
             playersData.reduce((total, player) => total + player.age, 0) /
             playersData.length;
-
-          const teamInfo = leagueInfo.find(
-            (team) => team.owner_id === user.user_id
-          );
+          const teamInfo = leagueInfo.find((team) => team.owner_id === user.user_id);
           const total_fp = teamInfo?.total_fp;
           const total_pp = teamInfo?.total_pp;
 
           const teamCounts: { [team: string]: number } = {};
-
           playersData.forEach((player) => {
-            if (teamCounts[player.team]) {
-              teamCounts[player.team]++;
-            } else {
-              teamCounts[player.team] = 1;
-            }
+            teamCounts[player.team] = (teamCounts[player.team] ?? 0) + 1;
           });
 
           const pieData: PieDataItem[] = Object.entries(teamCounts)
-            .map(([name, total]) => ({
-              name,
-              total,
-              color: TeamColors[name],
-            }))
+            .map(([name, total]) => ({ name, total, color: TeamColors[name] }))
             .sort((a, b) => b.total - a.total);
 
-          const teamData = {
+          return {
             teamName: user.display_name.toUpperCase(),
             players: playersData.sort((a, b) => {
               const positionOrder = { QB: 0, RB: 1, WR: 2, TE: 3, K: 4 };
               return positionOrder[a.position] - positionOrder[b.position];
             }),
             avgAge: avgAge.toFixed(2),
-            total_fp: total_fp,
-            total_pp: total_pp,
+            total_fp,
+            total_pp,
             manager_rating: getManagerRating({
               waiver_budget_used: teamInfo?.waiver_budget_used ?? 0,
               wins: teamInfo?.wins ?? 0,
@@ -133,7 +110,6 @@ const SleeperDynasty = () => {
             }),
             pieData,
           };
-          return teamData;
         })
         .filter(Boolean);
 
@@ -142,100 +118,96 @@ const SleeperDynasty = () => {
         (a, b) => b[currentFilter] - a[currentFilter]
       );
 
-      if (currentView === 3) {
-        replicatedData.reverse();
-      }
+      if (currentView === 3) replicatedData.reverse();
 
       //@ts-ignore
       setAllTeamData(replicatedData);
     }
-  }, [allPlayers, leagueInfo, users, currentFilter]);
+  }, [allPlayers, leagueInfo, users, currentFilter, NFL, currentView]);
 
   useEffect(() => {
-    if (currentView === 3) {
-      setCurrentFilter('total_pp');
-    } else {
-      setCurrentFilter('manager_rating');
-    }
+    setCurrentFilter(currentView === 3 ? 'total_pp' : 'manager_rating');
   }, [currentView]);
 
-  if (
-    !leagueInfo ||
-    !users ||
-    !allPlayers ||
-    !allTeamData ||
-    isFetching ||
-    isLeagueFetching ||
-    !NFL
-  ) {
+  if (!leagueInfo || !users || !allPlayers || !allTeamData || isFetching || isLeagueFetching || !NFL) {
     return <Loader />;
   }
 
   return (
-    <Layout>
-      <StyledHeader>
-        <StyledTitle>Sleeper Dynasty</StyledTitle>
-        <YearSelector>
-          <p>Year:</p>
-          <select
+    <ProjectPage
+      eyebrow="project"
+      title="Fantasy Football"
+      year="2024"
+      lede="Pulls roster and matchup data from the Sleeper API to surface weekly trends and league-level analytics for my dynasty league."
+    >
+      <Controls>
+        <YearSelect>
+          <Label>year</Label>
+          <Select
             value={currentLeagueId}
             onChange={(y) => setCurrentLeaugeId(y.target.value)}
           >
-            {YEARS.map((year, index) => (
-              <option key={index} value={year.value}>
+            {YEARS.map((year) => (
+              <option key={year.value} value={year.value}>
                 {year.title}
               </option>
             ))}
-          </select>
-        </YearSelector>
-        <DashboardItems>
+          </Select>
+        </YearSelect>
+
+        <Tabs>
           {DASH_ITEMS.map((item, index) => (
-            <DashItem
-              isActive={currentView === index}
+            <Tab
               key={item}
+              $active={currentView === index}
               onClick={() => setCurrentView(index)}
             >
               {item}
-            </DashItem>
+            </Tab>
           ))}
-        </DashboardItems>
+        </Tabs>
+
         {currentView === 1 && (
-          <>
-            <FilterText>Filters: </FilterText>
-            <Dropdown onChange={(x) => setCurrentFilter(x.target.value)}>
-              <option value="manager_rating">Manager Rating</option>
-              <option value="total_fp">Total Points</option>
-              <option value="total_pp">Total Potental Points</option>
-              <option value="avgAge">Avg. Age</option>
-            </Dropdown>
-          </>
+          <YearSelect>
+            <Label>filter</Label>
+            <Select onChange={(x) => setCurrentFilter(x.target.value)}>
+              <option value="manager_rating">manager rating</option>
+              <option value="total_fp">total points</option>
+              <option value="total_pp">total potential points</option>
+              <option value="avgAge">avg age</option>
+            </Select>
+          </YearSelect>
         )}
-      </StyledHeader>
-      <StyledContainer>
+      </Controls>
+
+      <Grid>
         {allTeamData.map((team, index) => (
-          <TeamContainer key={index}>
+          <TeamCard key={index}>
             <TeamName>{team.teamName}</TeamName>
             {currentView === 0 && (
-              <div style={{ padding: '0 10px' }}>
+              <PlayersList>
                 {team.players.map((player) => (
-                  <Container
-                    isPlayerStats={getPlayerStats({
-                      team_stats,
-                      rushing_stats,
-                      receiving_stats,
-                      player_name: player.full_name + player.team,
-                      position: player.position,
-                    })}
+                  <PlayerCard
+                    key={player.id}
+                    $hasStats={
+                      !!getPlayerStats({
+                        team_stats,
+                        rushing_stats,
+                        receiving_stats,
+                        player_name: player.full_name + player.team,
+                        position: player.position,
+                      })
+                    }
                   >
-                    <PlayerContainer key={player.id} id={player.id}>
-                      <PositionText>{player.position}: </PositionText>
+                    <PlayerRow>
+                      <Position>{player.position}</Position>
                       <PlayerName>{player.full_name}</PlayerName>
                       {player.team && (
-                        <NFLText color={TeamColors[player.team]}>
+                        <NFLTag $color={TeamColors[player.team]}>
                           {player.team}
-                        </NFLText>
+                        </NFLTag>
                       )}
-                    </PlayerContainer>{' '}
+                    </PlayerRow>
                     <PlayerStats
                       data={{
                         team_stats,
@@ -245,280 +217,244 @@ const SleeperDynasty = () => {
                         position: player.position,
                       }}
                     />
-                  </Container>
+                  </PlayerCard>
                 ))}
-              </div>
+              </PlayersList>
             )}
             {currentView === 1 && (
-              <StatsContainer>
-                <StatText>
-                  <b>Manager Rating: </b>
-                  {team.manager_rating ?? 'N/A'}
-                </StatText>
-                <StatText>
-                  <b>Avg. Age: </b>
-                  {team.avgAge ?? 'N/A'}
-                </StatText>
-                <StatText>
-                  <b>Total Points: </b>
-                  {team.total_fp ?? 'N/A'}
-                </StatText>
-                <StatText>
-                  <b>Total Potential Points: </b>
-                  {team.total_pp ?? 'N/A'}
-                </StatText>
-              </StatsContainer>
+              <StatsBlock>
+                <Stat>
+                  <StatLabel>manager rating</StatLabel>
+                  <StatValue>{team.manager_rating ?? '—'}</StatValue>
+                </Stat>
+                <Stat>
+                  <StatLabel>avg age</StatLabel>
+                  <StatValue>{team.avgAge ?? '—'}</StatValue>
+                </Stat>
+                <Stat>
+                  <StatLabel>total points</StatLabel>
+                  <StatValue>{team.total_fp ?? '—'}</StatValue>
+                </Stat>
+                <Stat>
+                  <StatLabel>potential points</StatLabel>
+                  <StatValue>{team.total_pp ?? '—'}</StatValue>
+                </Stat>
+              </StatsBlock>
             )}
             {currentView === 2 && (
-              <StatsContainer>
-                <NFLText
-                  style={{ margin: 0 }}
-                  color={TeamColors[team.pieData[0].name]}
-                >
-                  Most Popular: {team.pieData[0].name}
-                </NFLText>
-                <label style={{ fontFamily: 'Barlow', fontSize: '12px' }}>
-                  (hover for more info)
-                </label>
+              <StatsBlock>
+                <NFLTag $color={TeamColors[team.pieData[0].name]}>
+                  most popular · {team.pieData[0].name}
+                </NFLTag>
+                <Hint>hover for breakdown</Hint>
                 <PieChart data={team.pieData} />
-              </StatsContainer>
+              </StatsBlock>
             )}
             {currentView === 3 && (
-              <StatsContainer>
-                <DraftNumber pick={index + 1}>{index + 1}</DraftNumber>
-              </StatsContainer>
+              <DraftPickWrap>
+                <DraftPick $pick={index + 1}>{index + 1}</DraftPick>
+                <Label>pick</Label>
+              </DraftPickWrap>
             )}
-          </TeamContainer>
+          </TeamCard>
         ))}
-      </StyledContainer>
-    </Layout>
+      </Grid>
+    </ProjectPage>
   );
 };
 
 export default SleeperDynasty;
 
-const FilterText = styled.p`
-  margin: 0;
-  font-family: Barlow;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
+const Controls = styled.div`
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: ${space['3']};
+  padding-bottom: ${space['4']};
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  margin-bottom: ${space['4']};
 `;
 
-const StatsContainer = styled.div`
-  width: 100%;
+const YearSelect = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  min-width: 300px;
+  gap: ${space['0_5']};
 `;
 
-const StatText = styled.p`
-  font-family: Barlow;
-  font-size: 24px;
-  color: ${colors.darkBlue};
-  text-align: center;
+const Label = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.fgMuted};
 `;
 
-const StyledTitle = styled.h1`
-  font-family: Barlow;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bold;
+const Select = styled.select`
+  height: 36px;
+  background: transparent;
+  color: ${({ theme }) => theme.fg};
+  border: 1px solid ${({ theme }) => theme.ruleStrong};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  padding: 0 ${space['1_5']};
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.accent};
+  }
 `;
 
-const StyledContainer = styled.div`
+const Tabs = styled.div`
+  display: flex;
+  border: 1px solid ${({ theme }) => theme.ruleStrong};
+`;
+
+const Tab = styled.button<{ $active: boolean }>`
+  height: 36px;
+  padding: 0 ${space['2']};
+  background: ${({ theme, $active }) => ($active ? theme.accent : 'transparent')};
+  color: ${({ theme, $active }) => ($active ? theme.accentFg : theme.fg)};
+  border: none;
+  border-right: 1px solid ${({ theme }) => theme.ruleStrong};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  cursor: pointer;
+  transition: background ${motion.base} ${motion.ease}, color ${motion.base} ${motion.ease};
+
+  &:last-child { border-right: none; }
+  &:hover {
+    color: ${({ theme, $active }) => ($active ? theme.accentFg : theme.accent)};
+  }
+`;
+
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(250px, 1fr));
-  grid-template-rows: repeat(3, 1fr);
-  justify-content: center;
-
-  margin: 20px;
-  gap: 10px;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-  }
-
-  @media (max-width: 700px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: ${space['2']};
 `;
 
-const TeamContainer = styled.div`
-  border: 3px solid ${colors.darkBlue};
+const TeamCard = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: white;
-  border-radius: 25px;
-  box-shadow: 0px 17px 20px 8px #0000006b;
-  width: 100%;
-
-  @media (max-width: 1000px) {
-    align-items: center;
-  }
+  border: 1px solid ${({ theme }) => theme.rule};
+  background: ${({ theme }) => theme.bgElevated};
+  min-height: 200px;
 `;
 
-const TeamName = styled.label`
-  font-family: Barlow;
-  color: black;
-  font-weight: bold;
-  font-size: 22px;
-  width: 100%;
+const TeamName = styled.div`
+  padding: ${space['1_5']} ${space['2']};
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  letter-spacing: 0.06em;
+  color: ${({ theme }) => theme.fg};
+`;
 
-  background: ${colors.mainGray};
-  border-top-right-radius: 22px;
-  border-top-left-radius: 22px;
-  height: 50px;
+const PlayersList = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-bottom: 1px solid ${colors.darkBlue};
+  flex-direction: column;
+  padding: ${space['1']} 0;
 `;
 
-const PlayerName = styled.p`
-  font-family: Barlow;
-  color: black;
-  font-weight: normal;
-  font-size: 18px;
-`;
-
-const PositionText = styled.p`
-  font-family: Barlow;
-  font-size: 18px;
-  font-weight: bold;
-`;
-
-const NFLText = styled.p<{ color: string }>`
-  font-family: Barlow;
-  font-weight: bold;
-  color: ${({ color }) => color} !important;
-`;
-
-const Container = styled.div<{ isPlayerStats: PlayerStatsResponse | null }>`
+const PlayerCard = styled.div<{ $hasStats: boolean }>`
   overflow: hidden;
-  height: 57.5px;
-
-  ${({ isPlayerStats }) =>
-    isPlayerStats &&
+  ${({ $hasStats }) =>
+    $hasStats &&
     `
-    cursor: pointer;
-
-    :hover {
-      height: 200px;
-    }
-
-
-    transition: height .25s ease-in;
+      cursor: pointer;
+      transition: background 200ms ease;
+      :hover {
+        background: rgba(255,255,255,0.03);
+      }
   `}
 `;
 
-const PlayerContainer = styled.div`
+const PlayerRow = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 32px 1fr auto;
   align-items: center;
-
-  width: 100%;
-  gap: 5px;
+  gap: ${space['1']};
+  padding: ${space['1']} ${space['2']};
 `;
 
-const DashboardItems = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  background: white;
-  border: 1px solid ${colors.darkBlue};
-  width: fit-content;
-  border-radius: 10px;
-  gap: 10px;
-  padding: 5px 10px;
-  margin: 0 15px;
-  justify-content: center;
+const Position = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  font-weight: ${weight.bold};
+  color: ${({ theme }) => theme.fgMuted};
 `;
 
-const DashItem = styled.button<{ isActive: boolean }>`
-  font-size: 18px;
-  font-family: Barlow;
-  font-weight: bold;
-  color:${colors.darkBlue};
-  background: white;
-  cursor: pointer;
-  margin: 0;
-  border-radius: 25px;
-  border: 1px solid black;
-
-  ${({ isActive }) =>
-    isActive &&
-    `
-      background: ${colors.darkBlue};
-      color: white;
-  `}}
-  
+const PlayerName = styled.span`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fg};
 `;
 
-const StyledHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: #1b7fcc;
-  padding-bottom: 15px;
-  border-bottom: 2px solid ${colors.darkBlue};
-
-  @media (max-width: 750px) {
-    position: relative;
-  }
+const NFLTag = styled.span<{ $color: string }>`
+  font-family: ${fontFamily.mono};
+  font-size: 10px;
+  font-weight: ${weight.bold};
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: ${({ $color }) => $color || 'inherit'};
 `;
 
-const Dropdown = styled.select`
-  border: 1px solid blue;
-  font-family: Barlow;
-  font-weight: bold;
-  width: 200px;
-  border-radius: 5px;
-`;
-
-const YearSelector = styled.div`
+const StatsBlock = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-
-  select {
-    border: 1px solid ${colors.darkBlue};
-    font-family: Barlow;
-    font-weight: bold;
-    width: 100px;
-    border-radius: 5px;
-  }
-
-  p {
-    margin: 0;
-    font-family: Barlow;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-  }
+  gap: ${space['1']};
+  padding: ${space['2']};
 `;
 
-const DraftNumber = styled.p<{ pick: number }>`
-  color: ${({ pick }) =>
-    pick <= 3
+const Stat = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: ${space['1']} 0;
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  &:last-child { border-bottom: none; }
+`;
+
+const StatLabel = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.fgMuted};
+`;
+
+const StatValue = styled.span`
+  font-family: ${fontFamily.display};
+  font-size: ${fontSize.xl};
+  font-weight: ${weight.semibold};
+  color: ${({ theme }) => theme.fg};
+`;
+
+const Hint = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  color: ${({ theme }) => theme.fgFaint};
+`;
+
+const DraftPickWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: ${space['4']};
+  gap: ${space['1']};
+`;
+
+const DraftPick = styled.span<{ $pick: number }>`
+  font-family: ${fontFamily.display};
+  font-size: 64px;
+  font-weight: ${weight.bold};
+  color: ${({ $pick, theme }) =>
+    $pick <= 3
       ? '#2ab80c'
-      : pick <= 5
+      : $pick <= 5
       ? '#dfdf3e'
-      : pick <= 10
+      : $pick <= 10
       ? '#f0a400'
-      : '#c60505fa'};
-
-  font-size: 25px;
-  font-weight: bold;
-  font-family: Barlow;
+      : theme.accent};
 `;

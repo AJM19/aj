@@ -1,62 +1,197 @@
 import Layout from '../components/Layout';
-import styled from 'styled-components';
-import ProjectCard from '../components/ProjectCard';
-import { BodyText, colors, Header1, SubHeader1 } from '../styles/styledcomps';
+import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Container, Section, Eyebrow, Display } from '../styles/primitives';
+import { fontFamily, fontSize, motion, space, weight } from '../styles/tokens';
+
+const STUDIES = [
+  {
+    slug: 'trade-analyzer',
+    title: 'Trade Breakdown Analyzer',
+    tagline: 'a hypothetical Sleeper fantasy feature',
+    description:
+      'A feature case study exploring user dissatisfaction with trade analysis in the Sleeper fantasy app — and a proposal for an in-depth analyzer that gives users confidence in every trade.',
+    year: '2025',
+    stack: ['Product', 'UX', 'Sleeper API'],
+    path: '/case-study/trade-analyzer',
+  },
+];
 
 const CaseStudy = () => {
   return (
     <Layout>
-      <HeaderContainer>
-        <Header1 style={{ textAlign: 'center' }} color={'white'}>
-          Case Study Binder
-        </Header1>
-        <SubHeader1 color={'white'}>
-          Click a Case Study Card to learn more...{' '}
-        </SubHeader1>
-        <BodyText color="white">
-          {'(Modeled after Topps Baseball cards )'}
-        </BodyText>
-      </HeaderContainer>
-      <StyledContainer>
-        <ProjectCard
-          isCaseStudy={true}
-          titleColor={'#2e355e'}
-          mainColor={'#262c51'}
-          background={'./assets/images/bitmoji-football.png'}
-          name="Trade Breakdown Analyzer"
-          logo={'./assets/images/sleeper.png'}
-          year="2025"
-          logoColor={'white'}
-          link="/case-study/trade-analyzer"
-          description={
-            'Trade Breakdown Analyzer feature case study. This hypothetical case study looks to resolve issues of user dissatisfaction in the Sleeper fantasy app by creating a new feature that will provide in-depth analysis of trades & transactions.'
-          }
-        />
-      </StyledContainer>
+      <HeroSection>
+        <Container>
+          <Eyebrow>case studies</Eyebrow>
+          <Display>Deep dives<Period>.</Period></Display>
+          <Lead>
+            Longer-form looks at product, design, and engineering decisions.
+          </Lead>
+        </Container>
+      </HeroSection>
+
+      <Section>
+        <Container>
+          <List>
+            {STUDIES.map((entry, idx) => (
+              <Row key={entry.slug} to={entry.path}>
+                <Idx>{String(idx + 1).padStart(2, '0')}</Idx>
+                <Body>
+                  <TitleRow>
+                    <Title>{entry.title}</Title>
+                    <Year>{entry.year}</Year>
+                  </TitleRow>
+                  <Tagline>{entry.tagline}</Tagline>
+                  <Description>{entry.description}</Description>
+                </Body>
+                <Side>
+                  <Stack>
+                    {entry.stack.map((s) => (
+                      <Tag key={s}>{s}</Tag>
+                    ))}
+                  </Stack>
+                  <Arrow>→</Arrow>
+                </Side>
+              </Row>
+            ))}
+          </List>
+        </Container>
+      </Section>
     </Layout>
   );
 };
 
 export default CaseStudy;
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 15px;
-  margin: 3%;
-  justify-items: center;
-  row-gap: 30px;
-  background: white;
-  padding: 50px 15px;
-  border-radius: 10px;
-  justify-content: space-around;
-  box-shadow: 5px 4px 9px 1px #73707099;
+const flyUp = keyframes`
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 `;
 
-const HeaderContainer = styled.div`
+const HeroSection = styled.section`
+  padding: clamp(${space['8']}, 12vh, ${space['16']}) 0 ${space['6']};
+
+  > div > * {
+    animation: ${flyUp} 500ms ${motion.easeOut} both;
+  }
+  > div > *:nth-child(2) { animation-delay: 60ms; }
+  > div > *:nth-child(3) { animation-delay: 120ms; }
+`;
+
+const Period = styled.span`
+  color: ${({ theme }) => theme.accent};
+`;
+
+const Lead = styled.p`
+  margin-top: ${space['3']};
+  max-width: 60ch;
+  color: ${({ theme }) => theme.fgMuted};
+  font-size: ${fontSize.lg};
+  line-height: 1.6;
+`;
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid ${({ theme }) => theme.rule};
+`;
+
+const Row = styled(Link)`
+  display: grid;
+  grid-template-columns: 56px 1fr 220px;
+  gap: 24px;
+  padding: 28px 0;
+  align-items: start;
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  color: ${({ theme }) => theme.fg};
+  transition: color ${motion.base} ${motion.ease};
+
+  &:hover { color: ${({ theme }) => theme.accent}; }
+  &:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 40px 1fr;
+  }
+`;
+
+const Idx = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgFaint};
+  padding-top: 4px;
+`;
+
+const Body = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
   flex-direction: column;
+  gap: ${space['1']};
+`;
+
+const TitleRow = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: ${space['2']};
+`;
+
+const Title = styled.span`
+  font-family: ${fontFamily.display};
+  font-size: clamp(${fontSize['2xl']}, 3vw, ${fontSize['3xl']});
+  font-weight: ${weight.semibold};
+  letter-spacing: -0.02em;
+`;
+
+const Year = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgFaint};
+`;
+
+const Tagline = styled.span`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize.base};
+  color: ${({ theme }) => theme.fgMuted};
+`;
+
+const Description = styled.p`
+  margin: ${space['1']} 0 0;
+  max-width: 64ch;
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgMuted};
+  line-height: 1.6;
+`;
+
+const Side = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: ${space['2']};
+  padding-top: 6px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Stack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: ${space['1']};
+`;
+
+const Tag = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.fgMuted};
+  padding: 4px 8px;
+  border: 1px solid ${({ theme }) => theme.rule};
+`;
+
+const Arrow = styled.span.attrs({ className: 'arrow' })`
+  font-family: ${fontFamily.mono};
+  color: ${({ theme }) => theme.fgMuted};
+  transition: transform ${motion.base} ${motion.ease};
 `;

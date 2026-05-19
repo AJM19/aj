@@ -1,214 +1,140 @@
 import styled from 'styled-components';
-import Layout from '../../components/Layout';
-import {
-  Header1,
-  colors,
-  SubHeader1,
-  FlexColumn,
-} from '../../styles/styledcomps';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import { ProjectPage } from '../../components/ProjectPage';
 import Modal from '../../components/Modal';
+import { fontFamily, fontSize, motion, space } from '../../styles/tokens';
+
+const SCREENS = [
+  { src: './assets/univend/SplashScreen.jpg', alt: 'Splash screen' },
+  { src: './assets/univend/ChoosingUniversity.jpg', alt: 'Select campus' },
+  { src: './assets/univend/Map-MainMenu.jpg', alt: 'Map main menu' },
+  { src: './assets/univend/Search.jpg', alt: 'Search' },
+  { src: './assets/univend/List.jpg', alt: 'List view' },
+  { src: './assets/univend/Filter.jpg', alt: 'Filter' },
+  { src: './assets/univend/Key-Info.jpg', alt: 'Info key' },
+  { src: './assets/univend/Settings.jpg', alt: 'Settings' },
+];
 
 const Univend = () => {
-  const container = useRef(null);
-
+  const carousel = useRef(null);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(
-    '../../assets/univend/Key-Info.jpg'
-  );
+  const [currentImage, setCurrentImage] = useState(SCREENS[0].src);
 
-  const scrollLeft = () => {
-    container.current.scrollTo({
-      left: (container.current.scrollLeft -= 100),
+  const scroll = (dir) => {
+    if (!carousel.current) return;
+    carousel.current.scrollBy({
+      left: dir * 280,
       behavior: 'smooth',
     });
   };
 
-  const scrollRight = () => {
-    container.current.scrollTo({
-      left: (container.current.scrollLeft += 100),
-      behavior: 'smooth',
-    });
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const setAndOpenModal = (url) => {
-    setCurrentImage(url);
+  const openImage = (src) => {
+    setCurrentImage(src);
     setModalOpen(true);
   };
 
-  useEffect(() => {
-    //doNothing
-  });
-
   return (
-    <Layout>
-      <StyledContainer width="80%">
-        <Header1 color={colors.mainBlue}>Univend (2020)</Header1>
-        <SubHeader1 color={colors.darkBlue}>
-          Univend is a mobile-application (prototype) intended to be used by
-          college students all over the United States. Univend allows users to
-          access useful information about where snack machines, drink machines,
-          and water fountains are located on your campus! Search for specific
-          foods, drinks or filter your view options. Univend is a user-friendly,
-          easy to understand application that fulfills all your vending machine
-          inquiries. Let's start snacking!
-        </SubHeader1>
-      </StyledContainer>
-      <StyledContainer width="90%">
-        <NavButton onClick={scrollRight} top="50%" right="2%">
-          {'>'}
-        </NavButton>
-        <NavButton onClick={scrollLeft} top="50%" left="2%">
-          {'<'}
-        </NavButton>
-        <FlexColumn alignItems="center">
-          <Header1 color={colors.mainBlue}>Hi-Fidelity Mock ups</Header1>
-          <SubHeader1 color="#949494">Click to zoom in</SubHeader1>
-        </FlexColumn>
+    <ProjectPage
+      eyebrow="prototype"
+      title="Univend"
+      year="2020"
+      lede="A mobile prototype for finding snack, drink, and water-fountain machines across a college campus. Filter by item, location, or type — built originally as a senior design exercise."
+    >
+      <SectionLabel>Hi-fidelity mockups · click to zoom</SectionLabel>
+      <CarouselWrap>
+        <ScrollBtn onClick={() => scroll(-1)} aria-label="Scroll left">
+          ←
+        </ScrollBtn>
+        <Carousel ref={carousel}>
+          {SCREENS.map((s) => (
+            <Screen
+              key={s.src}
+              src={s.src}
+              alt={s.alt}
+              onClick={() => openImage(s.src)}
+            />
+          ))}
+        </Carousel>
+        <ScrollBtn onClick={() => scroll(1)} aria-label="Scroll right">
+          →
+        </ScrollBtn>
+      </CarouselWrap>
 
-        <ImageContainer ref={container}>
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/SplashScreen.jpg'}
-            alt="splashScreen"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/ChoosingUniversity.jpg'}
-            alt="selectCampus"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/Map-MainMenu.jpg'}
-            alt="mainMenu"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/Search.jpg'}
-            alt="search"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/List.jpg'}
-            alt="listView"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/Filter.jpg'}
-            alt="filter"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/Key-Info.jpg'}
-            alt="infoKey"
-          />
-          <StyledImage
-            onClick={(e) => {
-              setAndOpenModal(e.target.src);
-            }}
-            src={'./assets/univend/Settings.jpg'}
-            alt="settings"
-          />
-        </ImageContainer>
-      </StyledContainer>
       <Modal
         isOpen={isModalOpen}
-        closeModal={closeModal}
-        content={<StyledPopupImage src={currentImage} alt="image" />}
+        closeModal={() => setModalOpen(false)}
+        content={<PopupImage src={currentImage} alt="Univend screen" />}
       />
-    </Layout>
+    </ProjectPage>
   );
 };
 
 export default Univend;
 
-const StyledContainer = styled.div`
+const SectionLabel = styled.p`
+  margin: 0 0 ${space['3']};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgMuted};
+`;
+
+const CarouselWrap = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: ${(props) => props.width};
-  background: white;
-  border-radius: 10px;
-  margin: 10px auto;
-  border: 3px solid ${colors.darkBlue};
-  padding-top: 15px;
-  align-items: flex-start;
-  padding: 10px 15px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 15px;
-  text-align: center;
+  gap: ${space['2']};
 `;
 
-const ImageContainer = styled.div`
+const ScrollBtn = styled.button`
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  color: ${({ theme }) => theme.fg};
+  border: 1px solid ${({ theme }) => theme.ruleStrong};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.lg};
+  cursor: pointer;
+  transition: border-color ${motion.base} ${motion.ease}, color ${motion.base} ${motion.ease};
+
+  &:hover {
+    border-color: ${({ theme }) => theme.accent};
+    color: ${({ theme }) => theme.accent};
+  }
+`;
+
+const Carousel = styled.div`
   display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  width: 90%;
-  gap: 25px;
+  gap: ${space['2']};
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
   scroll-behavior: smooth;
+  padding-bottom: ${space['1']};
 `;
 
-const StyledImage = styled.img`
-  height: 400px;
-  width: 250px;
-`;
+const Screen = styled.img`
+  height: 480px;
+  width: auto;
+  flex: 0 0 auto;
+  border: 1px solid ${({ theme }) => theme.rule};
+  scroll-snap-align: start;
+  cursor: zoom-in;
+  transition: border-color ${motion.base} ${motion.ease}, transform ${motion.base} ${motion.ease};
 
-const NavButton = styled.button`
-  display: flex;
-  position: absolute;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
-  right: ${(props) => props.right};
-
-  width: 25px;
-  height: 25px;
-
-  background: ${colors.darkBlue};
-  color: white;
-  border-radius: 100%;
-  border: none;
-  font-size: 22px;
-  font-weight: bold;
-  font-family: Barlow;
-
-  justify-content: center;
-  align-items: center;
-
-  box-shadow: 1px 1px #ccc6c6;
-
-  @media (max-width: 500px) {
-    width: 18px;
-    height: 18px;
-    font-size: 12px;
+  &:hover {
+    border-color: ${({ theme }) => theme.accent};
+    transform: translateY(-2px);
   }
 
-  :hover {
-    color: ${colors.darkBlue};
-    background: white;
-    border: 1px solid ${colors.darkBlue};
+  @media (max-width: 640px) {
+    height: 360px;
   }
 `;
 
-const StyledPopupImage = styled.img`
-  height: 500px;
-  width: 250px;
+const PopupImage = styled.img`
+  max-height: 80vh;
+  max-width: 90vw;
+  height: auto;
+  width: auto;
 `;

@@ -1,56 +1,50 @@
 import styled from 'styled-components';
-import { colors } from '../styles/styledcomps';
+import { fontFamily, fontSize, motion, space } from '../styles/tokens';
 
 const SearchBar = ({ setValue, enterToggle, placeholder }) => {
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      enterToggle();
-    }
+  const handleKey = (event) => {
+    if (event.key === 'Enter') enterToggle();
   };
   return (
-    <StyledContainer>
-      <StyledInputBar
+    <Wrap>
+      <Glyph>/</Glyph>
+      <Input
         placeholder={placeholder}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        onKeyPress={handleKeyPress}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyPress={handleKey}
       />
-      <StyledIcon src={'./assets/icons/search.png'} alt="search" />
-    </StyledContainer>
+    </Wrap>
   );
 };
 
 export default SearchBar;
 
-const StyledInputBar = styled.input`
-  display: flex;
-  width: 200px;
-  height: 25px;
-  color: black;
-  border-radius: 5px;
-  background: #f0f2f5;
-  border: 1px solid transparent;
-  padding-left: 25px;
-
-  font-size: 12px;
-  font-family: Barlow;
-
-  :hover {
-    border: 1px solid ${colors.darkBlue};
-  }
-`;
-
-const StyledIcon = styled.img`
-  position: absolute;
-  height: 15px;
-  width: 15px;
-  top: 25%;
-  left: 5px;
-`;
-
-const StyledContainer = styled.div`
+const Wrap = styled.div`
   position: relative;
-  height: fit-content;
-  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+`;
+
+const Glyph = styled.span`
+  position: absolute;
+  left: ${space['1_5']};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgMuted};
+  pointer-events: none;
+`;
+
+const Input = styled.input`
+  height: 36px;
+  width: 220px;
+  padding: 0 ${space['1_5']} 0 ${space['4']};
+  background: ${({ theme }) => theme.bgInset};
+  border: 1px solid ${({ theme }) => theme.rule};
+  color: ${({ theme }) => theme.fg};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  transition: border-color ${motion.base} ${motion.ease};
+
+  &::placeholder { color: ${({ theme }) => theme.fgFaint}; }
+  &:focus { outline: none; border-color: ${({ theme }) => theme.accent}; }
 `;

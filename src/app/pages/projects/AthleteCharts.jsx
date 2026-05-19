@@ -1,21 +1,16 @@
 import { useState } from 'react';
-import Layout from '../../components/Layout';
 import styled from 'styled-components';
-import {
-  BodyText,
-  colors,
-  FlexColumn,
-  FlexRow,
-} from '../../styles/styledcomps';
+import { ProjectPage } from '../../components/ProjectPage';
 import SearchBar from '../../components/SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchPlayerByName,
   athleteSelectors,
+  athleteActions,
 } from '../../../store/athlete.slice';
-import { athleteActions } from '../../../store/athlete.slice';
 import BarChart from '../../components/d3/barChart';
 import Modal from '../../components/Modal';
+import { palette, fontFamily, fontSize, motion, space, weight } from '../../styles/tokens';
 
 const AthleteCharts = () => {
   const [value, setValue] = useState('');
@@ -24,7 +19,6 @@ const AthleteCharts = () => {
   const [athlete1, setAthlete1] = useState();
   const [athlete2, setAthlete2] = useState();
   const [isModalOpen, setModalOpen] = useState(true);
-
   const [isChartViewShowing, setChartViewShowing] = useState(false);
 
   const players = useSelector(athleteSelectors.getAllPlayers);
@@ -39,8 +33,8 @@ const AthleteCharts = () => {
   };
 
   const calculateAge = (date) => {
-    var ageDifMs = Date.now() - date.getTime();
-    var ageDate = new Date(ageDifMs);
+    const ageDifMs = Date.now() - date.getTime();
+    const ageDate = new Date(ageDifMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
 
@@ -54,414 +48,355 @@ const AthleteCharts = () => {
     dispatch(await athleteActions.clearPlayers());
   };
 
-  const getAthleteById = (id) => {
-    return players.find((player) => player.id === id);
-  };
+  const getAthleteById = (id) => players.find((p) => p.id === id);
 
   const selectAthlete = (id) => {
-    if (!athlete1) {
-      setAthlete1(getAthleteById(id));
-    } else if (!athlete2) {
-      setAthlete2(getAthleteById(id));
-    }
+    if (!athlete1) setAthlete1(getAthleteById(id));
+    else if (!athlete2) setAthlete2(getAthleteById(id));
   };
 
   return (
-    <Layout>
+    <ProjectPage
+      eyebrow="project"
+      title="Athlete Charts"
+      year="2023"
+      lede="Pick two athletes from a public dataset and compare them side-by-side or in chart view. D3 renders the chart side."
+    >
       <Modal
         isOpen={isModalOpen}
-        closeModal={() => {
-          setModalOpen(false);
-        }}
+        closeModal={() => setModalOpen(false)}
         content={
-          <FlexColumn alignItems="center" gap="20px">
-            <BodyText color="red">DISCLAIMER</BodyText>
-            <BodyText color={colors.darkBlue}>
-              All information is being fetched from a Public API, which does not
-              have entirely accurate information for all athletes.
-            </BodyText>
-            <BodyText color={colors.darkBlue}>
-              Most accurate results will be from choosing 2 soccer players.
-              Start searching!
-            </BodyText>
-          </FlexColumn>
+          <DisclaimerWrap>
+            <DisclaimerLabel>heads up</DisclaimerLabel>
+            <DisclaimerTitle>Public-API data caveats.</DisclaimerTitle>
+            <DisclaimerText>
+              Data comes from a public API and isn't reliable for every sport.
+              Best results: pick two soccer players.
+            </DisclaimerText>
+          </DisclaimerWrap>
         }
       />
-      <TopSectionContainer>
-        <FlexColumn gap="5px" width="100%">
-          {error && <StyledError>{error}</StyledError>}
-          <FlexRow gap="5px">
-            <SearchBar
-              placeholder={'Search by Last Name'}
-              enterToggle={searchPlayer}
-              setValue={setValue}
-            />
-            <SearchButton isActive={value !== ''} onClick={searchPlayer}>
-              Search
-            </SearchButton>
-            <ClearButton isActive={players.length > 0} onClick={clearPlayers}>
-              Clear
-            </ClearButton>
-          </FlexRow>
-          <AthleteList>
-            {loadingStatus !== 'loading' ? (
-              players.length > 0 ? (
-                players.map((player) => (
-                  <AthleteTile key={player.id}>
-                    <BodyText weight="bold" color={colors.mainBlue}>
-                      {player.name}
-                    </BodyText>
-                    <SelectButton
-                      isActive={!athlete1 || !athlete2}
-                      onClick={() => {
-                        selectAthlete(player.id);
-                      }}
-                    >
-                      Select
-                    </SelectButton>
-                  </AthleteTile>
-                ))
-              ) : (
-                <BodyText>No Players</BodyText>
-              )
+
+      <SearchPanel>
+        {error && <StyledError>{error}</StyledError>}
+        <SearchRow>
+          <SearchBar
+            placeholder={'search by last name'}
+            enterToggle={searchPlayer}
+            setValue={setValue}
+          />
+          <PillBtn $disabled={value === ''} onClick={searchPlayer}>
+            search
+          </PillBtn>
+          <PillBtn
+            $variant="ghost"
+            $disabled={players.length === 0}
+            onClick={clearPlayers}
+          >
+            clear
+          </PillBtn>
+        </SearchRow>
+        <AthleteList>
+          {loadingStatus !== 'loading' ? (
+            players.length > 0 ? (
+              players.map((player) => (
+                <AthleteRow key={player.id}>
+                  <AthleteName>{player.name}</AthleteName>
+                  <PillBtn
+                    $disabled={Boolean(athlete1 && athlete2)}
+                    onClick={() => selectAthlete(player.id)}
+                  >
+                    select
+                  </PillBtn>
+                </AthleteRow>
+              ))
             ) : (
-              <BodyText>Loading...</BodyText>
-            )}
-          </AthleteList>
-        </FlexColumn>
-      </TopSectionContainer>
-      <PlayerContainer isChartViewShowing={isChartViewShowing}>
+              <Empty>no players</Empty>
+            )
+          ) : (
+            <Empty>loading…</Empty>
+          )}
+        </AthleteList>
+      </SearchPanel>
+
+      <ComparePanel $isChart={isChartViewShowing}>
         {!isChartViewShowing ? (
           <>
             {athlete1 && (
-              <PlayerProfileTile id="athlete1">
-                <PlayerTitle> {athlete1.name}</PlayerTitle>
-                <StyledImage
-                  src={athlete1.imageLink}
-                  alt={`${athlete1.name}_image`}
-                />
-                <FlexRow>
-                  <BodyText>Age:&nbsp;</BodyText>
-                  <PlayerDetails>
-                    {calculateAge(new Date(athlete1.DOB))}
-                  </PlayerDetails>
-                </FlexRow>
-                <FlexRow>
-                  <BodyText>Team: &nbsp;</BodyText>
-                  <PlayerDetails>{athlete1.teamName}</PlayerDetails>
-                </FlexRow>
-                <FlexRow>
-                  <BodyText>Position:&nbsp;</BodyText>
-                  <PlayerDetails>{athlete1.position}</PlayerDetails>
-                </FlexRow>
-                <FlexRow>
-                  <BodyText>Height:&nbsp;</BodyText>
-                  <PlayerDetails>{athlete1.height}</PlayerDetails>
-                </FlexRow>
-              </PlayerProfileTile>
+              <ProfileCard>
+                <ProfileTitle>{athlete1.name}</ProfileTitle>
+                <ProfileImg src={athlete1.imageLink} alt={`${athlete1.name}`} />
+                <Detail label="age" value={calculateAge(new Date(athlete1.DOB))} />
+                <Detail label="team" value={athlete1.teamName} />
+                <Detail label="position" value={athlete1.position} />
+                <Detail label="height" value={athlete1.height} />
+              </ProfileCard>
             )}
             {athlete1 && athlete2 && (
-              <FlexColumn gap="5px">
-                <SelectButton onClick={resetSelections} isActive={true}>
-                  Reset
-                </SelectButton>
-                <SelectButton
-                  onClick={() => {
-                    setChartViewShowing(true);
-                  }}
-                  isActive={true}
-                >
-                  Compare
-                </SelectButton>
-              </FlexColumn>
+              <CompareActions>
+                <PillBtn onClick={resetSelections}>reset</PillBtn>
+                <PillBtn onClick={() => setChartViewShowing(true)}>compare</PillBtn>
+              </CompareActions>
             )}
             {athlete2 && (
-              <PlayerProfileTile id="athlete2">
-                <PlayerTitle> {athlete2.name}</PlayerTitle>
-                <StyledImage
-                  src={athlete2.imageLink}
-                  alt={`${athlete2.name}_image`}
-                />
-                <FlexRow>
-                  <BodyText>Age:&nbsp;</BodyText>
-                  <PlayerDetails>
-                    {calculateAge(new Date(athlete2.DOB))}
-                  </PlayerDetails>
-                </FlexRow>
-                <FlexRow>
-                  <BodyText>Team:&nbsp;</BodyText>
-                  <PlayerDetails>{athlete2.teamName}</PlayerDetails>
-                </FlexRow>
-                <FlexRow>
-                  <BodyText>Position:&nbsp;</BodyText>
-                  <PlayerDetails>{athlete2.position}</PlayerDetails>
-                </FlexRow>
-                <FlexRow>
-                  <BodyText>Height:&nbsp;</BodyText>
-                  <PlayerDetails>{athlete2.height}</PlayerDetails>
-                </FlexRow>
-              </PlayerProfileTile>
+              <ProfileCard>
+                <ProfileTitle>{athlete2.name}</ProfileTitle>
+                <ProfileImg src={athlete2.imageLink} alt={`${athlete2.name}`} />
+                <Detail label="age" value={calculateAge(new Date(athlete2.DOB))} />
+                <Detail label="team" value={athlete2.teamName} />
+                <Detail label="position" value={athlete2.position} />
+                <Detail label="height" value={athlete2.height} />
+              </ProfileCard>
             )}
           </>
         ) : (
-          <>
-            <ChartContainer>
-              <ViewButton
-                onClick={() => {
-                  setChartViewShowing(false);
-                }}
-              >
-                Regular View
-              </ViewButton>
-              <BarChart
-                data={[
-                  { x: athlete1.name, y: calculateAge(new Date(athlete1.DOB)) },
-                  { x: athlete2.name, y: calculateAge(new Date(athlete2.DOB)) },
-                ]}
-                barColor={colors.darkBlue}
-                minValue={0}
-                maxValue={90}
-                tick={10}
-                title={'Age'}
-                caption={' yrs'}
-              />
-            </ChartContainer>
-            <ChartContainer>
-              <BarChart
-                data={[
-                  { x: athlete1.name, y: athlete1.weight },
-                  { x: athlete2.name, y: athlete2.weight },
-                ]}
-                barColor={colors.darkBlue}
-                minValue={0}
-                maxValue={300}
-                tick={10}
-                title={'Weight'}
-                caption={' lbs'}
-              />
-            </ChartContainer>
-          </>
+          <ChartView>
+            <PillBtn
+              $variant="ghost"
+              style={{ alignSelf: 'flex-end' }}
+              onClick={() => setChartViewShowing(false)}
+            >
+              regular view
+            </PillBtn>
+            <ChartGrid>
+              <ChartCard>
+                <BarChart
+                  data={[
+                    { x: athlete1.name, y: calculateAge(new Date(athlete1.DOB)) },
+                    { x: athlete2.name, y: calculateAge(new Date(athlete2.DOB)) },
+                  ]}
+                  barColor={palette.blue400}
+                  minValue={0}
+                  maxValue={90}
+                  tick={10}
+                  title={'Age'}
+                  caption={' yrs'}
+                />
+              </ChartCard>
+              <ChartCard>
+                <BarChart
+                  data={[
+                    { x: athlete1.name, y: athlete1.weight },
+                    { x: athlete2.name, y: athlete2.weight },
+                  ]}
+                  barColor={palette.blue400}
+                  minValue={0}
+                  maxValue={300}
+                  tick={10}
+                  title={'Weight'}
+                  caption={' lbs'}
+                />
+              </ChartCard>
+            </ChartGrid>
+          </ChartView>
         )}
-      </PlayerContainer>
-    </Layout>
+      </ComparePanel>
+    </ProjectPage>
   );
 };
 
+const Detail = ({ label, value }) => (
+  <DetailRow>
+    <DetailLabel>{label}</DetailLabel>
+    <DetailValue>{value}</DetailValue>
+  </DetailRow>
+);
+
 export default AthleteCharts;
 
-const PlayerContainer = styled.div`
-  position: relative;
-  height: 70%;
-  width: 90%;
-  background: white;
-  display: grid;
-  grid-template-columns: 40% 10% 40%;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  gap: 25px;
-  padding: 0 15px;
-  justify-items: center;
+const SearchPanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${space['2']};
+  padding-bottom: ${space['4']};
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+`;
 
-  ${({ isChartViewShowing }) =>
-    isChartViewShowing &&
-    `  
-       grid-template-columns: repeat(2,1fr);
+const SearchRow = styled.div`
+  display: flex;
+  gap: ${space['1']};
+  flex-wrap: wrap;
+`;
+
+const PillBtn = styled.button`
+  height: 36px;
+  padding: 0 ${space['2']};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  background: ${({ theme, $variant }) => ($variant === 'ghost' ? 'transparent' : theme.accent)};
+  color: ${({ theme, $variant }) => ($variant === 'ghost' ? theme.fg : theme.accentFg)};
+  border: 1px solid ${({ theme, $variant }) => ($variant === 'ghost' ? theme.ruleStrong : theme.accent)};
+  cursor: pointer;
+  transition: background ${motion.base} ${motion.ease}, color ${motion.base} ${motion.ease}, border-color ${motion.base} ${motion.ease};
+
+  &:hover {
+    background: transparent;
+    color: ${({ theme }) => theme.accent};
+    border-color: ${({ theme }) => theme.accent};
+  }
+
+  ${({ $disabled }) =>
+    $disabled &&
+    `
+      opacity: 0.4;
+      pointer-events: none;
   `}
-`;
-
-const TopSectionContainer = styled.div`
-  position: relative;
-  display: flex;
-  width: 80%;
-  background: white;
-  border-radius: 10px;
-  margin: 10px auto;
-  border: 3px solid ${colors.darkBlue};
-  padding-top: 15px;
-  align-items: flex-start;
-  padding: 10px 15px;
-`;
-
-const SearchButton = styled.button`
-  display: flex;
-  width: 100px;
-  height: 25px;
-  border-radius: 25px;
-  color: white;
-  background: ${colors.darkBlue};
-
-  justify-content: center;
-  align-items: center;
-  font-family: Barlow;
-
-  font-weight: bold;
-  border: 1px solid white;
-  border: 1px solid transparent;
-
-  :hover {
-    color: ${colors.darkBlue};
-    background: ${colors.mainBlue};
-    border: 1px solid ${colors.darkBlue};
-  }
-
-  ${({ isActive }) =>
-    !isActive &&
-    `  
-      opacity: 0.5;
-      pointer-events: none;
-  `};
-`;
-
-const ClearButton = styled.button`
-  display: flex;
-  width: 100px;
-  height: 25px;
-  border-radius: 25px;
-  color: white;
-  background: #bf5353;
-
-  justify-content: center;
-  align-items: center;
-  font-family: Barlow;
-
-  font-weight: bold;
-  border: 1px solid white;
-  border: 1px solid transparent;
-
-  :hover {
-    color: #bf5353;
-    background: white;
-    border: 1px solid #bf5353;
-  }
-
-  ${({ isActive }) =>
-    !isActive &&
-    `  
-      opacity: 0.5;
-      pointer-events: none;
-  `};
-`;
-
-const ViewButton = styled.button`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-
-  display: flex;
-  width: fit-content;
-  height: 25px;
-  border-radius: 25px;
-  color: white;
-  background: ${colors.darkBlue};
-
-  justify-content: center;
-  align-items: center;
-  font-family: Barlow;
-
-  font-weight: bold;
-  border: 1px solid white;
-  border: 1px solid transparent;
-
-  :hover {
-    color: ${colors.darkBlue};
-    background: white;
-    border: 1px solid ${colors.darkBlue};
-  }
-`;
-
-const StyledError = styled.p`
-  font-size: 8px;
-  color: red;
-  font-family: Barlow;
-  font-weight: bold;
-  margin: 0;
-`;
-
-const AthleteTile = styled.div`
-  display: flex;
-  border-top: 1px dashed ${colors.darkBlue};
-  border-bottom: 1px dashed ${colors.darkBlue};
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 6px 5px 0;
 `;
 
 const AthleteList = styled.div`
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  border: 1px solid ${colors.darkBlue};
-  height: 90px;
-  border-radius: 10px;
-  padding-left: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid ${({ theme }) => theme.rule};
 `;
 
-const SelectButton = styled.button`
+const AthleteRow = styled.div`
   display: flex;
-  width: 75px;
-  height: 30px;
-  border-radius: 25px;
-  color: white;
-  background: ${colors.darkBlue};
-
-  justify-content: center;
   align-items: center;
-  font-family: Barlow;
-
-  font-weight: bold;
-  border: 1px solid white;
-  border: 1px solid transparent;
-
-  :hover {
-    color: ${colors.darkBlue};
-    background: white;
-    border: 1px solid ${colors.darkBlue};
-  }
-
-  ${({ isActive }) =>
-    !isActive &&
-    `  
-      opacity: 0.5;
-      pointer-events: none;
-  `};
+  justify-content: space-between;
+  padding: ${space['1']} ${space['2']};
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  &:last-child { border-bottom: none; }
 `;
 
-const PlayerProfileTile = styled.div`
+const AthleteName = styled.span`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fg};
+`;
+
+const Empty = styled.span`
+  padding: ${space['2']};
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fgFaint};
+`;
+
+const StyledError = styled.p`
+  margin: 0;
+  font-family: ${fontFamily.mono};
+  font-size: ${fontSize.xs};
+  color: ${({ theme }) => theme.accent};
+`;
+
+const ComparePanel = styled.div`
+  margin-top: ${space['4']};
+  display: grid;
+  grid-template-columns: ${({ $isChart }) => ($isChart ? '1fr' : '1fr auto 1fr')};
+  align-items: start;
+  gap: ${space['3']};
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ProfileCard = styled.div`
   display: flex;
   flex-direction: column;
-  border: 5px solid ${colors.darkBlue};
-  height: 90%;
-  border-radius: 10px;
-  justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  border: 1px solid ${({ theme }) => theme.rule};
+  background: ${({ theme }) => theme.bgElevated};
+  padding: ${space['3']};
+  gap: ${space['1_5']};
 `;
 
-const PlayerTitle = styled.p`
-  font-family: Barlow;
-  color: ${colors.mainBlue};
-  font-size: 28px;
-  font-weight: 800;
-  margin 0;
+const ProfileTitle = styled.h3`
+  margin: 0;
+  font-family: ${fontFamily.display};
+  font-size: ${fontSize.xl};
+  font-weight: ${weight.semibold};
+  color: ${({ theme }) => theme.fg};
+  text-align: center;
 `;
 
-const PlayerDetails = styled.p`
-  font-family: Barlow;
-  color: ${colors.mainBlue};
-  font-size: 16px;
-  margin 0; 
+const ProfileImg = styled.img`
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 1px solid ${({ theme }) => theme.rule};
 `;
 
-const StyledImage = styled.img`
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-`;
-
-const ChartContainer = styled.div`
+const DetailRow = styled.div`
   display: flex;
-  height: 80%;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: ${space['1']} 0;
+  border-bottom: 1px solid ${({ theme }) => theme.rule};
+  &:last-child { border-bottom: none; }
+`;
+
+const DetailLabel = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.fgMuted};
+`;
+
+const DetailValue = styled.span`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize.sm};
+  color: ${({ theme }) => theme.fg};
+`;
+
+const CompareActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${space['1']};
+`;
+
+const ChartView = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${space['2']};
+`;
+
+const ChartGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: ${space['2']};
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ChartCard = styled.div`
+  border: 1px solid ${({ theme }) => theme.rule};
+  background: ${({ theme }) => theme.bgElevated};
+  padding: ${space['2']};
+`;
+
+const DisclaimerWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${space['1_5']};
+  max-width: 480px;
+`;
+
+const DisclaimerLabel = styled.span`
+  font-family: ${fontFamily.mono};
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.accent};
+`;
+
+const DisclaimerTitle = styled.h2`
+  margin: 0;
+  font-family: ${fontFamily.display};
+  font-size: ${fontSize['2xl']};
+  font-weight: ${weight.bold};
+  letter-spacing: -0.02em;
+  color: ${({ theme }) => theme.fg};
+`;
+
+const DisclaimerText = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.fgMuted};
+  font-size: ${fontSize.sm};
+  line-height: 1.5;
 `;
