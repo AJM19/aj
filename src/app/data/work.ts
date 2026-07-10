@@ -22,8 +22,8 @@ export const work: WorkEntry[] = [
     external: true,
   },
   {
-    slug: 'dynasty-sidekicks',
-    title: 'Dynasty Sidekicks',
+    slug: 'dynasty-sidekick',
+    title: 'Dynasty Sidekick',
     tagline: 'fantasy football dynasty companion',
     description:
       'A companion app for dynasty fantasy football leagues — surfacing rosters, player values, and league insights to help you manage your team.',
