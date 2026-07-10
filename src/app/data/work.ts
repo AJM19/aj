@@ -11,6 +11,28 @@ export interface WorkEntry {
 
 export const work: WorkEntry[] = [
   {
+    slug: 'flag-trivia',
+    title: 'Flag Trivia',
+    tagline: 'guess the country from its flag',
+    description:
+      'A fast-paced trivia game that shows you a flag and challenges you to name the country. Race the clock and rack up a streak.',
+    year: '2026',
+    stack: ['React', 'TypeScript', 'Node'],
+    path: 'https://flag-game-production.up.railway.app/',
+    external: true,
+  },
+  {
+    slug: 'dynasty-sidekicks',
+    title: 'Dynasty Sidekicks',
+    tagline: 'fantasy football dynasty companion',
+    description:
+      'A companion app for dynasty fantasy football leagues — surfacing rosters, player values, and league insights to help you manage your team.',
+    year: '2026',
+    stack: ['React', 'Node', 'REST'],
+    path: 'https://dynasty-sidekick-production.up.railway.app/',
+    external: true,
+  },
+  {
     slug: 'cozy-threads',
     title: 'Cozy Threads',
     tagline: 'demo e-commerce w/ Stripe checkout',
